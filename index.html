@@ -55,7 +55,7 @@
       <li><a href="committee.html">Committee</a></li>
 
       <li class="has-dropdown">
-        <a href="#" onclick="return toggleDropdown(this)">About <i class="fa-solid fa-chevron-down caret"></i></a>
+        <a href="#" class="dropdown-toggle">About <i class="fa-solid fa-chevron-down caret"></i></a>
         <ul class="dropdown">
           <li><a href="about-college.html">About the College</a></li>
           <li><a href="about-department.html">About the Department</a></li>
@@ -66,7 +66,7 @@
       </li>
       <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
       <li class="has-dropdown">
-        <a href="#" onclick="return toggleDropdown(this)">Register / Login <i class="fa-solid fa-chevron-down caret"></i></a>
+        <a href="#" class="dropdown-toggle">Register / Login <i class="fa-solid fa-chevron-down caret"></i></a>
         <ul class="dropdown">
           <li><a href="registration.html"><i class="fa-solid fa-user-plus"></i>&nbsp; Participant Registration</a></li>
           <li><a href="submission.html"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Paper &amp; Poster Submission Login</a></li>
@@ -85,7 +85,7 @@
       <span class="eyebrow">4TH INTERNATIONAL CONFERENCE</span>
       <h1>Life Sciences &amp; Vector Risk<br>Management for a Sustainable<br>Healthy Environment</h1>
       <div class="helix-rule"></div>
-      <p style="max-width:560px;font-size:16.5px;">Organised by the Centre for Insect Molecular Studies and Environmental Research (CIMSER), <br>PG &amp; Research Department of Advanced Zoology and Biotechnology, <br>Loyola College (Autonomous), Chennai.</p>
+      <p style="max-width:560px;font-size:16.5px;">Organised by the Centre for Insect Molecular Studies and Environmental Research (CIMSER), PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai.</p>
 
       <div class="pill-row">
         <div class="pill"><i class="fa-solid fa-calendar-days"></i> <b>26–28 Nov 2026</b></div>
@@ -132,9 +132,9 @@
     <h2>Key deadlines</h2>
     <div class="helix-rule"></div>
     <div class="grid grid-3">
-      <div class="card reveal"><i class="fa-regular fa-file-lines" style="color:var(--ink-3);"></i><div class="badge badge-pending" style="margin-top:14px;">Abstract submission</div><h3 style="margin-top:12px;">To be announced</h3></div>
-      <div class="card reveal reveal-delay-1"><i class="fa-regular fa-clock" style="color:var(--ink-3);"></i><div class="badge badge-pending" style="margin-top:14px;">Registration closes</div><h3 style="margin-top:12px;">To be announced</h3></div>
-      <div class="card reveal reveal-delay-2"><i class="fa-solid fa-champagne-glasses" style="color:var(--teal);"></i><div class="badge badge-success" style="margin-top:14px;">Conference dates</div><h3 style="margin-top:12px;">26–28 Nov 2026</h3></div>
+      <div class="card date-card reveal"><i class="fa-regular fa-file-lines" style="color:var(--ink-3);"></i><div class="badge badge-pending">Abstract submission</div><h3>To be announced</h3></div>
+      <div class="card date-card reveal reveal-delay-1"><i class="fa-regular fa-clock" style="color:var(--ink-3);"></i><div class="badge badge-pending">Registration closes</div><h3>To be announced</h3></div>
+      <div class="card date-card reveal reveal-delay-2"><i class="fa-solid fa-champagne-glasses" style="color:var(--teal);"></i><div class="badge badge-success">Conference dates</div><h3>26–28 Nov 2026</h3></div>
     </div>
     <p class="hint" style="margin-top:14px;">Dates will be updated here as soon as they're finalised — check back or contact the organising secretariat.</p>
   </div>
@@ -146,7 +146,7 @@
     <span class="eyebrow"><i class="fa-solid fa-star"></i>&nbsp; Distinguished guests</span>
     <h2>Keynote Speakers &amp; Chief Guests</h2>
     <div class="helix-rule"></div>
-    <div class="grid grid-3" style="grid-template-columns:repeat(4,1fr);">
+    <div class="grid grid-4">
       <div class="card speaker-card reveal">
         <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
         <h4>To be announced</h4>
@@ -174,7 +174,7 @@
 
 <!-- Committee CTA strip -->
 <section class="section-tight" style="background:linear-gradient(90deg,var(--navy-900),var(--navy-850));border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);">
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+  <div class="wrap committee-cta">
     <div>
       <h3 style="margin-bottom:4px;"><i class="fa-solid fa-people-group" style="color:var(--gold-light);"></i>&nbsp; Meet the organizing committee</h3>
       <p style="margin:0;font-size:14px;">Patrons, conveners, and national &amp; international advisory board members.</p>
@@ -185,7 +185,7 @@
 
 <!-- Venue & location -->
 <section class="section-light section">
-  <div class="wrap grid" style="grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+  <div class="wrap grid grid-2" style="align-items:start;">
     <div class="reveal">
       <span class="eyebrow"><i class="fa-solid fa-location-dot"></i>&nbsp; Venue</span>
       <h2>Loyola College (Autonomous), Chennai</h2>
@@ -235,11 +235,11 @@
     <span class="eyebrow">Organised with</span>
     <h2 style="font-size:1.4rem;">Our Associates &amp; Affiliations</h2>
     <div class="helix-rule" style="margin-left:auto;margin-right:auto;"></div>
-    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:22px;margin-top:20px;">
-      <div class="logo-slot" style="height:64px;"><img src="assets/loyola-crest.png" alt="Loyola College" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
-      <div class="logo-slot" style="height:64px;"><img src="assets/cimser-logo.png" alt="CIMSER" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
-      <div class="logo-slot" style="height:64px;"><img src="assets/iaes-logo.png" alt="IAES" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
-      <div class="logo-slot" style="height:64px;"><img src="assets/ahcf-logo.png" alt="AHCF" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+    <div class="assoc-row">
+      <div class="logo-slot assoc-logo"><img src="assets/loyola-crest.png" alt="Loyola College" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot assoc-logo"><img src="assets/cimser-logo.png" alt="CIMSER" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot assoc-logo"><img src="assets/iaes-logo.png" alt="IAES" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot assoc-logo"><img src="assets/ahcf-logo.png" alt="AHCF" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
     </div>
   </div>
 </section>
@@ -249,8 +249,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h4>CIMSER
-        </h4>
+        <h4>CIMSER</h4>
         <p style="font-size:13px;">4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment. 26–28 November 2026, Loyola College (Autonomous), Chennai.</p>
         <div class="social-row">
           <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -307,42 +306,71 @@
 </div>
 
 <script>
-// ---- Live UTC clock with date ----
 // ---- Live IST clock with date ----
 function updateClock(){
   const now = new Date();
-  const opts = { 
-    weekday: 'short', 
-    year: 'numeric', 
-    month: 'short', 
-    day: '2-digit', 
-    timeZone: 'Asia/Kolkata', 
-    timeZoneName: 'short' 
+  const opts = {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    timeZone: 'Asia/Kolkata',
+    timeZoneName: 'short'
   };
   const dateTimeStr = now.toLocaleDateString('en-GB', opts);
-  const timeStr = now.toLocaleTimeString('en-GB', { 
-    timeZone: 'Asia/Kolkata', 
-    hour: '2-digit', 
-    minute: '2-digit', 
+  const timeStr = now.toLocaleTimeString('en-GB', {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    minute: '2-digit',
     second: '2-digit',
-    hour12: false 
+    hour12: false
   });
-  
   document.getElementById('utc-clock').innerHTML = `<b>${dateTimeStr} &nbsp;·&nbsp; ${timeStr}</b>`;
 }
 updateClock();
 setInterval(updateClock, 1000);
 
-// ---- Nav: mobile toggle + dropdown ----
+// ---- Nav: mobile toggle (slide-in) + icon swap + body scroll lock ----
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('nav-links');
-navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+const navToggleIcon = navToggle.querySelector('i');
 
-function toggleDropdown(el){
-  if (window.innerWidth > 800) return true; // desktop uses hover via CSS
-  el.parentElement.classList.toggle('open');
-  return false;
+function closeAllDropdowns(){
+  document.querySelectorAll('.has-dropdown.open').forEach(li => li.classList.remove('open'));
 }
+function closeMobileMenu(){
+  navLinks.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  navToggleIcon.className = 'fa-solid fa-bars';
+  closeAllDropdowns();
+}
+function openMobileMenu(){
+  navLinks.classList.add('open');
+  document.body.classList.add('no-scroll');
+  navToggleIcon.className = 'fa-solid fa-xmark';
+}
+navToggle.addEventListener('click', () => {
+  navLinks.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+
+// ---- Dropdown toggles: work by click (mobile) and hover (desktop, via CSS) ----
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault(); // never jump to top — this link has no real destination
+    const parentLi = toggle.closest('.has-dropdown');
+    const alreadyOpen = parentLi.classList.contains('open');
+    closeAllDropdowns();
+    if (!alreadyOpen) parentLi.classList.add('open');
+  });
+});
+
+// Close mobile menu when a real page link inside it is clicked
+navLinks.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
+  link.addEventListener('click', () => { if (window.innerWidth <= 800) closeMobileMenu(); });
+});
+
+// Reset menu state on resize back to desktop
+window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMobileMenu(); });
 
 // ---- Scroll reveal animations ----
 const revealEls = document.querySelectorAll('.reveal');
