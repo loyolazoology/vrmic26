@@ -4,136 +4,372 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>4th International Conference on Life Sciences &amp; Vector Risk Management | CIMSER, Loyola College</title>
+<meta name="description" content="4th International Conference on Life Sciences and Vector Risk Management for a Sustainable Healthy Environment — 26–28 November 2026, Loyola College (Autonomous), Chennai.">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="logo-slots">
-  <!-- 1. Loyola College crest -->
-  <div class="logo-slot" title="Loyola College crest">
-    <img src="assets/loyola-crest.png" alt="Loyola College crest">
-  </div>
-  <!-- 2. CIMSER logo -->
-  <div class="logo-slot" title="CIMSER logo">
-    <img src="assets/cimser-logo.png" alt="CIMSER logo">
-  </div>
-  <!-- 3. Indian Academy of Environmental Science logo -->
-  <div class="logo-slot" title="Indian Academy of Environmental Science logo">
-    <img src="assets/iaes-logo.png" alt="IAES logo">
-  </div>
-  <!-- 4. Absolute Human Care Foundation logo -->
-  <div class="logo-slot" title="Absolute Human Care Foundation logo">
-    <img src="assets/ahcf-logo.png" alt="AHCF logo">
-  </div>
-  <!-- 5. College centenary logo -->
-  <div class="logo-slot" title="College centenary logo">
-    <img src="assets/centenary-logo.png" alt="centenary logo">
+<!-- Live universal time bar -->
+<div class="utcbar">
+  <div class="utcbar-inner">
+    <i class="fa-regular fa-clock"></i>
+    <span id="utc-clock"><b>Loading time…</b></span>
   </div>
 </div>
+
+<!-- Logo strip -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo-slots" id="logo-slots">
+      <div class="logo-slot" title="Loyola College crest">
+        <img src="assets/loyola-crest.png" alt="Loyola College crest" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="CIMSER logo">
+        <img src="assets/cimser-logo.png" alt="CIMSER logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Indian Academy of Environmental Science logo">
+        <img src="assets/iaes-logo.png" alt="IAES logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Absolute Human Care Foundation logo">
+        <img src="assets/ahcf-logo.png" alt="AHCF logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="College centenary emblem">
+        <img src="assets/centenary-logo.png" alt="Centenary emblem" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+    </div>
     <span class="topbar-text">Loyola College (Autonomous), Chennai · Est. 1925</span>
   </div>
 </div>
 
+<!-- Nav -->
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-brand">
-      <strong>CIMSER</strong>
+      <strong>CIMSER, Dept. of AZ-BT</strong>
       <span>LOYOLA COLLEGE, CHENNAI</span>
     </div>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="committee.html">Committee</a></li>
-      <li><a href="about-college.html">About College</a></li>
-      <li><a href="about-department.html" >About Department</a></li>
-      <li><a href="about-cimser.html" >About CIMSER</a></li>
-      <li><a href="about-iaes.html" >About IAES</a></li>
-      <li><a href="about-conference.html" >About Conference</a></li>
-      <li><a href="registration.html">Registration</a></li>
-      <li><a href="about-paper-poster.html" >About Paper &amp; Poster Presentation</a></li>
-      <li><a href="submission.html">Paper &amp; Poster Submission</a></li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="return toggleDropdown(this)">About <i class="fa-solid fa-chevron-down caret"></i></a>
+        <ul class="dropdown">
+          <li><a href="about-college.html">About the College</a></li>
+          <li><a href="about-department.html">About the Department</a></li>
+          <li><a href="about-cimser.html">About CIMSER</a></li>
+          <li><a href="about-iaes.html">About IAES</a></li>
+          <li><a href="about-conference.html">About the Conference</a></li>
+        </ul>
+      </li>
+      <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
+      <li class="has-dropdown">
+        <a href="#" onclick="return toggleDropdown(this)">Register / Login <i class="fa-solid fa-chevron-down caret"></i></a>
+        <ul class="dropdown">
+          <li><a href="registration.html"><i class="fa-solid fa-user-plus"></i>&nbsp; Participant Registration</a></li>
+          <li><a href="submission.html"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Paper &amp; Poster Submission Login</a></li>
+        </ul>
+      </li>
+
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="section" style="padding-top:64px;padding-bottom:56px;">
+<!-- Hero -->
+<header class="section" style="padding-top:56px;padding-bottom:60px;overflow:hidden;">
   <div class="wrap hero-grid">
-    <div>
+    <div style="animation:fadeInUp .8s ease both;">
       <span class="eyebrow">4TH INTERNATIONAL CONFERENCE</span>
       <h1>Life Sciences &amp; Vector Risk<br>Management for a Sustainable<br>Healthy Environment</h1>
       <div class="helix-rule"></div>
-      <p style="max-width:560px;font-size:16.5px;">Organised by<br> Centre for Insect Molecular Studies and Environmental Research (CIMSER), <br>PG &amp; Research Department of Advanced Zoology and Biotechnology,<br>Loyola College (Autonomous), Chennai.</p>
+      <p style="max-width:560px;font-size:16.5px;">Organised by the Centre for Insect Molecular Studies and Environmental Research (CIMSER), <br>PG &amp; Research Department of Advanced Zoology and Biotechnology, <br>Loyola College (Autonomous), Chennai.</p>
+
       <div class="pill-row">
         <div class="pill"><i class="fa-solid fa-calendar-days"></i> <b>26–28 Nov 2026</b></div>
         <div class="pill"><i class="fa-solid fa-location-dot"></i> <b>Loyola College, Chennai – 34</b></div>
-        <div class="pill"><i class="fa-solid fa-globe"></i> <b>In association with <br>Indian Academy of Environmental Science, Haridwar<br>Absolute Human Care Foundation (AHCF), New Delhi</b></div>
       </div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;">
+      <p class="hint" style="margin:-4px 0 20px;">In association with Indian Academy of Environmental Science, Haridwar &amp; Absolute Human Care Foundation (AHCF), New Delhi</p>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
         <a href="registration.html" class="btn btn-gold"><i class="fa-solid fa-user-plus"></i> Register now</a>
         <a href="submission.html" class="btn btn-outline"><i class="fa-solid fa-file-arrow-up"></i> Submit abstract / poster</a>
       </div>
     </div>
-    <div class="hero-graphic-wrap">
-      <img src="assets/dept.png" alt="Dept. of AZ-BT, LC">
+    <div class="hero-graphic-wrap float" style="animation:fadeInUp 1s ease both .15s;">
+      <img src="assets/dept.jpg" alt="Department of Advanced Zoology and Biotechnology" onerror="this.src='assets/hero-graphic.png'">
     </div>
   </div>
 </header>
 
-<section class="section-tight">
+<!-- Highlights -->
+<section class="section-light section-tight">
   <div class="wrap grid grid-3">
-    <div class="card">
-      <i class="fa-solid fa-microscope" style="color:var(--gold-light);font-size:22px;"></i>
+    <div class="card reveal">
+      <i class="fa-solid fa-microscope" style="color:var(--gold);font-size:22px;"></i>
       <h3 style="margin-top:14px;">About the conference</h3>
       <p style="font-size:14.5px;">Bringing together entomologists, public health scientists, and policy makers to address vector-borne disease risk and environmental sustainability.</p>
     </div>
-    <div class="card">
-      <i class="fa-solid fa-users" style="color:var(--gold-light);font-size:22px;"></i>
+    <div class="card reveal reveal-delay-1">
+      <i class="fa-solid fa-users" style="color:var(--gold);font-size:22px;"></i>
       <h3 style="margin-top:14px;">Who should attend</h3>
       <p style="font-size:14.5px;">Faculty, researchers, students, government vector-control officials, and industry professionals working in life sciences and environmental health.</p>
     </div>
-    <div class="card">
-      <i class="fa-solid fa-file-lines" style="color:var(--gold-light);font-size:22px;"></i>
+    <div class="card reveal reveal-delay-2">
+      <i class="fa-solid fa-file-lines" style="color:var(--gold);font-size:22px;"></i>
       <h3 style="margin-top:14px;">Formats</h3>
-      <p style="font-size:14.5px;">Keynote sessions, oral paper presentations, and poster presentations — submission details on the Paper &amp; Poster page.</p>
+      <p style="font-size:14.5px;">Keynote sessions, oral paper presentations, and poster presentations — submission details on the Call for Papers page.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- Important dates -->
+<section class="section-alt section">
   <div class="wrap">
     <span class="eyebrow">Important dates</span>
     <h2>Key deadlines</h2>
     <div class="helix-rule"></div>
     <div class="grid grid-3">
-      <div class="card"><i class="fa-regular fa-file-lines" style="color:var(--text-3);"></i><div class="badge badge-pending" style="margin-top:14px;">Abstract submission</div><h3 style="margin-top:12px;">To be announced</h3></div>
-      <div class="card"><i class="fa-regular fa-clock" style="color:var(--text-3);"></i><div class="badge badge-pending" style="margin-top:14px;">Registration closes</div><h3 style="margin-top:12px;">To be announced</h3></div>
-      <div class="card"><i class="fa-solid fa-champagne-glasses" style="color:var(--teal-light);"></i><div class="badge badge-success" style="margin-top:14px;">Conference dates</div><h3 style="margin-top:12px;">26–28 Nov 2026</h3></div>
+      <div class="card reveal"><i class="fa-regular fa-file-lines" style="color:var(--ink-3);"></i><div class="badge badge-pending" style="margin-top:14px;">Abstract submission</div><h3 style="margin-top:12px;">To be announced</h3></div>
+      <div class="card reveal reveal-delay-1"><i class="fa-regular fa-clock" style="color:var(--ink-3);"></i><div class="badge badge-pending" style="margin-top:14px;">Registration closes</div><h3 style="margin-top:12px;">To be announced</h3></div>
+      <div class="card reveal reveal-delay-2"><i class="fa-solid fa-champagne-glasses" style="color:var(--teal);"></i><div class="badge badge-success" style="margin-top:14px;">Conference dates</div><h3 style="margin-top:12px;">26–28 Nov 2026</h3></div>
     </div>
     <p class="hint" style="margin-top:14px;">Dates will be updated here as soon as they're finalised — check back or contact the organising secretariat.</p>
   </div>
 </section>
 
-<section class="section-tight">
+<!-- Keynote speakers / chief guests placeholder -->
+<section class="section-light section">
   <div class="wrap">
-    <span class="eyebrow"><i class="fa-solid fa-location-dot"></i> Venue</span>
-    <h2>Loyola College (Autonomous), Chennai</h2>
+    <span class="eyebrow"><i class="fa-solid fa-star"></i>&nbsp; Distinguished guests</span>
+    <h2>Keynote Speakers &amp; Chief Guests</h2>
     <div class="helix-rule"></div>
-    <p style="max-width:640px;">Loyola College (Autonomous), Chennai – 600 034, India.<br><em>"Let Your Light Shine"</em></p>
+    <div class="grid grid-3" style="grid-template-columns:repeat(4,1fr);">
+      <div class="card speaker-card reveal">
+        <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
+        <h4>To be announced</h4>
+        <span>Keynote Speaker</span>
+      </div>
+      <div class="card speaker-card reveal reveal-delay-1">
+        <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
+        <h4>To be announced</h4>
+        <span>Chief Guest</span>
+      </div>
+      <div class="card speaker-card reveal reveal-delay-2">
+        <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
+        <h4>To be announced</h4>
+        <span>Guest of Honour</span>
+      </div>
+      <div class="card speaker-card reveal reveal-delay-3">
+        <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
+        <h4>To be announced</h4>
+        <span>Plenary Speaker</span>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:16px;">Speaker details will be updated here shortly.</p>
   </div>
 </section>
 
-<footer id="contact">
+<!-- Committee CTA strip -->
+<section class="section-tight" style="background:linear-gradient(90deg,var(--navy-900),var(--navy-850));border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div>
+      <h3 style="margin-bottom:4px;"><i class="fa-solid fa-people-group" style="color:var(--gold-light);"></i>&nbsp; Meet the organizing committee</h3>
+      <p style="margin:0;font-size:14px;">Patrons, conveners, and national &amp; international advisory board members.</p>
+    </div>
+    <a href="committee.html" class="btn btn-outline">View full committee <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- Venue & location -->
+<section class="section-light section">
+  <div class="wrap grid" style="grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+    <div class="reveal">
+      <span class="eyebrow"><i class="fa-solid fa-location-dot"></i>&nbsp; Venue</span>
+      <h2>Loyola College (Autonomous), Chennai</h2>
+      <div class="helix-rule"></div>
+      <p style="max-width:480px;">Loyola College (Autonomous), Chennai – 600 034, Tamil Nadu, India.<br><em>"Let Your Light Shine"</em></p>
+      <div class="info-card" style="margin-top:8px;">
+        <i class="fa-solid fa-road"></i>
+        <h3>Getting there</h3>
+        <p>Well connected by Chennai Metro, MTC bus routes, and approximately 12 km from Chennai International Airport. Detailed directions will be shared with confirmed delegates.</p>
+      </div>
+    </div>
+    <div class="map-wrap reveal reveal-delay-1">
+      <iframe src="https://www.google.com/maps?q=Loyola+College+Chennai&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Loyola College Chennai map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section-alt section" id="contact">
   <div class="wrap">
-    <p><b style="color:var(--text-1);">CIMSER 2026</b> — 4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment</p>
-    <p>PG and Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai – 600 034, India</p>
-    <p>Organised with the Indian Academy of Environmental Science, Haridwar &amp; Absolute Human Care Foundation (AHCF), New Delhi</p>
-    <p><i class="fa-regular fa-envelope"></i> Contact: <a href="mailto:vrmic26@gmail.com">vrmic26@gmail.com</a></p>
+    <span class="eyebrow"><i class="fa-solid fa-envelope-open-text"></i>&nbsp; Contact</span>
+    <h2>Get in touch</h2>
+    <div class="helix-rule"></div>
+    <div class="grid grid-3">
+      <div class="info-card reveal">
+        <i class="fa-solid fa-envelope"></i>
+        <h3>Email</h3>
+        <p><a href="mailto:vrmic26@gmail.com">vrmic26@gmail.com</a></p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <i class="fa-solid fa-phone"></i>
+        <h3>Phone</h3>
+        <p>To be announced</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Address</h3>
+        <p>PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College, Chennai – 600 034</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Associated organizations -->
+<section class="section-light section-tight">
+  <div class="wrap" style="text-align:center;">
+    <span class="eyebrow">Organised with</span>
+    <h2 style="font-size:1.4rem;">Our Associates &amp; Affiliations</h2>
+    <div class="helix-rule" style="margin-left:auto;margin-right:auto;"></div>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:22px;margin-top:20px;">
+      <div class="logo-slot" style="height:64px;"><img src="assets/loyola-crest.png" alt="Loyola College" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot" style="height:64px;"><img src="assets/cimser-logo.png" alt="CIMSER" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot" style="height:64px;"><img src="assets/iaes-logo.png" alt="IAES" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot" style="height:64px;"><img src="assets/ahcf-logo.png" alt="AHCF" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>CIMSER
+        </h4>
+        <p style="font-size:13px;">4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment. 26–28 November 2026, Loyola College (Autonomous), Chennai.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="committee.html">Organizing Committee</a></li>
+          <li><a href="about-conference.html">About the Conference</a></li>
+          <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Register / Login</h4>
+        <ul>
+          <li><a href="registration.html">Participant Registration</a></li>
+          <li><a href="submission.html">Paper &amp; Poster Submission</a></li>
+          <li><a href="about-college.html">About the College</a></li>
+          <li><a href="about-department.html">About the Department</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:vrmic26@gmail.com"><i class="fa-regular fa-envelope"></i> vrmic26@gmail.com</a></li>
+          <li><a href="#"><i class="fa-solid fa-location-dot"></i> Loyola College, Chennai – 34</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai.</span>
+      <span><em>"Let Your Light Shine"</em></span>
+    </div>
   </div>
 </footer>
+
+<!-- Welcome modal (shows once per day per device) -->
+<div class="welcome-overlay" id="welcome-overlay">
+  <div class="welcome-card">
+    <button class="welcome-close" id="welcome-close" aria-label="Close">✕</button>
+    <i class="fa-solid fa-dna welcome-icon"></i>
+    <h3>Welcome to CIMSER</h3>
+    <p>4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment — 26–28 November 2026, Loyola College, Chennai.</p>
+    <div class="welcome-actions">
+      <a href="registration.html" class="btn btn-gold">Register now</a>
+      <button class="btn btn-outline" id="welcome-dismiss">Explore site</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Live UTC clock with date ----
+// ---- Live IST clock with date ----
+function updateClock(){
+  const now = new Date();
+  const opts = { 
+    weekday: 'short', 
+    year: 'numeric', 
+    month: 'short', 
+    day: '2-digit', 
+    timeZone: 'Asia/Kolkata', 
+    timeZoneName: 'short' 
+  };
+  const dateTimeStr = now.toLocaleDateString('en-GB', opts);
+  const timeStr = now.toLocaleTimeString('en-GB', { 
+    timeZone: 'Asia/Kolkata', 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit',
+    hour12: false 
+  });
+  
+  document.getElementById('utc-clock').innerHTML = `<b>${dateTimeStr} &nbsp;·&nbsp; ${timeStr}</b>`;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// ---- Nav: mobile toggle + dropdown ----
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+function toggleDropdown(el){
+  if (window.innerWidth > 800) return true; // desktop uses hover via CSS
+  el.parentElement.classList.toggle('open');
+  return false;
+}
+
+// ---- Scroll reveal animations ----
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// ---- Welcome modal: once per day per device ----
+(function(){
+  try {
+    const todayKey = new Date().toISOString().slice(0,10);
+    const lastShown = localStorage.getItem('cimser_welcome_shown');
+    if (lastShown !== todayKey) {
+      const overlay = document.getElementById('welcome-overlay');
+      setTimeout(() => overlay.classList.add('show'), 600);
+      localStorage.setItem('cimser_welcome_shown', todayKey);
+    }
+  } catch(e) { /* localStorage unavailable — skip silently */ }
+
+  const overlay = document.getElementById('welcome-overlay');
+  const close = () => overlay.classList.remove('show');
+  document.getElementById('welcome-close').addEventListener('click', close);
+  document.getElementById('welcome-dismiss').addEventListener('click', close);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+})();
+</script>
 
 </body>
 </html>
