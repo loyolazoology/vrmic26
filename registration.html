@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration | CIMSER 2026</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo-slots">
+      <div class="logo-slot" title="Loyola College crest"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="CIMSER logo"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="Indian Academy of Environmental Science logo"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="Absolute Human Care Foundation logo"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="College anniversary emblem"><i class="fa-regular fa-image"></i></div>
+    </div>
+    <span class="topbar-text">Loyola College (Autonomous), Chennai · Est. 1925</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><strong>CIMSER 2026</strong><span>LOYOLA COLLEGE, CHENNAI</span></div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="committee.html">Committee</a></li>
+      <li><a href="registration.html" class="active">Registration</a></li>
+      <li><a href="submission.html">Paper &amp; Poster Submission</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="section-tight" style="padding-top:48px;">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-user-plus"></i>&nbsp; Delegate registration</span>
+    <h1 style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Register for CIMSER 2026</h1>
+    <div class="helix-rule"></div>
+    <p>Pay the registration fee via bank transfer / UPI, then fill the form below with your transaction number and payment screenshot. Your registration ID and password will be emailed once submitted, and confirmed after payment verification.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="wrap grid" style="grid-template-columns:1.1fr .9fr;gap:28px;">
+    <div class="card">
+      <i class="fa-solid fa-table-list" style="color:var(--gold-light);"></i>
+      <h3 style="margin-top:14px;">Registration fees by category</h3>
+      <table id="fee-table">
+        <thead><tr><th>Category</th><th>Fee</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-building-columns" style="color:var(--gold-light);"></i>
+      <h3 style="margin-top:14px;">Payment details</h3>
+      <p style="font-size:14px;">Transfer the applicable fee to:</p>
+      <ul class="mlist" id="bank-details" style="font-size:14px;"></ul>
+      <p class="hint">After payment, note your transaction/reference number and keep a screenshot or PDF receipt ready to upload below.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="card" style="max-width:760px;margin:0 auto;">
+      <div id="alert-box"></div>
+      <form id="reg-form">
+        <div class="field-row">
+          <div class="field"><label>Full name</label><input required name="name"></div>
+          <div class="field"><label>Email</label><input required type="email" name="email"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Phone / WhatsApp</label><input required name="phone"></div>
+          <div class="field"><label>Country</label><input required name="country" value="India"></div>
+        </div>
+        <div class="field"><label>Institution / Organisation</label><input required name="institution"></div>
+        <div class="field">
+          <label>Category</label>
+          <select required name="category" id="category-select"></select>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Transaction / reference number</label><input required name="txnId"></div>
+          <div class="field"><label>Payment receipt / screenshot</label><input required type="file" name="receipt" accept="image/*,application/pdf"></div>
+        </div>
+        <button class="btn btn-gold btn-block" type="submit" id="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit registration</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p><i class="fa-regular fa-envelope"></i> Questions about registration? Email <a href="mailto:vrmic26@gmail.com">vrmic26@gmail.com</a></p></div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script>
+const feeBody = document.querySelector('#fee-table tbody');
+const catSelect = document.getElementById('category-select');
+FEE_TABLE.forEach(f => {
+  feeBody.innerHTML += `<tr><td>${f.label}</td><td>${f.currency==='USD'?'$':'₹'}${f.fee}</td></tr>`;
+  catSelect.innerHTML += `<option value="${f.code}" data-fee="${f.fee}" data-currency="${f.currency||'INR'}">${f.label} — ${f.currency==='USD'?'$':'₹'}${f.fee}</option>`;
+});
+
+document.getElementById('bank-details').innerHTML = `
+  <li><b>Account name:</b> ${BANK_DETAILS.accountName}</li>
+  <li><b>Account number:</b> ${BANK_DETAILS.accountNumber}</li>
+  <li><b>IFSC:</b> ${BANK_DETAILS.ifsc}</li>
+  <li><b>Bank / branch:</b> ${BANK_DETAILS.bankBranch}</li>
+  <li><b>UPI ID:</b> ${BANK_DETAILS.upiId}</li>
+`;
+
+const form = document.getElementById('reg-form');
+const alertBox = document.getElementById('alert-box');
+const submitBtn = document.getElementById('submit-btn');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  alertBox.innerHTML = '';
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
+
+  const fd = new FormData(form);
+  const receiptFile = fd.get('receipt');
+  const receiptBase64 = await fileToBase64(receiptFile);
+  const opt = catSelect.selectedOptions[0];
+
+  const payload = {
+    action: 'register',
+    name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
+    country: fd.get('country'), institution: fd.get('institution'),
+    category: opt.textContent, fee: opt.dataset.fee, currency: opt.dataset.currency,
+    txnId: fd.get('txnId'),
+    receiptBase64, receiptFilename: receiptFile ? receiptFile.name : '',
+    receiptMime: receiptFile ? receiptFile.type : '',
+  };
+
+  try {
+    const result = await callBackend(payload);
+    if (result.success) {
+      alertBox.innerHTML = `<div class="alert alert-success">Registration submitted. Your Registration ID is <b>${result.regId}</b>. Check your email for your submission-portal login (also check spam). Payment will be verified shortly.</div>`;
+      form.reset();
+    } else {
+      alertBox.innerHTML = `<div class="alert alert-error">${result.error || 'Something went wrong. Please try again.'}</div>`;
+    }
+  } catch (err) {
+    alertBox.innerHTML = `<div class="alert alert-error">${err.message}</div>`;
+  }
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Submit registration';
+});
+</script>
+
+</body>
+</html>

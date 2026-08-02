@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizing Committee | CIMSER 2026</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo-slots">
+      <div class="logo-slot" title="Loyola College crest"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="CIMSER logo"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="Indian Academy of Environmental Science logo"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="Absolute Human Care Foundation logo"><i class="fa-regular fa-image"></i></div>
+      <div class="logo-slot" title="College anniversary emblem"><i class="fa-regular fa-image"></i></div>
+    </div>
+    <span class="topbar-text">Loyola College (Autonomous), Chennai · Est. 1925</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><strong>CIMSER 2026</strong><span>LOYOLA COLLEGE, CHENNAI</span></div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="committee.html" class="active">Committee</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="submission.html">Paper &amp; Poster Submission</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="section-tight" style="padding-top:48px;">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-users-line"></i>&nbsp; Conference organizing committee</span>
+    <h1 style="font-size:clamp(1.8rem,3.5vw,2.6rem);">The people behind CIMSER 2026</h1>
+    <div class="helix-rule"></div>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="wrap" id="acc-root"></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>PG and Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai – 600 034, India</p>
+  </div>
+</footer>
+
+<script>
+const COMMITTEE = [
+  { title: "Patrons", members: [
+    "Rev. Dr J. Antony Robinson SJ., Rector",
+    "Rev. Dr D. Thomas Alexander SJ., Secretary & Correspondent",
+    "Rev. Dr A. Louis Arockiaraj SJ., Principal",
+  ]},
+  { title: "Chairperson", members: [
+    "Dr V. Pushpa Rani, Head of the Department",
+  ]},
+  { title: "Convener", members: [
+    "Dr M. Raja",
+  ]},
+  { title: "Co-Convener", members: [
+    "Dr P. K. Srivastava, Director, AHCF, New Delhi",
+    "Dr R.S. Sharma, Director, AHCF, New Delhi",
+    "Dr R.R. Sharma, Director, AHCF, New Delhi",
+  ]},
+  { title: "Organizing Secretaries", members: [
+    "Dr S. Selvakumar, Chief Vector Control Officer, GCC, Chennai",
+    "Entomologists — Greater Chennai Corporation, Chennai",
+    "Dr A.J. Renilda Sophy, Dr M. Balachandar & Dr P. Nallamuthu",
+  ]},
+  { title: "Executive Committee", members: [
+    "Dr M. C. John Milton",
+    "Dr K. Thresia Mathews",
+    "Dr Mary Dorthy Anitha Sebastian",
+    "Rev. Dr S. Maria Packiam S.J",
+    "Dr V. Jelin",
+    "Dr D. Robert Selvam",
+  ]},
+  { title: "National Advisory Board Members", members: [
+    "Dr Kalpana Baruah, Former Addl. Director, NCVBDC, Ministry of Health & FW, GoI, Delhi",
+    "Dr Rajni Kant, Scientist G, Former Director ICMR-RMRC, Gorakhpur & Head Policy Coordination, ICMR HQ, Delhi",
+    "Dr S N Sharma, Former Joint Director NCVBDC, MHFW & FW, GoI, Delhi",
+    "Dr Rina Tilak, Former Scientist G, Armed Forces Medical College, Pune",
+    "Dr S. Selvakumar, Chief Vector Control Officer, GCC, Chennai",
+    "Dr Anju Viswan K, Scientist C, ICMR-VCRC, Puducherry–Field Station Koraput, Odisha",
+    "Dr Jayalakshmi Krishnan, Asstt. Prof., CUTN, Thiruvarur, Tamil Nadu",
+    "Sh Sridharan Subramanian, Former Chief Entomologist, Tamil Nadu",
+    "Dr B. Vasantharaj David, Research Consultant, IIBAT, Chennai",
+    "Dr V. V. Ramamurthy, Former Head, Division of Entomology, IARI, Delhi",
+    "Dr S. Elumalai, Registrar, University of Madras, Chennai",
+    "Prof. Dr S. Janarthanan, Professor, University of Madras, Chennai",
+    "Dr Karunakar Kar, Asso. Professor, Jawaharlal Nehru University, Delhi",
+    "Dr Heera Ram, Asso. Professor, Jai Narain Vyas University, Rajasthan",
+    "Dr Aravind Babu R. Parthiban, Assit. Professor, TANUVAS, Chennai",
+    "Dr Maheswaran, Assit. Professor, Periyar University, Salem",
+    "Prof. N. Senthil Kumar, Professor, Mizoram University, Mizoram",
+    "Dr Om Prakash, Professor, Zoology, New Delhi",
+    "Dr M. G. Ragunathan, Former Principal, Guru Nanak College, Chennai",
+    "Dr T. Venkatesan, Principal Scientist & Head, NBAIR, Bengaluru",
+    "Dr Kushal Chordhury, HoD, Bodoland University, Kokrajar, Assam",
+  ]},
+  { title: "International Advisory Board Members", members: [
+    "Dr M. Sudhakar, Principal Scientist, CSIR, South Africa",
+    "Prof. Paula Melariri, Director of Research, Nelson Mandela University, Gqeberha",
+    "Jo Lynn Tech BCE, (Board Certified Entomologist), Director, HYSIA, Environmental Health, Singapore",
+    "Dr Helena Ullyartha, Researcher, National Research & Innovation Agency, Indonesia",
+    "Dr Srishti Srivastava, Associate Professor, Computer Science, University of Southern Indiana, Evansville, Indiana, USA",
+  ]},
+];
+
+const root = document.getElementById('acc-root');
+COMMITTEE.forEach((group, i) => {
+  const item = document.createElement('div');
+  item.className = 'acc-item' + (i === 0 ? ' open' : '');
+  item.innerHTML = `
+    <button class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+      <span>${group.title}</span>
+      <span style="display:flex;align-items:center;gap:10px;">
+        <span class="count">${group.members.length} member${group.members.length>1?'s':''}</span>
+        <span class="acc-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+      </span>
+    </button>
+    <div class="acc-body"><div class="acc-body-inner">
+      <ul class="mlist">${group.members.map(m => `<li>${m}</li>`).join('')}</ul>
+    </div></div>
+  `;
+  root.appendChild(item);
+});
+</script>
+
+</body>
+</html>

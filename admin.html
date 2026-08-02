@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | CIMSER 2026</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><strong>CIMSER 2026</strong><span><i class="fa-solid fa-shield-halved"></i> ADMIN PANEL</span></div>
+    <ul class="nav-links" style="display:flex;">
+      <li><a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to site</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="section-tight">
+  <div class="wrap">
+
+    <div class="card" id="login-card" style="max-width:400px;margin:40px auto;">
+      <h3>Admin login</h3>
+      <div id="login-alert"></div>
+      <form id="login-form">
+        <div class="field"><label>Admin password</label><input required type="password" name="password"></div>
+        <button class="btn btn-gold btn-block" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Log in</button>
+      </form>
+    </div>
+
+    <div id="dash" style="display:none;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+        <h2 style="margin:0;">Registrations</h2>
+        <button class="btn btn-outline" onclick="loadData()"><i class="fa-solid fa-rotate"></i> Refresh</button>
+      </div>
+      <div class="card" style="overflow-x:auto;">
+        <table id="reg-table">
+          <thead><tr>
+            <th>Reg ID</th><th>Name</th><th>Email</th><th>Category</th><th>Fee</th>
+            <th>Txn ID</th><th>Receipt</th><th>Status</th><th>Action</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h2 style="margin-top:40px;">Submissions</h2>
+      <div class="card" style="overflow-x:auto;">
+        <table id="sub-table">
+          <thead><tr>
+            <th>Reg ID</th><th>Title</th><th>Type</th><th>PPT</th><th>Poster</th><th>Status</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script>
+let adminPassword = null;
+
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const password = new FormData(e.target).get('password');
+  const alertBox = document.getElementById('login-alert');
+  alertBox.innerHTML = '';
+  try {
+    const result = await callBackend({ action: 'adminLogin', password });
+    if (result.success) {
+      adminPassword = password;
+      document.getElementById('login-card').style.display = 'none';
+      document.getElementById('dash').style.display = 'block';
+      loadData();
+    } else {
+      alertBox.innerHTML = `<div class="alert alert-error">${result.error}</div>`;
+    }
+  } catch (err) {
+    alertBox.innerHTML = `<div class="alert alert-error">${err.message}</div>`;
+  }
+});
+
+async function loadData() {
+  const result = await callBackend({ action: 'adminList', password: adminPassword });
+  if (!result.success) { alert(result.error); return; }
+
+  const regBody = document.querySelector('#reg-table tbody');
+  regBody.innerHTML = result.registrations.map(r => `
+    <tr>
+      <td class="mono">${r.RegID}</td>
+      <td>${r.Name}</td>
+      <td>${r.Email}</td>
+      <td>${r.Category}</td>
+      <td>${r.Currency==='USD'?'$':'₹'}${r.Fee}</td>
+      <td>${r.TxnID}</td>
+      <td>${r.ReceiptURL ? `<a href="${r.ReceiptURL}" target="_blank"><i class="fa-regular fa-file-lines"></i> View</a>` : '—'}</td>
+      <td><span class="badge ${r.PaymentStatus==='Approved'?'badge-success':r.PaymentStatus==='Rejected'?'badge-danger':'badge-pending'}">${r.PaymentStatus}</span></td>
+      <td>
+        <button class="btn btn-outline" style="padding:6px 10px;font-size:12px;" onclick="setStatus('${r.RegID}','Approved')"><i class="fa-solid fa-check"></i> Approve</button>
+        <button class="btn btn-outline" style="padding:6px 10px;font-size:12px;" onclick="setStatus('${r.RegID}','Rejected')"><i class="fa-solid fa-xmark"></i> Reject</button>
+      </td>
+    </tr>
+  `).join('');
+
+  const subBody = document.querySelector('#sub-table tbody');
+  subBody.innerHTML = result.submissions.map(s => `
+    <tr>
+      <td class="mono">${s.RegID}</td>
+      <td>${s.Title}</td>
+      <td>${s.PresentationType}</td>
+      <td>${s.PPTUrl ? `<a href="${s.PPTUrl}" target="_blank">View</a>` : '—'}</td>
+      <td>${s.PosterUrl ? `<a href="${s.PosterUrl}" target="_blank">View</a>` : '—'}</td>
+      <td>${s.Status}</td>
+    </tr>
+  `).join('');
+}
+
+async function setStatus(regId, status) {
+  const result = await callBackend({ action: 'adminApprove', password: adminPassword, regId, status });
+  if (result.success) loadData(); else alert(result.error);
+}
+</script>
+
+</body>
+</html>
