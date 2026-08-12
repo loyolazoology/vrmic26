@@ -6,6 +6,7 @@
 <title>4th International Conference on Life Sciences &amp; Vector Risk Management | CIMSER, Loyola College</title>
 <meta name="description" content="4th International Conference on Life Sciences and Vector Risk Management for a Sustainable Healthy Environment — 26–28 November 2026, Loyola College (Autonomous), Chennai.">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -65,6 +66,7 @@
         </ul>
       </li>
       <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
+      <li><a href="tracks.html">Tracks</a></li>
       <li><a href="iaes-award.html">IAES Award</a></li>
       <li class="has-dropdown">
         <a href="#" class="dropdown-toggle">Register / Login <i class="fa-solid fa-chevron-down caret"></i></a>
@@ -79,11 +81,11 @@
   </div>
 </nav>
 
-<!-- Hero -->
-<header class="section" style="padding-top:56px;padding-bottom:60px;overflow:hidden;">
+<!-- ============ HERO ============ -->
+<header class="section" style="padding-top:52px;padding-bottom:0;overflow:hidden;">
   <div class="wrap hero-grid">
     <div style="animation:fadeInUp .8s ease both;">
-      <span class="eyebrow">4TH INTERNATIONAL CONFERENCE</span>
+      <span class="eyebrow">4TH INTERNATIONAL CONFERENCE · 26–28 NOV 2026</span>
       <h1>Life Sciences &amp; Vector Risk<br>Management for a Sustainable<br>Healthy Environment</h1>
       <div class="helix-rule"></div>
       <p style="max-width:560px;font-size:16.5px;">Organised by the Centre for Insect Molecular Studies and Environmental Research (CIMSER), PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai.</p>
@@ -91,12 +93,22 @@
       <div class="pill-row">
         <div class="pill"><i class="fa-solid fa-calendar-days"></i> <b>26–28 Nov 2026</b></div>
         <div class="pill"><i class="fa-solid fa-location-dot"></i> <b>Loyola College, Chennai – 34</b></div>
+        <div class="pill"><i class="fa-solid fa-globe"></i> <b>Hybrid Mode</b></div>
       </div>
-      <p class="hint" style="margin:-4px 0 20px;">In association with Indian Academy of Environmental Science, Haridwar &amp; Absolute Human Care Foundation (AHCF), New Delhi</p>
+      <p class="hint" style="margin:-4px 0 22px;">In association with Indian Academy of Environmental Science, Haridwar &amp; Absolute Human Care Foundation (AHCF), New Delhi</p>
 
-      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <div class="hero-actions">
         <a href="registration.html" class="btn btn-gold"><i class="fa-solid fa-user-plus"></i> Register now</a>
         <a href="submission.html" class="btn btn-outline"><i class="fa-solid fa-file-arrow-up"></i> Submit abstract / poster</a>
+        <a href="assets/cimser-brochure.pdf" class="brochure-link" download><i class="fa-solid fa-file-pdf"></i> Download conference brochure</a>
+      </div>
+
+      <span class="countdown-label"><i class="fa-regular fa-clock"></i>&nbsp; Countdown to the conference</span>
+      <div class="countdown mono" id="countdown" aria-live="polite">
+        <div class="countdown-box"><span class="num" id="cd-days">--</span><span class="lbl">Days</span></div>
+        <div class="countdown-box"><span class="num" id="cd-hours">--</span><span class="lbl">Hours</span></div>
+        <div class="countdown-box"><span class="num" id="cd-mins">--</span><span class="lbl">Mins</span></div>
+        <div class="countdown-box"><span class="num" id="cd-secs">--</span><span class="lbl">Secs</span></div>
       </div>
     </div>
     <div class="hero-graphic-wrap float" style="animation:fadeInUp 1s ease both .15s;">
@@ -105,71 +117,195 @@
   </div>
 </header>
 
-<!-- Highlights -->
-<section class="section-light section-tight">
-  <div class="wrap grid grid-3">
-    <div class="card reveal">
-      <i class="fa-solid fa-microscope" style="color:var(--gold);font-size:22px;"></i>
-      <h3 style="margin-top:14px;">About the conference</h3>
-      <p style="font-size:14.5px;">Bringing together entomologists, public health scientists, and policy makers to address vector-borne disease risk and environmental sustainability.</p>
+<!-- ============ ANNOUNCEMENTS TICKER ============ -->
+<div class="ticker-bar section-tight" style="padding:0;">
+  <div class="ticker-tag"><i class="fa-solid fa-bullhorn"></i> Latest</div>
+  <div class="ticker-viewport">
+    <div class="ticker-track">
+      <span><i class="fa-solid fa-circle"></i> Abstract submission portal is now open for the 4th International Conference.</span>
+      <span><i class="fa-solid fa-circle"></i> Early bird registration closes soon — register today to save on fees.</span>
+      <span><i class="fa-solid fa-circle"></i> Selected papers will be considered for publication in partner journals.</span>
+      <span><i class="fa-solid fa-circle"></i> Join our official WhatsApp group for real-time conference updates.</span>
+      <!-- duplicate for seamless loop -->
+      <span><i class="fa-solid fa-circle"></i> Abstract submission portal is now open for the 4th International Conference.</span>
+      <span><i class="fa-solid fa-circle"></i> Early bird registration closes soon — register today to save on fees.</span>
+      <span><i class="fa-solid fa-circle"></i> Selected papers will be considered for publication in partner journals.</span>
+      <span><i class="fa-solid fa-circle"></i> Join our official WhatsApp group for real-time conference updates.</span>
     </div>
-    <div class="card reveal reveal-delay-1">
-      <i class="fa-solid fa-users" style="color:var(--gold);font-size:22px;"></i>
-      <h3 style="margin-top:14px;">Who should attend</h3>
-      <p style="font-size:14.5px;">Faculty, researchers, students, government vector-control officials, and industry professionals working in life sciences and environmental health.</p>
+  </div>
+</div>
+
+<!-- ============ ABOUT CONFERENCE (SHORT) ============ -->
+<section class="section-light section">
+  <div class="wrap grid grid-2" style="align-items:center;">
+    <div class="reveal">
+      <span class="eyebrow"><i class="fa-solid fa-dna"></i>&nbsp; About the conference</span>
+      <h2>Where entomology, environment &amp; public health meet</h2>
+      <div class="helix-rule"></div>
+      <p style="max-width:520px;font-size:15.5px;">Vector-borne diseases remain one of the most pressing public health challenges in tropical regions. This conference brings together entomologists, molecular biologists, environmental scientists, and policy makers to share research on vector biology, disease surveillance, and sustainable environmental management — building practical pathways from laboratory research to community-level risk reduction.</p>
+      <a href="about-conference.html" class="btn btn-outline">Read more about the conference <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-    <div class="card reveal reveal-delay-2">
-      <i class="fa-solid fa-file-lines" style="color:var(--gold);font-size:22px;"></i>
-      <h3 style="margin-top:14px;">Formats</h3>
-      <p style="font-size:14.5px;">Keynote sessions, oral paper presentations, and poster presentations — submission details on the Call for Papers page.</p>
+    <div class="reveal reveal-delay-1">
+      <div class="info-card">
+        <i class="fa-solid fa-bullseye"></i>
+        <h3>Conference objectives</h3>
+        <p>Foster interdisciplinary dialogue on vector-borne disease risk, share emerging molecular and ecological research, and translate science into sustainable, community-ready environmental health strategies.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Important dates -->
+<!-- ============ CONFERENCE HIGHLIGHTS ============ -->
 <section class="section-alt section">
   <div class="wrap">
-    <span class="eyebrow">Important dates</span>
+    <span class="eyebrow"><i class="fa-solid fa-star"></i>&nbsp; Why attend</span>
+    <h2>Conference highlights</h2>
+    <div class="helix-rule"></div>
+    <div class="grid grid-4">
+      <div class="card reveal">
+        <i class="fa-solid fa-earth-asia" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16px;">International conference</h3>
+        <p style="font-size:13.5px;">Delegates and speakers from across the globe presenting cutting-edge vector-risk research.</p>
+      </div>
+      <div class="card reveal reveal-delay-1">
+        <i class="fa-solid fa-video" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16px;">Hybrid mode</h3>
+        <p style="font-size:13.5px;">Attend in person at Loyola College, Chennai, or join select sessions online from anywhere.</p>
+      </div>
+      <div class="card reveal reveal-delay-2">
+        <i class="fa-solid fa-book-open" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16px;">Publication opportunity</h3>
+        <p style="font-size:13.5px;">Accepted papers are eligible for indexed proceedings and partner-journal publication.</p>
+      </div>
+      <div class="card reveal reveal-delay-3">
+        <i class="fa-solid fa-trophy" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16px;">Awards</h3>
+        <p style="font-size:13.5px;">Best paper, best poster and the IAES Award recognise outstanding student and researcher work.</p>
+      </div>
+      <div class="card reveal">
+        <i class="fa-solid fa-people-group" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16px;">Networking</h3>
+        <p style="font-size:13.5px;">Connect with leading researchers, government vector-control officials and industry partners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT DATES ============ -->
+<section class="section-light section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-regular fa-calendar-check"></i>&nbsp; Important dates</span>
     <h2>Key deadlines</h2>
     <div class="helix-rule"></div>
     <div class="grid grid-3">
       <div class="card date-card reveal"><i class="fa-regular fa-file-lines" style="color:var(--ink-3);"></i><div class="badge badge-pending">Abstract submission</div><h3>20-11-2026</h3></div>
-      <div class="card date-card reveal reveal-delay-1"><i class="fa-regular fa-clock" style="color:var(--ink-3);"></i><div class="badge badge-pending">Registration closes</div><h3>25-11-2026</h3></div>
+      <div class="card date-card reveal reveal-delay-1"><i class="fa-solid fa-file-word" style="color:var(--ink-3);"></i><div class="badge badge-pending">Full paper submission</div><h3>22-11-2026</h3></div>
+      <div class="card date-card reveal reveal-delay-2"><i class="fa-solid fa-circle-check" style="color:var(--ink-3);"></i><div class="badge badge-pending">Acceptance notification</div><h3>23-11-2026</h3></div>
+      <div class="card date-card reveal"><i class="fa-solid fa-clock" style="color:var(--ink-3);"></i><div class="badge badge-pending">Early bird registration</div><h3>24-11-2026</h3></div>
+      <div class="card date-card reveal reveal-delay-1"><i class="fa-regular fa-clock" style="color:var(--ink-3);"></i><div class="badge badge-pending">Registration deadline</div><h3>25-11-2026</h3></div>
       <div class="card date-card reveal reveal-delay-2"><i class="fa-solid fa-champagne-glasses" style="color:var(--teal);"></i><div class="badge badge-success">Conference dates</div><h3>26–28 Nov 2026</h3></div>
     </div>
     <p class="hint" style="margin-top:14px;">Dates will be updated here as soon as they're finalised — check back or contact the organising secretariat.</p>
   </div>
 </section>
 
-<!-- Keynote speakers / chief guests placeholder -->
+<!-- ============ CONFERENCE TRACKS (PREVIEW) ============ -->
+<section class="section-alt section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-diagram-project"></i>&nbsp; Technical programme</span>
+    <h2>Conference tracks</h2>
+    <div class="helix-rule"></div>
+    <div class="grid grid-3">
+      <div class="card track-card reveal">
+        <span class="track-num">TRACK 01</span>
+        <i class="fa-solid fa-mosquito" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16.5px;">Vector Biology &amp; Epidemiology</h3>
+        <p style="font-size:13.5px;">Molecular entomology, vector surveillance, disease transmission dynamics and emerging pathogens.</p>
+      </div>
+      <div class="card track-card reveal reveal-delay-1">
+        <span class="track-num">TRACK 02</span>
+        <i class="fa-solid fa-leaf" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16.5px;">Environmental Toxicology &amp; Sustainability</h3>
+        <p style="font-size:13.5px;">Eco-friendly vector control, biopesticides, climate change and environmental risk assessment.</p>
+      </div>
+      <div class="card track-card reveal reveal-delay-2">
+        <span class="track-num">TRACK 03</span>
+        <i class="fa-solid fa-hand-holding-medical" style="color:var(--gold);font-size:20px;"></i>
+        <h3 style="margin-top:14px;font-size:16.5px;">Public Health Policy &amp; One Health</h3>
+        <p style="font-size:13.5px;">Community health strategies, policy frameworks and integrated One Health approaches.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:30px;">
+      <a href="tracks.html" class="btn btn-outline">View all tracks <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEYNOTE SPEAKERS (PREVIEW) ============ -->
 <section class="section-light section">
   <div class="wrap">
-    <span class="eyebrow"><i class="fa-solid fa-star"></i>&nbsp; Distinguished guests</span>
-    <h2>Keynote Speakers &amp; Chief Guests</h2>
+    <span class="eyebrow"><i class="fa-solid fa-microphone-lines"></i>&nbsp; Distinguished guests</span>
+    <h2>Keynote speakers &amp; chief guests</h2>
     <div class="helix-rule"></div>
     <div class="grid grid-4">
       <div class="card speaker-card reveal">
         <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
         <h4>To be announced</h4>
-        <span>Keynote Speaker</span>
+        <span>Keynote Speaker · —</span>
       </div>
       <div class="card speaker-card reveal reveal-delay-1">
         <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
         <h4>To be announced</h4>
-        <span>Chief Guest</span>
+        <span>Chief Guest · —</span>
       </div>
       <div class="card speaker-card reveal reveal-delay-2">
         <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
         <h4>To be announced</h4>
-        <span>Guest of Honour</span>
+        <span>Guest of Honour · —</span>
       </div>
       <div class="card speaker-card reveal reveal-delay-3">
         <div class="avatar-slot"><i class="fa-solid fa-user"></i></div>
         <h4>To be announced</h4>
-        <span>Plenary Speaker</span>
+        <span>Plenary Speaker · —</span>
       </div>
     </div>
-    <p class="hint" style="margin-top:16px;">Speaker details will be updated here shortly.</p>
+    <p class="hint" style="margin-top:16px;">Speaker photo, name, designation and country will be updated here shortly.</p>
+  </div>
+</section>
+
+<!-- ============ REGISTRATION CATEGORIES ============ -->
+<section class="section-alt section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-id-card"></i>&nbsp; Who can register</span>
+    <h2>Registration categories</h2>
+    <div class="helix-rule"></div>
+    <div class="cat-row">
+      <div class="card cat-chip reveal"><i class="fa-solid fa-graduation-cap"></i><span>Students</span></div>
+      <div class="card cat-chip reveal reveal-delay-1"><i class="fa-solid fa-flask"></i><span>Research Scholars</span></div>
+      <div class="card cat-chip reveal reveal-delay-2"><i class="fa-solid fa-chalkboard-user"></i><span>Faculty</span></div>
+      <div class="card cat-chip reveal reveal-delay-3"><i class="fa-solid fa-industry"></i><span>Industry</span></div>
+      <div class="card cat-chip reveal"><i class="fa-solid fa-earth-americas"></i><span>International Delegates</span></div>
+    </div>
+    <div style="text-align:center;margin-top:26px;">
+      <a href="registration.html" class="btn btn-gold"><i class="fa-solid fa-user-plus"></i> View fees &amp; register</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICATION HIGHLIGHTS ============ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-book"></i>&nbsp; Publication</span>
+    <h2>Publication highlights</h2>
+    <div class="helix-rule"></div>
+    <div class="pub-row">
+      <div class="pub-chip reveal"><i class="fa-solid fa-file-lines"></i><div><b>Conference Proceedings</b><small>All accepted papers</small></div></div>
+      <div class="pub-chip reveal reveal-delay-1"><i class="fa-solid fa-barcode"></i><div><b>ISBN-indexed</b><small>Proceedings volume</small></div></div>
+      <div class="pub-chip reveal reveal-delay-2"><i class="fa-solid fa-award"></i><div><b>Scopus</b><small>Select journal partners</small></div></div>
+      <div class="pub-chip reveal reveal-delay-3"><i class="fa-solid fa-magnifying-glass-chart"></i><div><b>Web of Science</b><small>Select journal partners</small></div></div>
+      <div class="pub-chip reveal"><i class="fa-solid fa-handshake"></i><div><b>Partner Journals</b><small>Fast-track review</small></div></div>
+    </div>
+    <p class="hint" style="margin-top:16px;">Full publication policy and journal partner list will be announced on the Call for Papers page.</p>
   </div>
 </section>
 
@@ -184,8 +320,25 @@
   </div>
 </section>
 
-<!-- Venue & location -->
-<section class="section-light section">
+<!-- ============ ORGANIZERS & SPONSORS ============ -->
+<section class="section-light section-tight">
+  <div class="wrap" style="text-align:center;">
+    <span class="eyebrow">Organised with</span>
+    <h2 style="font-size:1.4rem;">Organizers, Sponsors &amp; Affiliations</h2>
+    <div class="helix-rule" style="margin-left:auto;margin-right:auto;"></div>
+    <div class="assoc-row">
+      <div class="logo-slot assoc-logo"><img src="assets/loyola-crest.png" alt="Loyola College" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot assoc-logo"><img src="assets/cimser-logo.png" alt="CIMSER" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot assoc-logo"><img src="assets/iaes-logo.png" alt="IAES" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot assoc-logo"><img src="assets/ahcf-logo.png" alt="AHCF" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="logo-slot assoc-logo"><img src="assets/sponsor-1.png" alt="Sponsor" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+    </div>
+    <p class="hint" style="margin-top:16px;">Sponsorship enquiries welcome — write to <a href="mailto:cimserloyola@gmail.com">cimserloyola@gmail.com</a>.</p>
+  </div>
+</section>
+
+<!-- ============ VENUE & MAP ============ -->
+<section class="section-alt section">
   <div class="wrap grid grid-2" style="align-items:start;">
     <div class="reveal">
       <span class="eyebrow"><i class="fa-solid fa-location-dot"></i>&nbsp; Venue</span>
@@ -193,9 +346,9 @@
       <div class="helix-rule"></div>
       <p style="max-width:480px;">Loyola College (Autonomous), Chennai – 600 034, Tamil Nadu, India.<br><em>"Let Your Light Shine"</em></p>
       <div class="info-card" style="margin-top:8px;">
-        <i class="fa-solid fa-road"></i>
-        <h3>Getting there</h3>
-        <p>Well connected by Chennai Metro, MTC bus routes, and approximately 12 km from Chennai International Airport. Detailed directions will be shared with confirmed delegates.</p>
+        <i class="fa-solid fa-train-subway"></i>
+        <h3>Nearby transport</h3>
+        <p>Nungambakkam Railway Station (~2 km), Chennai Metro (Nehru Park / Egmore stations nearby), well-served by MTC bus routes, and approximately 12 km from Chennai International Airport. Detailed directions will be shared with confirmed delegates.</p>
       </div>
     </div>
     <div class="map-wrap reveal reveal-delay-1">
@@ -204,13 +357,43 @@
   </div>
 </section>
 
-<!-- Contact -->
+<!-- ============ GALLERY PREVIEW ============ -->
+<section class="section-light section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-images"></i>&nbsp; Gallery</span>
+    <h2>Moments from previous conferences</h2>
+    <div class="helix-rule"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="assets/gallery-1.jpg" alt="3rd International Conference — session" onerror="galleryFallback(this,'3rd Conference')">
+        <span class="gallery-cap">3rd International Conference, 2023</span>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="assets/gallery-2.jpg" alt="3rd International Conference — panel" onerror="galleryFallback(this,'Panel discussion')">
+        <span class="gallery-cap">Panel discussion</span>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="assets/gallery-3.jpg" alt="Poster presentation session" onerror="galleryFallback(this,'Poster session')">
+        <span class="gallery-cap">Poster presentation</span>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <img src="assets/gallery-4.jpg" alt="Award ceremony" onerror="galleryFallback(this,'Award ceremony')">
+        <span class="gallery-cap">Award ceremony</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:26px;">
+      <a href="gallery.html" class="btn btn-outline">View full gallery <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
 <section class="section-alt section" id="contact">
   <div class="wrap">
     <span class="eyebrow"><i class="fa-solid fa-envelope-open-text"></i>&nbsp; Contact</span>
     <h2>Get in touch</h2>
     <div class="helix-rule"></div>
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <div class="info-card reveal">
         <i class="fa-solid fa-envelope"></i>
         <h3>Email</h3>
@@ -226,21 +409,12 @@
         <h3>Address</h3>
         <p>PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College, Chennai – 600 034</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Associated organizations -->
-<section class="section-light section-tight">
-  <div class="wrap" style="text-align:center;">
-    <span class="eyebrow">Organised with</span>
-    <h2 style="font-size:1.4rem;">Our Associates &amp; Affiliations</h2>
-    <div class="helix-rule" style="margin-left:auto;margin-right:auto;"></div>
-    <div class="assoc-row">
-      <div class="logo-slot assoc-logo"><img src="assets/loyola-crest.png" alt="Loyola College" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
-      <div class="logo-slot assoc-logo"><img src="assets/cimser-logo.png" alt="CIMSER" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
-      <div class="logo-slot assoc-logo"><img src="assets/iaes-logo.png" alt="IAES" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
-      <div class="logo-slot assoc-logo"><img src="assets/ahcf-logo.png" alt="AHCF" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))"></div>
+      <div class="reveal reveal-delay-3">
+        <a href="https://chat.whatsapp.com/YOUR-INVITE-CODE-HERE" target="_blank" rel="noopener" class="contact-whatsapp" id="whatsapp-group-link">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div><b>WhatsApp group</b><span>Join for live conference updates</span></div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -257,6 +431,7 @@
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://chat.whatsapp.com/YOUR-INVITE-CODE-HERE" target="_blank" rel="noopener" aria-label="WhatsApp group"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
       <div>
@@ -265,7 +440,9 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="committee.html">Organizing Committee</a></li>
           <li><a href="about-conference.html">About the Conference</a></li>
+          <li><a href="tracks.html">Conference Tracks</a></li>
           <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </div>
       <div>
@@ -282,6 +459,7 @@
         <ul>
           <li><a href="mailto:vrmic26@gmail.com"><i class="fa-regular fa-envelope"></i> vrmic26@gmail.com</a></li>
           <li><a href="#"><i class="fa-solid fa-location-dot"></i> Loyola College, Chennai – 34</a></li>
+          <li><a href="https://chat.whatsapp.com/YOUR-INVITE-CODE-HERE" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Join WhatsApp group</a></li>
         </ul>
       </div>
     </div>
@@ -291,6 +469,11 @@
     </div>
   </div>
 </footer>
+
+<!-- Floating WhatsApp button (placeholder link — update with real invite link) -->
+<a href="https://chat.whatsapp.com/YOUR-INVITE-CODE-HERE" target="_blank" rel="noopener" class="whatsapp-float" id="whatsapp-float-btn" title="Join our WhatsApp group" aria-label="Join our WhatsApp group">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 
 <!-- Welcome modal (shows once per day per device) -->
 <div class="welcome-overlay" id="welcome-overlay">
@@ -307,6 +490,19 @@
 </div>
 
 <script>
+// ---- Gallery image fallback (shows a placeholder tile if the photo is missing) ----
+function galleryFallback(imgEl, label){
+  const wrap = imgEl.parentElement;
+  wrap.classList.add('empty');
+  imgEl.remove();
+  const icon = document.createElement('i');
+  icon.className = 'fa-regular fa-image';
+  const span = document.createElement('span');
+  span.textContent = label;
+  wrap.prepend(span);
+  wrap.prepend(icon);
+}
+
 // ---- Live IST clock with date ----
 function updateClock(){
   const now = new Date();
@@ -330,6 +526,33 @@ function updateClock(){
 }
 updateClock();
 setInterval(updateClock, 1000);
+
+// ---- Countdown to conference start (26 Nov 2026, 00:00 IST) ----
+function updateCountdown(){
+  const target = new Date('2026-11-26T00:00:00+05:30').getTime();
+  const now = new Date().getTime();
+  const diff = target - now;
+  const el = {
+    d: document.getElementById('cd-days'),
+    h: document.getElementById('cd-hours'),
+    m: document.getElementById('cd-mins'),
+    s: document.getElementById('cd-secs')
+  };
+  if (diff <= 0){
+    el.d.textContent = '0'; el.h.textContent = '0'; el.m.textContent = '0'; el.s.textContent = '0';
+    return;
+  }
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  el.d.textContent = days;
+  el.h.textContent = String(hours).padStart(2,'0');
+  el.m.textContent = String(mins).padStart(2,'0');
+  el.s.textContent = String(secs).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 // ---- Nav: mobile toggle (slide-in) + icon swap + body scroll lock ----
 const navToggle = document.getElementById('nav-toggle');
