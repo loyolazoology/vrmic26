@@ -3,157 +3,357 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IAES Award | VRMIC 2026 | CIMSER 2026</title>
-<link rel="stylesheet" href="css/style.css">
+<title>IAES Award | 4th International Conference — CIMSER, Loyola College</title>
+<meta name="description" content="Medals, certificates and honorary fellowships of the Indian Academy of Environmental Science (IAES). Eligibility, award categories, and downloadable application forms.">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
+<!-- Live universal time bar -->
+<div class="utcbar">
+  <div class="utcbar-inner">
+    <i class="fa-regular fa-clock"></i>
+    <span id="utc-clock"><b>Loading time…</b></span>
+  </div>
+</div>
+
+<!-- Logo strip -->
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="logo-slots">
-      <div class="logo-slot" title="Loyola College crest"><i class="fa-regular fa-image"></i></div>
-      <div class="logo-slot" title="CIMSER logo"><i class="fa-regular fa-image"></i></div>
-      <div class="logo-slot" title="Indian Academy of Environmental Science logo"><i class="fa-regular fa-image"></i></div>
-      <div class="logo-slot" title="Absolute Human Care Foundation logo"><i class="fa-regular fa-image"></i></div>
-      <div class="logo-slot" title="College anniversary emblem"><i class="fa-regular fa-image"></i></div>
+    <div class="logo-slots" id="logo-slots">
+      <div class="logo-slot" title="Loyola College">
+        <img src="assets/loyola-crest.png" alt="Loyola College" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="CIMSER logo">
+        <img src="assets/cimser-logo.png" alt="CIMSER logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Indian Academy of Environmental Science logo">
+        <img src="assets/iaes-logo.png" alt="IAES logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Absolute Human Care Foundation logo">
+        <img src="assets/ahcf-logo.png" alt="AHCF logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Loyola College Centenary Logo">
+        <img src="assets/centenary-logo.png" alt="Centenary Logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
     </div>
     <span class="topbar-text">Loyola College (Autonomous), Chennai · Est. 1925</span>
   </div>
 </div>
 
+<!-- Nav -->
 <nav class="nav">
   <div class="nav-inner">
-    <div class="nav-brand"><strong>CIMSER 2026</strong><span>LOYOLA COLLEGE, CHENNAI</span></div>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-    <ul class="nav-links">
+    <div class="nav-brand">
+      <strong>CIMSER, Dept. of AZ-BT</strong>
+      <span>LOYOLA COLLEGE, CHENNAI</span>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="committee.html">Committee</a></li>
-      <li><a href="registration.html" class="active">Registration</a></li>
-      <li><a href="submission.html">Paper &amp; Poster Submission</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-toggle">About <i class="fa-solid fa-chevron-down caret"></i></a>
+        <ul class="dropdown">
+          <li><a href="about-college.html">About the College</a></li>
+          <li><a href="about-department.html">About the Department</a></li>
+          <li><a href="about-cimser.html">About CIMSER</a></li>
+          <li><a href="about-iaes.html">About IAES</a></li>
+          <li><a href="about-conference.html">About the Conference</a></li>
+        </ul>
+      </li>
+      <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
+      <li><a href="tracks.html">Tracks</a></li>
+      <li><a href="iaes-award.html" class="active">IAES Award</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-toggle">Register / Login <i class="fa-solid fa-chevron-down caret"></i></a>
+        <ul class="dropdown">
+          <li><a href="registration.html"><i class="fa-solid fa-user-plus"></i>&nbsp; Participant Registration</a></li>
+          <li><a href="submission.html"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Paper &amp; Poster Submission Login</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="section-tight" style="padding-top:48px;">
+<!-- ============ PAGE HEADER ============ -->
+<header class="page-header">
   <div class="wrap">
-    <span class="eyebrow"><i class="fa-solid fa-user-plus"></i>&nbsp; Delegate registration</span>
-    <h1 style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Register for CIMSER 2026</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="current">IAES Award</span></div>
+    <span class="eyebrow"><i class="fa-solid fa-award"></i>&nbsp; Indian Academy of Environmental Science</span>
+    <h1 style="font-size:clamp(1.8rem,3.4vw,2.8rem);">Medals, Certificates &amp; Honorary Fellowships</h1>
     <div class="helix-rule"></div>
-    <p>Pay the registration fee via bank transfer / UPI, then fill the form below with your transaction number and payment screenshot. Your registration ID and password will be emailed once submitted, and confirmed after payment verification.</p>
+    <p style="max-width:640px;font-size:15.5px;">The IAES recognises active researchers, academicians and environmental activists at every career stage — encouraging young scientists on one hand, and honouring senior researchers in eco-biological and environmental disciplines on the other.</p>
   </div>
 </header>
 
-<section class="section-tight">
-  <div class="wrap grid" style="grid-template-columns:1.1fr .9fr;gap:28px;">
-    <div class="card">
-      <i class="fa-solid fa-table-list" style="color:var(--gold-light);"></i>
-      <h3 style="margin-top:14px;">Registration fees by category</h3>
-      <table id="fee-table">
-        <thead><tr><th>Category</th><th>Fee</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <div class="card">
-      <i class="fa-solid fa-building-columns" style="color:var(--gold-light);"></i>
-      <h3 style="margin-top:14px;">Payment details</h3>
-      <p style="font-size:14px;">Transfer the applicable fee to:</p>
-      <ul class="mlist" id="bank-details" style="font-size:14px;"></ul>
-      <p class="hint">After payment, note your transaction/reference number and keep a screenshot or PDF receipt ready to upload below.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section-tight">
+<!-- ============ DOWNLOAD FORMS ============ -->
+<section class="section-light section-tight">
   <div class="wrap">
-    <div class="card" style="max-width:760px;margin:0 auto;">
-      <div id="alert-box"></div>
-      <form id="reg-form">
-        <div class="field-row">
-          <div class="field"><label>Full name</label><input required name="name"></div>
-          <div class="field"><label>Email</label><input required type="email" name="email"></div>
+    <span class="eyebrow"><i class="fa-solid fa-file-arrow-down"></i>&nbsp; Application form</span>
+    <h2 style="font-size:1.5rem;">Download the IAES Award application</h2>
+    <p style="max-width:600px;">Download the pro-forma in the format that suits you, fill it in along with your full biodata, and submit it as described below.</p>
+    <div class="download-row">
+      <a href="/downloads/iaes-award-form.pdf" class="download-card pdf" download>
+        <div class="dl-icon"><i class="fa-solid fa-file-pdf"></i></div>
+        <div>
+          <b>Award form — PDF</b>
+          <small>iaes-award-form.pdf</small>
         </div>
-        <div class="field-row">
-          <div class="field"><label>Phone / WhatsApp</label><input required name="phone"></div>
-          <div class="field"><label>Country</label><input required name="country" value="India"></div>
+        <i class="fa-solid fa-download dl-arrow"></i>
+      </a>
+      <a href="/downloads/iaes-award-form.docx" class="download-card docx" download>
+        <div class="dl-icon"><i class="fa-solid fa-file-word"></i></div>
+        <div>
+          <b>Award form — Word (.docx)</b>
+          <small>iaes-award-form.docx</small>
         </div>
-        <div class="field"><label>Institution / Organisation</label><input required name="institution"></div>
-        <div class="field">
-          <label>Category</label>
-          <select required name="category" id="category-select"></select>
-        </div>
-        <div class="field-row">
-          <div class="field"><label>Transaction / reference number</label><input required name="txnId"></div>
-          <div class="field"><label>Payment receipt / screenshot</label><input required type="file" name="receipt" accept="image/*,application/pdf"></div>
-        </div>
-        <button class="btn btn-gold btn-block" type="submit" id="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit registration</button>
-      </form>
+        <i class="fa-solid fa-download dl-arrow"></i>
+      </a>
+    </div>
+    <p class="hint" style="margin-top:14px;">Having trouble downloading? Write to the secretariat at <a href="mailto:cimserloyola@gmail.com">cimserloyola@gmail.com</a>.</p>
+  </div>
+</section>
+
+<!-- ============ ELIGIBILITY ============ -->
+<section class="section-alt section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-circle-check"></i>&nbsp; Eligibility</span>
+    <h2>Medals and Awards of the Academy</h2>
+    <div class="helix-rule"></div>
+    <p style="max-width:760px;">The IAES has introduced a number of medals, certificates and honorary fellowships for active researchers, academicians and environmental activists, specially related to myriad aspects of eco-biological science. These recognitions have carved a niche for emerging, active and established scientists at different age groups — encouraging young researchers on one hand, and giving due recognition to senior researchers in the related disciplines on the other.</p>
+  </div>
+</section>
+
+<!-- ============ AWARD CATEGORIES ============ -->
+<section class="section-light section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-medal"></i>&nbsp; Categories</span>
+    <h2>The awards</h2>
+    <div class="helix-rule"></div>
+    <div class="card" style="padding:8px 26px;">
+      <ol class="award-list">
+        <li>
+          <div>
+            <span class="award-name">Fellow of Indian Academy of Environmental Science (FIAES)</span>
+            <span class="award-crit">Certificate of Fellowship.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">IAES Gold Medal — Senior Category</span>
+            <span class="award-crit">More than twenty years of teaching / research experience.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Academy's Gold Medal — Emerging / Young Scientist Category</span>
+            <span class="award-crit">For early-career researchers making a notable mark in the field.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Silver Jubilee Gold Medal</span>
+            <span class="award-crit">More than ten years of teaching / research experience.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Swami Maheshanand Girijimaharaj Gold Medal</span>
+            <span class="award-crit">Above ten years of experience.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Dr. K.K. Tyagi Memorial Gold Medal</span>
+            <span class="award-crit">Above ten years of experience.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Dr. S. A. Salgare Gold Medal</span>
+            <span class="award-crit">Above ten years of experience.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Prof. Shasikala Belsare Gold Medal</span>
+            <span class="award-crit">Above ten years of experience.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Prof. B. N. Pandey Gold Medal</span>
+            <span class="award-crit">Above ten years of experience.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="award-name">Prof. P.C. Joshi Gold Medal</span>
+            <span class="award-crit">For research on myriad aspects of Forest Ecology and Entomology.</span>
+          </div>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
+<!-- ============ HOW TO APPLY ============ -->
+<section class="section-alt section">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-paper-plane"></i>&nbsp; How to apply</span>
+    <h2>Where to obtain &amp; submit the application</h2>
+    <div class="helix-rule"></div>
+    <p style="max-width:700px;">The application pro-forma and other details for all these awards can be obtained from, and submitted to, either of the following:</p>
+    <div class="grid grid-2" style="margin-top:8px;">
+      <div class="apply-card reveal">
+        <span class="role">Secretary, IAES</span>
+        <h3>Dr. Pashupati Nath</h3>
+        <a href="mailto:nathpashupati53@gmail.com"><i class="fa-solid fa-envelope"></i> nathpashupati53@gmail.com</a>
+      </div>
+      <div class="apply-card reveal reveal-delay-1">
+        <span class="role">President, IAES, Haridwar</span>
+        <h3>Prof. B. D. Joshi</h3>
+        <a href="mailto:joshi_bd@rediffmail.com"><i class="fa-solid fa-envelope"></i> joshi_bd@rediffmail.com</a>
+      </div>
+    </div>
+
+    <div class="alert alert-success" style="margin-top:28px;display:flex;gap:12px;align-items:flex-start;">
+      <i class="fa-solid fa-circle-info" style="margin-top:2px;"></i>
+      <div>
+        <b style="color:inherit;">Note</b>
+        <p style="margin:4px 0 0;color:inherit;">The application for the award must be submitted along with the full biodata of the applicant, online. The duly filled award form and demand draft must then be mailed under registered post, or sent via e-mail, to the Secretary or President above.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Committee CTA strip -->
+<section class="section-tight" style="background:linear-gradient(90deg,var(--navy-900),var(--navy-850));border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);">
+  <div class="wrap committee-cta">
+    <div>
+      <h3 style="margin-bottom:4px;"><i class="fa-solid fa-circle-question" style="color:var(--gold-light);"></i>&nbsp; Have questions about the award?</h3>
+      <p style="margin:0;font-size:14px;">Reach the conference secretariat or explore more about IAES.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="about-iaes.html" class="btn btn-outline">About IAES <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="contact.html" class="btn btn-gold">Contact us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-  <div class="wrap"><p><i class="fa-regular fa-envelope"></i> Questions about registration? Email <a href="mailto:vrmic26@gmail.com">vrmic26@gmail.com</a></p></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>CIMSER</h4>
+        <p style="font-size:13px;">4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment. 26–28 November 2026, Loyola College (Autonomous), Chennai.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://chat.whatsapp.com/YOUR-INVITE-CODE-HERE" target="_blank" rel="noopener" aria-label="WhatsApp group"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="committee.html">Organizing Committee</a></li>
+          <li><a href="about-conference.html">About the Conference</a></li>
+          <li><a href="tracks.html">Conference Tracks</a></li>
+          <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
+          <li><a href="iaes-award.html">IAES Award</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Register / Login</h4>
+        <ul>
+          <li><a href="registration.html">Participant Registration</a></li>
+          <li><a href="submission.html">Paper &amp; Poster Submission</a></li>
+          <li><a href="about-college.html">About the College</a></li>
+          <li><a href="about-department.html">About the Department</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:vrmic26@gmail.com"><i class="fa-regular fa-envelope"></i> vrmic26@gmail.com</a></li>
+          <li><a href="#"><i class="fa-solid fa-location-dot"></i> Loyola College, Chennai – 34</a></li>
+          <li><a href="https://chat.whatsapp.com/YOUR-INVITE-CODE-HERE" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Join WhatsApp group</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai.</span>
+      <span><em>"Let Your Light Shine"</em></span>
+    </div>
+  </div>
 </footer>
 
-<script src="js/config.js"></script>
-<script src="js/api.js"></script>
+<!-- Floating WhatsApp button (placeholder link — update with real invite link) -->
+<a href="https://chat.whatsapp.com/YOUR-INVITE-CODE-HERE" target="_blank" rel="noopener" class="whatsapp-float" title="Join our WhatsApp group" aria-label="Join our WhatsApp group">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
 <script>
-const feeBody = document.querySelector('#fee-table tbody');
-const catSelect = document.getElementById('category-select');
-FEE_TABLE.forEach(f => {
-  feeBody.innerHTML += `<tr><td>${f.label}</td><td>${f.currency==='USD'?'$':'₹'}${f.fee}</td></tr>`;
-  catSelect.innerHTML += `<option value="${f.code}" data-fee="${f.fee}" data-currency="${f.currency||'INR'}">${f.label} — ${f.currency==='USD'?'$':'₹'}${f.fee}</option>`;
+// ---- Live IST clock with date ----
+function updateClock(){
+  const now = new Date();
+  const opts = { weekday:'short', year:'numeric', month:'short', day:'2-digit', timeZone:'Asia/Kolkata', timeZoneName:'short' };
+  const dateTimeStr = now.toLocaleDateString('en-GB', opts);
+  const timeStr = now.toLocaleTimeString('en-GB', { timeZone:'Asia/Kolkata', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false });
+  document.getElementById('utc-clock').innerHTML = `<b>${dateTimeStr} &nbsp;·&nbsp; ${timeStr}</b>`;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// ---- Nav: mobile toggle + dropdowns (same behaviour as home page) ----
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+const navToggleIcon = navToggle.querySelector('i');
+
+function closeAllDropdowns(){ document.querySelectorAll('.has-dropdown.open').forEach(li => li.classList.remove('open')); }
+function closeMobileMenu(){
+  navLinks.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  navToggleIcon.className = 'fa-solid fa-bars';
+  closeAllDropdowns();
+}
+function openMobileMenu(){
+  navLinks.classList.add('open');
+  document.body.classList.add('no-scroll');
+  navToggleIcon.className = 'fa-solid fa-xmark';
+}
+navToggle.addEventListener('click', () => { navLinks.classList.contains('open') ? closeMobileMenu() : openMobileMenu(); });
+
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const parentLi = toggle.closest('.has-dropdown');
+    const alreadyOpen = parentLi.classList.contains('open');
+    closeAllDropdowns();
+    if (!alreadyOpen) parentLi.classList.add('open');
+  });
 });
 
-document.getElementById('bank-details').innerHTML = `
-  <li><b>Account name:</b> ${BANK_DETAILS.accountName}</li>
-  <li><b>Account number:</b> ${BANK_DETAILS.accountNumber}</li>
-  <li><b>IFSC:</b> ${BANK_DETAILS.ifsc}</li>
-  <li><b>Bank / branch:</b> ${BANK_DETAILS.bankBranch}</li>
-  <li><b>UPI ID:</b> ${BANK_DETAILS.upiId}</li>
-`;
-
-const form = document.getElementById('reg-form');
-const alertBox = document.getElementById('alert-box');
-const submitBtn = document.getElementById('submit-btn');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  alertBox.innerHTML = '';
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
-
-  const fd = new FormData(form);
-  const receiptFile = fd.get('receipt');
-  const receiptBase64 = await fileToBase64(receiptFile);
-  const opt = catSelect.selectedOptions[0];
-
-  const payload = {
-    action: 'register',
-    name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
-    country: fd.get('country'), institution: fd.get('institution'),
-    category: opt.textContent, fee: opt.dataset.fee, currency: opt.dataset.currency,
-    txnId: fd.get('txnId'),
-    receiptBase64, receiptFilename: receiptFile ? receiptFile.name : '',
-    receiptMime: receiptFile ? receiptFile.type : '',
-  };
-
-  try {
-    const result = await callBackend(payload);
-    if (result.success) {
-      alertBox.innerHTML = `<div class="alert alert-success">Registration submitted. Your Registration ID is <b>${result.regId}</b>. Check your email for your submission-portal login (also check spam). Payment will be verified shortly.</div>`;
-      form.reset();
-    } else {
-      alertBox.innerHTML = `<div class="alert alert-error">${result.error || 'Something went wrong. Please try again.'}</div>`;
-    }
-  } catch (err) {
-    alertBox.innerHTML = `<div class="alert alert-error">${err.message}</div>`;
-  }
-  submitBtn.disabled = false;
-  submitBtn.textContent = 'Submit registration';
+navLinks.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
+  link.addEventListener('click', () => { if (window.innerWidth <= 800) closeMobileMenu(); });
 });
+window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMobileMenu(); });
+
+// ---- Scroll reveal animations ----
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
 </script>
 
 </body>
