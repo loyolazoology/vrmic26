@@ -541,5 +541,5 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
   border:1px solid var(--navy-border);border-radius:var(--radius);padding:24px;
 }
 .apply-card .role{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-light);}
-.apply-card h3{margin:8px 0 4px;}
+.apply-card h3{margin:8px 0 4px;color:#ffffff}
 .apply-card a{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:13.5px;}
