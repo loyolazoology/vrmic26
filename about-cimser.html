@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About CIMSER — Centre For Insect Molecular Studies and Environmental Research | Loyola College</title>
+<meta name="description" content="About CIMSER — Centre For Insect Molecular Studies and Environmental Research, PG & Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png" />
+<style>
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983; --gold-dim:#9a6b28;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --paper:#faf8f3; --paper-alt:#f0eee7; --paper-card:#ffffff; --paper-border:rgba(20,30,60,.10);
+  --ink-1:#151c33; --ink-2:#4b5573; --ink-3:#7c869f;
+  --radius:10px; --maxw:1180px;
+  --shadow-soft:0 8px 34px rgba(10,18,48,.08);
+  --shadow-lift:0 20px 54px rgba(10,18,48,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink-2);line-height:1.6;-webkit-font-smoothing:antialiased;}
+body.no-scroll{overflow:hidden;}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;color:var(--ink-1);letter-spacing:.2px;}
+a{color:var(--gold-dim);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+@media (max-width:600px){.wrap{padding:0 18px;}}
+em{font-style:normal;}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,151,79,.35);background:rgba(201,151,79,.08);padding:6px 14px;border-radius:999px;margin-bottom:16px;}
+.dark .eyebrow{color:var(--gold-light);border-color:var(--navy-border);background:rgba(205,163,85,.08);}
+.section-title{font-size:clamp(26px,4vw,44px);font-weight:600;line-height:1.14;margin-bottom:16px;}
+.section-title em{color:var(--gold-dim);}
+.dark .section-title{color:var(--text-1);}
+.dark .section-title em{color:var(--gold-light);}
+.section-desc{font-size:clamp(14.5px,1.6vw,16.5px);line-height:1.8;color:var(--ink-2);}
+.dark .section-desc{color:var(--text-2);}
+.center{text-align:center;}
+.helix-rule{height:2px;width:56px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px;margin:0 0 20px;}
+.center .helix-rule{margin-left:auto;margin-right:auto;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-left.visible{opacity:1;transform:none;}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-right.visible{opacity:1;transform:none;}
+
+.utcbar{background:#070c22;border-bottom:1px solid var(--navy-border);}
+.utcbar-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-3);letter-spacing:.4px;text-align:center;flex-wrap:wrap;}
+.utcbar i{color:var(--gold-light);font-size:11px;}
+.utcbar b{color:var(--text-2);font-weight:500;}
+@media (min-width:701px){.utcbar-inner{justify-content:flex-end;}}
+
+.topbar{background:var(--navy-950);border-bottom:1px solid var(--navy-border);}
+.topbar-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+@media (min-width:701px){.topbar-inner{justify-content:space-between;}}
+.logo-slots{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+.logo-slot{height:44px;min-width:44px;width:auto;border-radius:8px;border:1px solid var(--paper-border);display:flex;align-items:center;justify-content:center;color:var(--ink-3);font-size:14px;background:#fff;padding:5px 8px;flex-shrink:0;transition:transform .2s ease,box-shadow .2s ease;}
+.logo-slot:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.18);}
+.logo-slot img{width:auto;height:100%;max-width:80px;object-fit:contain;display:block;}
+.logo-slot.empty{border-style:dashed;background:rgba(255,255,255,.03);color:var(--text-3);}
+.topbar-text{font-size:12px;color:var(--text-3);font-family:'IBM Plex Mono',monospace;letter-spacing:.3px;text-align:center;}
+@media (max-width:700px){.topbar-text{display:none;}}
+
+.nav{position:sticky;top:0;z-index:80;background:rgba(6,11,28,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--navy-border);}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.nav-brand{display:flex;flex-direction:column;line-height:1.2;min-width:0;}
+.nav-brand strong{font-family:'Fraunces',serif;font-size:15.5px;color:var(--text-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw;}
+.nav-brand span{font-size:10.5px;color:var(--gold-light);font-family:'IBM Plex Mono',monospace;letter-spacing:1px;}
+.nav-links{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap;align-items:center;}
+.nav-links > li{position:relative;}
+.nav-links a{color:var(--text-2);font-size:13.5px;font-weight:500;padding:10px 12px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);text-decoration:none;background:rgba(232,201,131,.06);}
+.dropdown-toggle{cursor:pointer;}
+.nav-toggle{display:none;background:none;border:1px solid var(--navy-border);color:var(--text-1);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:16px;}
+.has-dropdown > a .caret{font-size:10px;transition:transform .2s ease;}
+.has-dropdown.open > a .caret{transform:rotate(180deg);}
+.dropdown{list-style:none;margin:0;padding:8px;position:absolute;top:calc(100% + 6px);left:0;min-width:250px;background:var(--navy-850);border:1px solid var(--navy-border);border-radius:10px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease;z-index:90;}
+.dropdown a{display:block;padding:10px 12px;border-radius:6px;font-size:13.5px;color:var(--text-2);white-space:normal;}
+.dropdown a:hover,.dropdown a.active{background:rgba(232,201,131,.08);color:var(--gold-light);}
+@media (min-width:801px){.has-dropdown:hover .dropdown,.has-dropdown.open .dropdown{opacity:1;visibility:visible;transform:translateY(0);}}
+@media (max-width:800px){
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:min(320px,86vw);background:var(--navy-950);border-left:1px solid var(--navy-border);flex-direction:column;padding:84px 22px 24px;gap:2px;display:flex;overflow-y:auto;align-items:stretch;transform:translateX(100%);visibility:hidden;transition:transform .3s ease,visibility .3s ease;z-index:75;}
+  .nav-links.open{transform:translateX(0);visibility:visible;}
+  .nav-toggle{display:block;position:relative;z-index:95;}
+  .dropdown{position:static;opacity:1;visibility:visible;transform:none;display:none;background:rgba(255,255,255,.04);margin:2px 0 8px;box-shadow:none;border-radius:8px;}
+  .has-dropdown.open .dropdown{display:block;}
+  .nav-links > li{width:100%;}
+  .nav-links > li > a{width:100%;justify-content:space-between;}
+}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:transform .15s ease,box-shadow .15s ease;}
+.btn:hover{text-decoration:none;transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.18);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;}
+.btn-outline{background:transparent;border-color:var(--navy-border);color:var(--text-1);}
+.btn-outline:hover{border-color:var(--gold);}
+
+.hero-banner{background:radial-gradient(1100px 640px at 85% -10%,#152750 0%,transparent 55%),radial-gradient(900px 480px at -10% 10%,#0f1d42 0%,transparent 50%),var(--navy-950);padding:clamp(46px,7vw,88px) 0 clamp(40px,6vw,70px);text-align:center;position:relative;overflow:hidden;}
+.hero-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='104' viewBox='0 0 120 104'%3E%3Cg fill='none' stroke='%23cda355' stroke-opacity='0.06' stroke-width='1'%3E%3Cpath d='M60 0 90 17.3 90 51.9 60 69.2 30 51.9 30 17.3Z'/%3E%3C/g%3E%3C/svg%3E") 0 0/120px 104px;pointer-events:none;}
+.bio-float{position:absolute;font-size:22px;opacity:.14;animation:floatIcon 6s ease-in-out infinite;pointer-events:none;color:var(--gold-light);}
+.bio-float:nth-child(1){top:10%;left:2%;animation-delay:0s;}
+.bio-float:nth-child(2){top:60%;left:1%;animation-delay:1s;color:var(--teal-light);}
+.bio-float:nth-child(3){top:20%;right:2%;animation-delay:2s;}
+.bio-float:nth-child(4){top:70%;right:3%;animation-delay:3s;color:var(--teal-light);}
+.bio-float:nth-child(5){top:40%;left:3%;animation-delay:1.5s;}
+@keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
+.hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 24px;}
+.dept-pill{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--navy-850),var(--navy-800));border:1px solid var(--navy-border);border-radius:100px;padding:9px 22px;margin-bottom:26px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+.dept-pill span{color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;}
+.dpill-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 1.8s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.5);}}
+.hero-logo{width:clamp(84px,11vw,120px);height:clamp(84px,11vw,120px);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:18px;padding:12px;box-shadow:0 14px 34px rgba(0,0,0,.3);}
+.hero-logo img{width:100%;height:100%;object-fit:contain;}
+.dept-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,151,79,.1);border:1px solid rgba(201,151,79,.3);border-radius:10px;padding:8px 18px;margin-bottom:16px;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);font-family:'IBM Plex Mono',monospace;}
+.hero-h1{font-size:clamp(28px,5vw,54px);font-weight:600;color:var(--text-1);line-height:1.08;letter-spacing:-.3px;margin-bottom:10px;}
+.hero-h1 em{color:var(--gold-light);}
+.hero-h2sub{font-family:'Fraunces',serif;font-size:clamp(15px,2.2vw,22px);font-weight:500;color:var(--teal-light);margin-bottom:8px;font-style:italic;}
+.hero-addr{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(14px,1.8vw,17px);color:var(--text-3);margin-bottom:24px;}
+.motto-box{display:inline-block;border:1.5px solid rgba(201,151,79,.4);border-radius:12px;padding:14px 36px;margin-bottom:36px;background:rgba(201,151,79,.06);}
+.motto-latin{font-family:'Fraunces',serif;font-size:clamp(15px,2vw,19px);font-style:italic;color:var(--gold-light);letter-spacing:1.2px;}
+.hero-stats{display:flex;justify-content:center;flex-wrap:wrap;border:1px solid var(--navy-border);border-radius:14px;overflow:hidden;background:var(--navy-900);}
+.hero-stat{padding:20px 24px;text-align:center;flex:1 1 110px;border-right:1px solid var(--navy-border);transition:background .3s;}
+.hero-stat:last-child{border-right:none;}
+.hero-stat:hover{background:rgba(201,151,79,.06);}
+.hero-stat .num{font-family:'Fraunces',serif;font-size:clamp(22px,3.2vw,32px);font-weight:600;color:var(--gold-light);line-height:1;margin-bottom:5px;}
+.hero-stat .num em{color:var(--gold);font-style:normal;font-size:60%;}
+.hero-stat .lbl{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-3);}
+@media (max-width:480px){.hero-stats{flex-direction:column;}.hero-stat{border-right:none;border-bottom:1px solid var(--navy-border);}.hero-stat:last-child{border-bottom:none;}}
+
+.identity-section{padding:clamp(52px,7vw,92px) 0;background:var(--paper);}
+.identity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:44px;}
+.id-card{background:var(--paper-card);border-radius:16px;padding:30px 24px;border:1px solid var(--paper-border);box-shadow:0 2px 10px rgba(20,30,60,.05);transition:transform .3s,box-shadow .3s,border-color .3s;}
+.id-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift);border-color:rgba(201,151,79,.3);}
+.id-icon{width:52px;height:52px;border-radius:13px;background:linear-gradient(135deg,var(--navy-900),var(--navy-800));display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:19px;color:var(--gold-light);box-shadow:0 8px 20px rgba(10,18,48,.2);}
+.id-card h3{font-size:18px;margin-bottom:9px;}
+.id-card p{font-size:13px;line-height:1.85;color:var(--ink-3);}
+
+.history-section{padding:clamp(52px,7vw,92px) 0;background:linear-gradient(150deg,var(--navy-950) 0%,var(--navy-900) 60%,var(--navy-850) 100%);position:relative;overflow:hidden;}
+.hist-watermark{position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-family:'Fraunces',serif;font-size:clamp(140px,20vw,280px);font-weight:600;color:rgba(201,151,79,.045);line-height:1;pointer-events:none;user-select:none;}
+.history-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,76px);align-items:center;}
+.hist-image-wrap{margin-top:22px;background:#fff;padding:10px;border-radius:16px;border:1px solid rgba(201,151,79,.3);box-shadow:0 12px 28px rgba(0,0,0,.28);position:relative;overflow:hidden;display:inline-block;max-width:100%;}
+.hist-image-wrap::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold);}
+.hist-image-wrap img{display:block;width:100%;height:auto;border-radius:8px;transition:transform .5s ease;}
+.hist-image-wrap:hover img{transform:scale(1.03);}
+.timeline{position:relative;padding-left:48px;}
+.timeline::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,151,79,.1));}
+.tl-item{position:relative;margin-bottom:26px;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-dot{position:absolute;left:-48px;top:2px;width:36px;height:36px;border-radius:50%;background:var(--navy-900);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:700;color:var(--gold-light);z-index:1;}
+.tl-year{font-size:10px;font-weight:700;color:var(--gold-light);letter-spacing:1.6px;margin-bottom:4px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;}
+.tl-text{font-size:13px;color:var(--text-2);line-height:1.65;}
+@media (max-width:1024px){.history-inner{grid-template-columns:1fr;gap:40px;}}
+
+.founders-section{padding:clamp(52px,7vw,92px) 0;background:var(--paper-alt);}
+.founders-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:44px;}
+.founder-card{background:var(--paper-card);border-radius:16px;padding:26px 22px;border:1px solid var(--paper-border);transition:all .3s;overflow:hidden;position:relative;}
+.founder-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--navy-900),var(--gold),var(--teal));}
+.founder-card:hover{border-color:rgba(201,151,79,.3);transform:translateY(-6px);box-shadow:var(--shadow-lift);}
+.founder-icon{font-size:25px;color:var(--gold-dim);margin-bottom:13px;}
+.founder-card h4{font-size:15.5px;margin-bottom:8px;}
+.founder-card p{font-size:12.6px;color:var(--ink-3);line-height:1.78;}
+.founder-role{display:inline-flex;align-items:center;gap:5px;margin-top:12px;padding:4px 11px;border-radius:100px;font-size:9.3px;font-weight:700;letter-spacing:.4px;background:rgba(201,151,79,.1);color:var(--gold-dim);}
+
+.director-section{padding:clamp(52px,7vw,92px) 0;background:var(--paper);}
+.director-card{max-width:820px;margin:44px auto 0;background:var(--paper-card);border-radius:18px;overflow:hidden;border:1px solid var(--paper-border);box-shadow:0 2px 10px rgba(20,30,60,.05);display:grid;grid-template-columns:260px 1fr;}
+@media (max-width:640px){.director-card{grid-template-columns:1fr;}}
+.dc-top{background:linear-gradient(135deg,var(--navy-950),var(--navy-850));padding:34px 24px;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.dc-avatar{width:104px;height:104px;border-radius:50%;margin:0 auto 15px;border:3px solid var(--gold);overflow:hidden;background:rgba(201,151,79,.15);display:flex;align-items:center;justify-content:center;}
+.dc-avatar img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.dc-initials{font-family:'Fraunces',serif;font-size:32px;font-weight:600;color:var(--gold-light);}
+.dc-name{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--text-1);margin-bottom:5px;line-height:1.25;}
+.dc-desig{font-size:10px;color:var(--gold-light);font-weight:700;letter-spacing:1.3px;text-transform:uppercase;}
+.dc-body{padding:30px 28px;}
+.dc-body p{font-size:13.5px;line-height:1.85;color:var(--ink-3);margin-bottom:12px;}
+.dc-stats{display:flex;gap:14px;margin-top:16px;flex-wrap:wrap;}
+.dc-stat{background:var(--paper-alt);border-radius:10px;padding:12px 18px;text-align:center;flex:1 1 100px;}
+.dc-stat .n{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--gold-dim);}
+.dc-stat .l{font-size:9.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-3);margin-top:3px;}
+
+.ach-section{padding:clamp(52px,7vw,92px) 0;background:linear-gradient(135deg,var(--navy-950) 0%,var(--navy-900) 55%,var(--navy-850) 100%);}
+.ach-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.accolades-list{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;}
+.acc-item{background:rgba(255,255,255,.05);border-radius:13px;padding:20px 22px;border-left:4px solid var(--gold);display:flex;align-items:flex-start;gap:14px;transition:all .3s;border-top:1px solid var(--navy-border);border-right:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);}
+.acc-item:hover{transform:translateX(4px);background:rgba(201,151,79,.08);}
+.acc-icon{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--navy-900),var(--navy-800));display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gold-light);flex-shrink:0;}
+.acc-text h4{font-size:13.5px;font-weight:600;color:var(--text-1);margin-bottom:5px;font-family:'Fraunces',serif;}
+.acc-text p{font-size:11.8px;color:var(--text-3);line-height:1.68;}
+
+.focus-section{padding:clamp(52px,7vw,92px) 0;background:var(--paper-alt);}
+.focus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:44px;}
+.focus-card{border-radius:16px;padding:clamp(22px,2.4vw,32px);border:1px solid var(--paper-border);position:relative;overflow:hidden;transition:all .3s;background:var(--paper-card);}
+.focus-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--gold),var(--navy-900));}
+.focus-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift);border-color:rgba(201,151,79,.25);}
+.focus-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--navy-900),var(--navy-800));display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px;color:var(--gold-light);box-shadow:0 8px 20px rgba(10,18,48,.18);}
+.focus-card h3{font-size:16.5px;margin-bottom:9px;}
+.focus-card p{font-size:12.6px;line-height:1.78;color:var(--ink-3);}
+
+.cta-strip{padding:34px 0;background:linear-gradient(90deg,var(--navy-900),var(--navy-850));border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);}
+.cta-strip-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;text-align:left;}
+@media (max-width:600px){.cta-strip-inner{flex-direction:column;align-items:flex-start;}.cta-strip-inner .btn{width:100%;justify-content:center;}}
+.cta-strip h3{color:var(--text-1);margin-bottom:4px;font-size:19px;}
+.cta-strip p{margin:0;font-size:14px;color:var(--text-3);}
+
+footer{border-top:1px solid var(--navy-border);padding:52px 0 26px;background:var(--navy-950);}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px;}
+@media (max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+.footer-grid h4{color:var(--text-1);font-family:'Fraunces',serif;font-weight:500;font-size:14.5px;margin-bottom:14px;}
+.footer-grid p{font-size:13px;color:var(--text-3);}
+.footer-grid ul{list-style:none;}
+.footer-grid li{margin-bottom:9px;}
+.footer-grid a{color:var(--text-3);font-size:13.5px;}
+.footer-grid a:hover{color:var(--gold-light);}
+.footer-bottom{border-top:1px solid var(--navy-border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--text-3);text-align:center;}
+.social-row{display:flex;gap:10px;}
+.social-row a{width:34px;height:34px;border:1px solid var(--navy-border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text-2);transition:transform .2s ease;}
+.social-row a:hover{color:var(--gold-light);border-color:var(--gold);transform:translateY(-2px);}
+
+.whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:150;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 10px 26px rgba(0,0,0,.35);transition:transform .2s ease;}
+.whatsapp-float:hover{transform:scale(1.08);color:#fff;text-decoration:none;}
+@media (max-width:600px){.whatsapp-float{right:16px;bottom:16px;width:50px;height:50px;font-size:21px;}}
+.btt{position:fixed;bottom:22px;left:22px;z-index:150;width:44px;height:44px;border-radius:11px;background:var(--navy-900);color:var(--gold-light);font-size:16px;border:1px solid var(--navy-border);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s;box-shadow:0 8px 20px rgba(0,0,0,.25);}
+.btt.visible{opacity:1;visibility:visible;}
+.btt:hover{background:var(--gold);color:#241a06;transform:translateY(-3px);}
+</style>
+</head>
+<body>
+
+<div class="utcbar">
+  <div class="utcbar-inner">
+    <i class="fa-regular fa-clock"></i>
+    <span id="utc-clock"><b>Loading time…</b></span>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo-slots">
+      <div class="logo-slot" title="Loyola College">
+        <img src="assets/loyola-crest.png" alt="Loyola College" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="CIMSER logo">
+        <img src="assets/cimser-logo.png" alt="CIMSER logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Indian Academy of Environmental Science logo">
+        <img src="assets/iaes-logo.png" alt="IAES logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Absolute Human Care Foundation logo">
+        <img src="assets/ahcf-logo.png" alt="AHCF logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+      <div class="logo-slot" title="Loyola College Centenary Logo">
+        <img src="assets/centenary-logo.png" alt="Centenary Logo" onerror="this.closest('.logo-slot').classList.add('empty');this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-regular fa-image'}))">
+      </div>
+    </div>
+    <span class="topbar-text">Loyola College (Autonomous), Chennai · Est. 1925</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <strong>CIMSER, Dept. of AZ-BT</strong>
+      <span>LOYOLA COLLEGE, CHENNAI</span>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="committee.html">Committee</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-toggle">About <i class="fa-solid fa-chevron-down caret"></i></a>
+        <ul class="dropdown">
+          <li><a href="about-college.html">About the College</a></li>
+          <li><a href="about-department.html">About the Department</a></li>
+          <li><a href="about-cimser.html" class="active">About CIMSER</a></li>
+          <li><a href="about-iaes.html">About IAES</a></li>
+          <li><a href="about-conference.html">About the Conference</a></li>
+        </ul>
+      </li>
+      <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
+      <li><a href="tracks.html">Tracks</a></li>
+      <li><a href="iaes-award.html">IAES Award</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-toggle">Register / Login <i class="fa-solid fa-chevron-down caret"></i></a>
+        <ul class="dropdown">
+          <li><a href="registration.html"><i class="fa-solid fa-user-plus"></i>&nbsp; Participant Registration</a></li>
+          <li><a href="submission.html"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Paper &amp; Poster Submission Login</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero-banner">
+  <div class="bio-float"><i class="fas fa-dna"></i></div>
+  <div class="bio-float"><i class="fas fa-bug"></i></div>
+  <div class="bio-float"><i class="fas fa-microscope"></i></div>
+  <div class="bio-float"><i class="fas fa-seedling"></i></div>
+  <div class="bio-float"><i class="fas fa-mosquito"></i></div>
+
+  <div class="hero-inner">
+    <div class="dept-pill">
+      <span class="dpill-dot"></span>
+      <span>Est. 19th December 2018 · Chennai</span>
+      <span class="dpill-dot"></span>
+    </div>
+    <div class="hero-logo">
+      <img src="assets/cimser-logo.png" alt="CIMSER Logo" onerror="this.style.display='none';this.parentNode.innerHTML='<i class=&quot;fas fa-mosquito&quot; style=&quot;font-size:44px;color:var(--navy-900);&quot;></i>'">
+    </div>
+    <div class="dept-badge">A Centre of the Dept. of Advanced Zoology &amp; Biotechnology</div>
+    <h1 class="hero-h1">Centre For Insect Molecular Studies<br>&amp; <em>Environmental Research</em></h1>
+    <p class="hero-h2sub">CIMSER · Loyola College, Chennai</p>
+    <p class="hero-addr"><i class="fas fa-map-marker-alt" style="color:var(--gold-light);margin-right:6px;"></i>Sterling Road, Nungambakkam · Chennai – 600 034 · Tamil Nadu, India</p>
+    <div class="motto-box"><div class="motto-latin">Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment</div></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num"><span id="h-c1">0</span><em>+</em></div><div class="lbl"><i class="fas fa-calendar-check" style="margin-right:4px;"></i>Years Since Founding</div></div>
+      <div class="hero-stat"><div class="num"><span id="h-c2">0</span><em>+</em></div><div class="lbl"><i class="fas fa-user-graduate" style="margin-right:4px;"></i>Ph.D. Scholars Guided</div></div>
+      <div class="hero-stat"><div class="num"><span id="h-c3">0</span><em>+</em></div><div class="lbl"><i class="fas fa-microphone" style="margin-right:4px;"></i>Seminars &amp; Conferences</div></div>
+      <div class="hero-stat"><div class="num"><span id="h-c4">0</span><em>+</em></div><div class="lbl"><i class="fas fa-globe" style="margin-right:4px;"></i>National &amp; International Events</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ IDENTITY ══════════ -->
+<section class="identity-section" id="about">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow"><i class="fas fa-info-circle"></i> Our Identity</div>
+      <h2 class="section-title">Who <em>We Are</em></h2>
+      <div class="helix-rule"></div>
+      <p class="section-desc" style="max-width:700px;margin:0 auto;">The Centre For Insect Molecular Studies and Environmental Research (CIMSER) was established on 19th December 2018 under the PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College, Chennai — with a focused mandate to advance insect molecular biology and environmental research in service of public health and a sustainable environment.</p>
+    </div>
+    <div class="identity-grid">
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>To advance rigorous molecular and applied research on insects and their role in environmental and public health, translating findings into practical solutions for vector risk management.</p>
+      </div>
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To be a recognised centre of excellence for insect molecular studies and environmental research, contributing to a sustainable, healthy environment through science, training and outreach.</p>
+      </div>
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-mosquito"></i></div>
+        <h3>Vector Risk Management</h3>
+        <p>A core focus of CIMSER's work is life sciences and vector risk management, addressing the intersection of insect biology, disease transmission and environmental sustainability.</p>
+      </div>
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-user-graduate"></i></div>
+        <h3>Research Mentorship</h3>
+        <p>CIMSER has guided and supervised numerous students and research scholars, with six scholars having completed their Ph.D. degrees under the Centre's guideship so far.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ESTABLISHMENT / HISTORY ══════════ -->
+<section class="history-section dark" id="history">
+  <div class="hist-watermark">CIMSER</div>
+  <div class="history-inner">
+    <div class="hist-left reveal-left">
+      <div class="eyebrow"><i class="fas fa-history"></i> Establishment</div>
+      <h2 class="section-title">How <em>CIMSER</em> Began</h2>
+      <div class="helix-rule"></div>
+      <p class="section-desc">CIMSER was established on 19th December 2018 with the blessings of Rev. Dr. F. Andrew, S.J. Dr. B. Vasantharaj David, Chairman of the Scientific/Academic Board at the International Institute of Biotechnology and Toxicology, unveiled the Centre's logo at the inaugural occasion.</p>
+      <p class="section-desc" style="margin-top:14px;font-size:clamp(13px,1.5vw,16px);">The occasion was graced by Dr. M. G. Ragunathan, Assistant Professor at Gurunanak College, Chennai, and Dr. J. Mary Vimala Kalaiarasi, then Head of the PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College.</p>
+    </div>
+    <div class="timeline reveal-right">
+      <div class="tl-item">
+        <div class="tl-dot">2018</div>
+        <div class="tl-year"><i class="fas fa-flag"></i> CENTRE ESTABLISHED</div>
+        <div class="tl-text">CIMSER was established on 19th December 2018 with the blessings of Rev. Dr. F. Andrew, S.J.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">✦</div>
+        <div class="tl-year"><i class="fas fa-award"></i> LOGO UNVEILED</div>
+        <div class="tl-text">Dr. B. Vasantharaj David, Chairman of the Scientific/Academic Board, International Institute of Biotechnology and Toxicology, unveiled the CIMSER logo.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">✦</div>
+        <div class="tl-year"><i class="fas fa-user-tie"></i> GUESTS OF HONOUR</div>
+        <div class="tl-text">Dr. M. G. Ragunathan (Gurunanak College, Chennai) and Dr. J. Mary Vimala Kalaiarasi (HOD, AZ-BT, Loyola College) graced the inaugural occasion.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">✦</div>
+        <div class="tl-year"><i class="fas fa-microphone"></i> SEMINARS &amp; CONFERENCES</div>
+        <div class="tl-text">Under the direction of Dr. M. Raja, CIMSER has since conducted many National and International level seminars and conferences.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">✦</div>
+        <div class="tl-year"><i class="fas fa-star"></i> MILESTONE EVENT</div>
+        <div class="tl-text">"Life Sciences and Vector Risk Management for a Sustainable Healthy Environment" stands as a key milestone achieved by CIMSER.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOUNDING PATRONS ══════════ -->
+<section class="founders-section" id="founders">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow"><i class="fas fa-hands-holding-circle"></i> With Blessings &amp; Guidance</div>
+      <h2 class="section-title">Founding <em>Patrons &amp; Guests</em></h2>
+      <div class="helix-rule"></div>
+      <p class="section-desc" style="max-width:640px;margin:0 auto;">CIMSER's founding on 19th December 2018 was graced by distinguished academic and religious leaders whose blessing and guidance shaped the Centre's mission.</p>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-card reveal">
+        <div class="founder-icon"><i class="fas fa-cross"></i></div>
+        <h4>Rev. Dr. F. Andrew, S.J.</h4>
+        <p>CIMSER was established with his blessings on 19th December 2018.</p>
+        <span class="founder-role"><i class="fas fa-hands-praying"></i> Blessing of the Establishment</span>
+      </div>
+      <div class="founder-card reveal">
+        <div class="founder-icon"><i class="fas fa-flask"></i></div>
+        <h4>Dr. B. Vasantharaj David</h4>
+        <p>Chairman, Scientific/Academic Board, International Institute of Biotechnology and Toxicology. Unveiled the CIMSER logo at the inaugural occasion.</p>
+        <span class="founder-role"><i class="fas fa-award"></i> Logo Unveiling</span>
+      </div>
+      <div class="founder-card reveal">
+        <div class="founder-icon"><i class="fas fa-user-tie"></i></div>
+        <h4>Dr. M. G. Ragunathan</h4>
+        <p>Assistant Professor, Gurunanak College, Chennai. Graced the founding occasion of CIMSER.</p>
+        <span class="founder-role"><i class="fas fa-star"></i> Guest of Honour</span>
+      </div>
+      <div class="founder-card reveal">
+        <div class="founder-icon"><i class="fas fa-user-tie"></i></div>
+        <h4>Dr. J. Mary Vimala Kalaiarasi</h4>
+        <p>Then Head of the PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College. Graced the founding occasion of CIMSER.</p>
+        <span class="founder-role"><i class="fas fa-star"></i> Guest of Honour</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DIRECTOR ══════════ -->
+<section class="director-section" id="director">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow"><i class="fas fa-user-tie"></i> Leadership</div>
+      <h2 class="section-title">Director, <em>CIMSER</em></h2>
+      <div class="helix-rule"></div>
+      <p class="section-desc" style="max-width:600px;margin:0 auto;">CIMSER is led by Dr. M. Raja, Assistant Professor, whose direction has shaped the Centre's research and academic outreach since its founding.</p>
+    </div>
+    <div class="director-card reveal">
+      <div class="dc-top">
+        <div class="dc-avatar"><img src="https://lh3.googleusercontent.com/d/1_w5BL8uThxGa5t-okHaMW6ClpcZUsL9h" alt="Dr M Raja" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=&quot;dc-initials&quot;>MR</span>'"></div>
+        <div class="dc-name">Dr. M. Raja</div>
+        <div class="dc-desig">Assistant Professor &amp; Director, CIMSER</div>
+      </div>
+      <div class="dc-body">
+        <p>Dr. M. Raja, Assistant Professor and Director of CIMSER, has successfully conducted many National and International level seminars and conferences, including the milestone event "Life Sciences and Vector Risk Management for a Sustainable Healthy Environment."</p>
+        <p>He has guided and supervised many students and research scholars — so far, six scholars have completed their Ph.D. degrees under his guideship.</p>
+        <div class="dc-stats">
+          <div class="dc-stat"><div class="n">6</div><div class="l">Ph.D.s Guided</div></div>
+          <div class="dc-stat"><div class="n">Many</div><div class="l">Seminars &amp; Conferences</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ACHIEVEMENTS / MILESTONES ══════════ -->
+<section class="ach-section dark" id="achievements">
+  <div class="ach-inner">
+    <div class="center reveal">
+      <div class="eyebrow"><i class="fas fa-trophy"></i> Milestones</div>
+      <h2 class="section-title">Achievements &amp; <em>Milestones</em></h2>
+      <div class="helix-rule"></div>
+      <p class="section-desc" style="max-width:640px;margin:0 auto;">Since its founding, CIMSER has built a track record of academic events and research mentorship under the direction of Dr. M. Raja.</p>
+    </div>
+    <div class="accolades-list">
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-microphone"></i></div>
+        <div class="acc-text">
+          <h4>National &amp; International Seminars/Conferences</h4>
+          <p>Dr. M. Raja, Director of CIMSER, has successfully conducted many National and International level seminars and conferences.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-star"></i></div>
+        <div class="acc-text">
+          <h4>Landmark Conference</h4>
+          <p>"Life Sciences and Vector Risk Management for a Sustainable Healthy Environment" is a key milestone achieved by CIMSER.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-user-graduate"></i></div>
+        <div class="acc-text">
+          <h4>Research Guideship</h4>
+          <p>Six research scholars have so far completed their Ph.D. degrees under the guideship of Dr. M. Raja at CIMSER.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-award"></i></div>
+        <div class="acc-text">
+          <h4>Distinguished Founding</h4>
+          <p>CIMSER's logo was unveiled by Dr. B. Vasantharaj David, Chairman of the Scientific/Academic Board, International Institute of Biotechnology and Toxicology.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOCUS AREAS ══════════ -->
+<section class="focus-section" id="focus">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow"><i class="fas fa-microscope"></i> Areas of Work</div>
+      <h2 class="section-title">Focus <em>Areas</em></h2>
+      <div class="helix-rule"></div>
+      <p class="section-desc" style="max-width:640px;margin:0 auto;">CIMSER's research and outreach are anchored in insect molecular biology and environmental research, with a special emphasis on vector risk management for public and environmental health.</p>
+    </div>
+    <div class="focus-grid">
+      <div class="focus-card reveal">
+        <div class="focus-icon"><i class="fas fa-dna"></i></div>
+        <h3>Insect Molecular Studies</h3>
+        <p>Molecular-level research into insect biology, forming the core scientific identity of the Centre.</p>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon"><i class="fas fa-mosquito"></i></div>
+        <h3>Vector Risk Management</h3>
+        <p>Research and outreach addressing insect vectors and their risk to public health, central to CIMSER's flagship conference theme.</p>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Environmental Research</h3>
+        <p>Studies aimed at understanding and safeguarding a sustainable, healthy environment.</p>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon"><i class="fas fa-user-graduate"></i></div>
+        <h3>Doctoral Mentorship</h3>
+        <p>Supervision and guidance of research scholars, with six Ph.D.s completed under the Centre's guideship to date.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA STRIP ══════════ -->
+<section class="cta-strip">
+  <div class="wrap cta-strip-inner">
+    <div>
+      <h3>Interested in CIMSER's Research?</h3>
+      <p>Get in touch with the Centre to learn more about ongoing work, seminars and Ph.D. opportunities.</p>
+    </div>
+    <a href="contact.html" class="btn btn-gold"><i class="fas fa-envelope"></i> Contact CIMSER</a>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>CIMSER</h4>
+        <p>Centre For Insect Molecular Studies and Environmental Research, PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about-department.html">About the Department</a></li>
+          <li><a href="about-college.html">About the College</a></li>
+          <li><a href="about-iaes.html">About IAES</a></li>
+          <li><a href="about-conference.html">About the Conference</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Participate</h4>
+        <ul>
+          <li><a href="registration.html">Participant Registration</a></li>
+          <li><a href="submission.html">Paper &amp; Poster Submission</a></li>
+          <li><a href="tracks.html">Tracks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> CIMSER · Loyola College (Autonomous), Chennai</span>
+      <span>Sterling Road, Nungambakkam · Chennai – 600 034</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/" class="whatsapp-float" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button class="btt" id="btt" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+navToggle && navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  document.body.classList.toggle('no-scroll');
+});
+document.querySelectorAll('.has-dropdown > a.dropdown-toggle').forEach(a=>{
+  a.addEventListener('click', e=>{
+    if(window.innerWidth<=800){
+      e.preventDefault();
+      a.parentElement.classList.toggle('open');
+    }
+  });
+});
+
+// Back to top
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 400);
+});
+btt.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+// Reveal on scroll
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>io.observe(el));
+
+// Counters
+function animateCounter(el, target, dur=1600){
+  let start=0, startTime=null;
+  function step(ts){
+    if(!startTime) startTime=ts;
+    const progress = Math.min((ts-startTime)/dur,1);
+    el.textContent = Math.floor(progress*target);
+    if(progress<1) requestAnimationFrame(step); else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
+const counterTargets = {'h-c1':8,'h-c2':6,'h-c3':10,'h-c4':15};
+const counterIo = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      if(counterTargets[id]!==undefined){ animateCounter(e.target, counterTargets[id]); }
+      counterIo.unobserve(e.target);
+    }
+  });
+},{threshold:.4});
+Object.keys(counterTargets).forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) counterIo.observe(el);
+});
+
+// UTC-ish live clock (India Standard Time)
+function updateClock(){
+  const el = document.getElementById('utc-clock');
+  if(!el) return;
+  const now = new Date();
+  const opts = { timeZone:'Asia/Kolkata', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:true, day:'2-digit', month:'short', year:'numeric' };
+  el.innerHTML = '<b>' + now.toLocaleString('en-IN', opts) + ' IST</b>';
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+</body>
+</html>
