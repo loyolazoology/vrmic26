@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login | VRMIC 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983; --gold-dim:#9a6b28;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --danger:#d8695a; --success:#4fa980;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  font-family:'Inter',sans-serif;color:var(--text-1);line-height:1.6;min-height:100vh;
+  background:radial-gradient(1200px 700px at 85% -10%, #12234f 0%, transparent 55%),
+             radial-gradient(900px 500px at -10% 10%, #0f1d42 0%, transparent 50%), var(--navy-950);
+  display:flex;flex-direction:column;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 6px;}
+a{color:var(--gold-light);}
+.topbar{padding:18px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--navy-border);}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:15px;color:var(--text-1);}
+.brand i{color:var(--gold-light);}
+.topbar a.back{font-size:13px;color:var(--text-3);text-decoration:none;display:flex;align-items:center;gap:6px;}
+.topbar a.back:hover{color:var(--gold-light);}
+.wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 18px;}
+.card{
+  width:100%;max-width:420px;background:linear-gradient(180deg,var(--navy-850),var(--navy-900));
+  border:1px solid var(--navy-border);border-radius:16px;padding:36px 32px;box-shadow:0 30px 70px rgba(0,0,0,.4);
+}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:6px;display:block;}
+.card p.sub{color:var(--text-3);font-size:13.5px;margin-bottom:24px;}
+label{display:block;font-size:12.5px;font-weight:600;color:var(--text-2);margin:0 0 6px;}
+input{
+  width:100%;background:var(--navy-950);border:1px solid var(--navy-border);color:var(--text-1);
+  border-radius:8px;padding:12px 14px;font-family:'Inter',sans-serif;font-size:14.5px;margin-bottom:16px;
+}
+input:focus{outline:2px solid var(--gold);outline-offset:1px;}
+.otp-input{letter-spacing:8px;font-size:20px;text-align:center;font-family:'IBM Plex Mono',monospace;}
+.btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:14.5px;padding:13px 20px;border-radius:8px;
+  cursor:pointer;border:none;background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;
+  transition:transform .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none;}
+.link-row{text-align:center;margin-top:16px;font-size:13px;color:var(--text-3);}
+.link-row a{cursor:pointer;text-decoration:none;}
+.link-row a:hover{text-decoration:underline;}
+.alert{border-radius:8px;padding:12px 14px;font-size:13.5px;margin-bottom:16px;border:1px solid transparent;display:none;}
+.alert.show{display:block;}
+.alert-error{background:rgba(216,105,90,.1);border-color:rgba(216,105,90,.35);color:#e8988c;}
+.alert-success{background:rgba(79,169,128,.1);border-color:rgba(79,169,128,.35);color:var(--teal-light);}
+.spinner{width:14px;height:14px;border:2px solid rgba(36,26,6,.3);border-top-color:#241a06;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.view{display:none;}
+.view.active{display:block;}
+.step-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--teal-light);font-family:'IBM Plex Mono',monospace;margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><i class="fa-solid fa-user-shield"></i> VRMIC 2026 Admin</div>
+  <a class="back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to conference site</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+
+    <div class="view active" id="view-password">
+      <span class="eyebrow">Admin Login &middot; Step 1 of 2</span>
+      <h2>Sign in</h2>
+      <p class="sub">Enter your admin email and password. A one-time code will be emailed to you next.</p>
+      <div class="alert alert-error" id="password-error"></div>
+      <form id="password-form">
+        <label for="admin-email">Admin email</label>
+        <input type="email" id="admin-email" required placeholder="admin@example.com">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" required placeholder="Password">
+        <button class="btn" type="submit" id="password-btn"><i class="fa-solid fa-right-to-bracket"></i> Continue</button>
+      </form>
+    </div>
+
+    <div class="view" id="view-otp">
+      <span class="step-badge"><i class="fa-solid fa-shield-halved"></i> STEP 2 OF 2 &middot; EMAIL VERIFICATION</span>
+      <h2>Enter your OTP</h2>
+      <p class="sub">We emailed a 6-digit code to <span id="otp-email-display"></span>. It expires in 5 minutes.</p>
+      <div class="alert alert-error" id="otp-error"></div>
+      <form id="otp-form">
+        <label for="otp-code">One-time code</label>
+        <input type="text" id="otp-code" class="otp-input" required maxlength="6" pattern="[0-9]{6}" placeholder="------">
+        <button class="btn" type="submit" id="otp-btn"><i class="fa-solid fa-unlock"></i> Verify &amp; log in</button>
+      </form>
+      <div class="link-row"><a onclick="backToPassword()">Use a different account</a></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+let pendingEmail = '';
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ action: action }, payload))
+  });
+  return res.json();
+}
+function showView(name) {
+  document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
+  document.getElementById('view-' + name).classList.add('active');
+}
+function showAlert(id, msg) {
+  const el = document.getElementById(id);
+  el.textContent = msg; el.classList.add('show');
+}
+function hideAlerts(prefix) {
+  document.querySelectorAll('[id^="' + prefix + '-"]').forEach(function(el){
+    if (el.classList.contains('alert')) el.classList.remove('show');
+  });
+}
+function backToPassword() {
+  showView('password');
+  document.getElementById('otp-code').value = '';
+}
+
+document.getElementById('password-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  hideAlerts('password');
+  const btn = document.getElementById('password-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Sending code...';
+  try {
+    const email = document.getElementById('admin-email').value;
+    const res = await callApi('adminLogin', { email: email, password: document.getElementById('admin-password').value });
+    if (!res.ok) { showAlert('password-error', res.error || 'Login failed.'); return; }
+    pendingEmail = email;
+    document.getElementById('otp-email-display').textContent = email;
+    showView('otp');
+  } catch (err) {
+    showAlert('password-error', 'Could not reach the server. Check your connection and try again.');
+  } finally {
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Continue';
+  }
+});
+
+document.getElementById('otp-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  hideAlerts('otp');
+  const btn = document.getElementById('otp-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Verifying...';
+  try {
+    const res = await callApi('adminVerifyOtp', { email: pendingEmail, otp: document.getElementById('otp-code').value });
+    if (!res.ok) { showAlert('otp-error', res.error || 'Invalid code.'); return; }
+    localStorage.setItem('vrmic_admin_token', res.token);
+    window.location.href = 'admin-dashboard.html';
+  } catch (err) {
+    showAlert('otp-error', 'Could not reach the server. Check your connection and try again.');
+  } finally {
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-unlock"></i> Verify &amp; log in';
+  }
+});
+</script>
+</body>
+</html>
