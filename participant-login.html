@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,7 +143,7 @@ a:hover{text-decoration:underline;}
 .nav-inner{
     max-width:var(--maxw);
     margin:0 auto;
-    padding:14px 24px;
+    padding:8px 24px;
     box-sizing:border-box;
 
     display:flex;
@@ -172,8 +173,8 @@ a:hover{text-decoration:underline;}
     flex-shrink:0;
 }
 .brand-logo img{
-    width:50px;
-    height:50px;
+    width:700px;
+    height:15px;
     object-fit:contain;
     display:block;
 }
@@ -232,18 +233,20 @@ a:hover{text-decoration:underline;}
 }
 .brand-header-img{
     display:block;
-    height:46px;
+    height:100px;
     width:auto;
     max-width:100%;
     object-fit:contain;
 }
 .brand-header-mobile{display:none;}
+@media (max-width:1080px){
+     .brand-header-img { height: 100px;}
+}
 @media (max-width:800px){
-    .brand-header-desktop{display:none;}
-    .brand-header-mobile{display:block;height:38px;}
+    .brand-header-mobile{display:block;height:52px;}
 }
 @media (max-width:480px){
-    .brand-header-mobile{height:32px;}
+    .brand-header-mobile{height:44px;}
 }
 /* =====================================
    MENU
@@ -354,8 +357,8 @@ a:hover{text-decoration:underline;}
 }
 @media(max-width:1080px){
 .brand-logo img{
-    width:44px;
-    height:44px;
+    width:750px;
+    height:150px;
 }
 .brand-cimser{
     font-size:14.5px;
@@ -365,15 +368,15 @@ a:hover{text-decoration:underline;}
     font-size:10.5px;
     max-width:260px;
 }
-.brand-header-img{height:42px;}
+.brand-header-img{height:100px;}
 }
 /* =====================================
    SMALL LAPTOP
 ===================================== */
 @media(max-width:992px){
 .brand-logo img{
-    width:40px;
-    height:40px;
+    width:700px;
+    height:15px;
 }
 .brand-cimser{
     font-size:13.5px;
@@ -386,7 +389,7 @@ a:hover{text-decoration:underline;}
 .brand-college{
     display:none;
 }
-.brand-header-img{height:40px;}
+.brand-header-img{height:100px;}
 }
 /* =====================================
    MOBILE
@@ -447,8 +450,8 @@ a:hover{text-decoration:underline;}
 }
 
 .brand-logo img{
-    width:36px;
-    height:36px;
+    width:700px;
+    height:15px;
 }
 .brand-cimser{
     font-size:13px;
@@ -470,8 +473,8 @@ a:hover{text-decoration:underline;}
     padding:10px 16px;
 }
 .brand-logo img{
-    width:32px;
-    height:32px;
+    width:700px;
+    height:15px;
 }
 .brand-cimser{
     font-size:12px;
@@ -579,7 +582,7 @@ footer p{font-size:13px;color:var(--text-3);}
 .footer-grid li{margin-bottom:9px;}
 .footer-grid a{color:var(--text-3);font-size:13.5px;}
 .footer-grid a:hover{color:var(--gold-light);}
-.footer-bottom{border-top:1px solid var(--navy-border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--text-3);text-align:center;}
+.footer-bottom{border-top:1px solid var(--navy-border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#ffff;text-align:center;}
 .social-row{display:flex;gap:10px;}
 .social-row a{width:34px;height:34px;border:1px solid var(--navy-border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text-2);transition:transform .2s ease;}
 .social-row a:hover{color:var(--gold-light);border-color:var(--gold);transform:translateY(-2px);}
@@ -817,6 +820,23 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
   flex-shrink:0;
   transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
 }
+/* Fix for Floating Action Button (FAB) Icon Alignment */
+.fab {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+.fab i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
 .fab:hover{transform:scale(1.08);text-decoration:none;box-shadow:0 14px 30px rgba(0,0,0,.42);}
 .fab-email{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;}
 .fab-email:hover{color:#241a06;}
@@ -991,9 +1011,8 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
   <div class="nav-inner">
 <div class="nav-brand">
     <a href="index.html" class="brand-logo-link">
-        <img src="assets/header-desktop.png" alt="CIMSER — Centre for Insect Molecular Studies &amp; Environmental Research, Loyola College" class="brand-header-img brand-header-desktop">
-        <img src="assets/header-mobile.png" alt="CIMSER — Centre for Insect Molecular Studies &amp; Environmental Research, Loyola College" class="brand-header-img brand-header-mobile">
-    </a>
+        <img src="https://loyolazoology.github.io/vrmic26/assets/header-desktop.png" alt="CIMSER — Centre for Insect Molecular Studies &amp; Environmental Research, Loyola College" class="brand-header-img brand-header-desktop">
+     </a>
 </div>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     <ul class="nav-links" id="nav-links">
@@ -1011,13 +1030,14 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
         </ul>
       </li>
       <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
-      <li><a href="tracks.html">Themes</a></li>
+      <li><a href="themes.html">Themes</a></li>
       <li><a href="iaes-award.html">IAES Award</a></li>
-      <li class="has-dropdown open">
+      <li class="has-dropdown">
         <a href="#" class="dropdown-toggle">Register / Login <i class="fa-solid fa-chevron-down caret"></i></a>
         <ul class="dropdown">
           <li><a href="https://erp.loyolacollege.edu/loyolaonline/conference"><i class="fa-solid fa-user-plus"></i>&nbsp; Participant Registration</a></li>
-          <li><a href="participant-login.html" class="active"><i class="fa-solid fa-user"></i>&nbsp; Participant Login</a></li>
+          <li><a href="participant-login.html"><i class="fa-solid fa-user"></i>&nbsp; Participant Login</a></li>
+          <li><a href="admin-login.html"><i class="fa-solid fa-users-gear"></i>&nbsp; Admin Login</a></li>
         </ul>
       </li>
 
@@ -1115,12 +1135,12 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
       <div>
         <h4>CIMSER</h4>
         <p style="font-size:13px;">4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment. 26–28 November 2026, Loyola College (Autonomous), Chennai.</p>
-        <div class="social-row">
+        <!-- <div class="social-row">
           <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        </div>
+        </div> -->
       </div>
       <div>
         <h4>Quick Links</h4>
@@ -1128,7 +1148,7 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
           <li><a href="index.html">Home</a></li>
           <li><a href="committee.html">Organizing Committee</a></li>
           <li><a href="about-conference.html">About the Conference</a></li>
-          <li><a href="tracks.html">Conference Themes</a></li>
+          <li><a href="themes.html">Conference Themes</a></li>
           <li><a href="about-paper-poster.html">Call for Papers &amp; Posters</a></li>
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
@@ -1138,6 +1158,7 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
         <ul>
           <li><a href="https://erp.loyolacollege.edu/loyolaonline/conference">Participant Registration</a></li>
           <li><a href="participant-login.html">Participant Login</a></li>
+           <li><a href="admin-login.html">Admin Login</a></li>
         </ul>
       </div>
       <div>
@@ -1150,7 +1171,7 @@ th{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:12px;
     </div>
     <div class="footer-bottom">
       <span>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai.</span>
-      <span><em>"Let Your Light Shine"</em></span>
+      <span><em>"Luceat Lux Vestra - Let Your Light Shine"</em></span>
     </div>
   </div>
 </footer>
