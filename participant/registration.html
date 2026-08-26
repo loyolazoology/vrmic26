@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration | CIMSER, Loyola College</title>
+<link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --danger:#d8695a; --warn:#dba43c; --success:#4fa980;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{margin:0;background:radial-gradient(1200px 700px at 85% -10%,#12234f 0%,transparent 55%),radial-gradient(900px 500px at -10% 10%,#0f1d42 0%,transparent 50%),var(--navy-950);color:var(--text-1);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 .4em;color:var(--text-1);}
+p{color:var(--text-2);margin:0 0 1em;}
+a{color:var(--gold-light);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+@media(max-width:600px){.wrap{padding:0 16px;}}
+.watermark{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:60px;opacity:.03;}
+.watermark img{height:36vh;filter:grayscale(1) brightness(4);}
+.utcbar{background:#070c22;border-bottom:1px solid var(--navy-border);position:relative;z-index:2;}
+.utcbar-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;justify-content:flex-end;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-3);}
+.utcbar i{color:var(--gold-light);font-size:11px;}
+.utcbar b{color:var(--text-2);font-weight:500;}
+.topnav{background:rgba(6,11,28,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--navy-border);position:sticky;top:0;z-index:100;}
+.topnav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:15px;color:var(--text-1);white-space:nowrap;}
+.brand img{height:32px;}
+.pnav{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+.pnav a{display:flex;align-items:center;gap:6px;padding:9px 12px;border-radius:7px;color:var(--text-2);font-size:13px;font-weight:500;white-space:nowrap;transition:.2s;}
+.pnav a:hover,.pnav a.active{color:var(--gold-light);background:rgba(232,201,131,.08);text-decoration:none;}
+.pnav-toggle{display:none;background:none;border:1px solid var(--navy-border);color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:16px;}
+.user-chip{display:flex;align-items:center;gap:10px;position:relative;}
+.user-chip img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-light);cursor:pointer;}
+.user-chip .avatar-fallback{width:38px;height:38px;border-radius:50%;background:var(--navy-800);border:2px solid var(--gold-light);display:flex;align-items:center;justify-content:center;color:var(--gold-light);cursor:pointer;font-size:14px;}
+.user-menu{position:absolute;right:0;top:calc(100% + 10px);background:var(--navy-850);border:1px solid var(--navy-border);border-radius:10px;min-width:170px;box-shadow:0 18px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;padding:6px;z-index:50;}
+.user-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.user-menu a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:6px;color:var(--text-2);font-size:13px;}
+.user-menu a:hover{background:rgba(232,201,131,.08);color:var(--gold-light);text-decoration:none;}
+@media(max-width:960px){
+  .pnav{position:fixed;right:0;top:0;width:min(300px,85vw);height:100vh;background:var(--navy-950);border-left:1px solid var(--navy-border);flex-direction:column;align-items:stretch;padding:90px 20px 24px;gap:4px;overflow-y:auto;transform:translateX(100%);transition:.35s;visibility:hidden;z-index:99;}
+  .pnav.open{transform:translateX(0);visibility:visible;}
+  .pnav a{width:100%;font-size:14.5px;padding:12px;}
+  .pnav-toggle{display:block;}
+}
+.page-head{padding:34px 0 8px;position:relative;z-index:1;}
+.breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:.4px;margin-bottom:14px;}
+.breadcrumb a{color:var(--text-3);}
+.breadcrumb .sep{margin:0 6px;color:var(--navy-border);}
+.breadcrumb .current{color:var(--gold-light);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);border:1px solid var(--navy-border);background:rgba(205,163,85,.08);padding:6px 14px;border-radius:999px;margin-bottom:16px;}
+.helix-rule{height:2px;width:56px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px;margin:0 0 20px;}
+.section{padding:8px 0 60px;position:relative;z-index:1;}
+.card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:16px;padding:30px;margin-bottom:22px;box-shadow:0 30px 70px rgba(0,0,0,.3);}
+.reg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+@media(max-width:640px){.reg-grid{grid-template-columns:1fr;}}
+.reg-item{border-bottom:1px solid var(--navy-border);padding-bottom:16px;}
+.reg-item:last-child,.reg-item:nth-last-child(2){border-bottom:none;padding-bottom:0;}
+.reg-item .label{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3);margin-bottom:6px;}
+.reg-item .value{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--text-1);}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;}
+.badge-success{background:rgba(79,169,128,.14);color:var(--teal-light);}
+.badge-pending{background:rgba(219,164,60,.14);color:var(--warn);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.2s;font-family:inherit;}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.2);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;}
+.btn-outline{background:transparent;border-color:var(--navy-border);color:var(--text-1);}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.alert{border-radius:8px;padding:14px 16px;font-size:14px;margin-bottom:18px;border:1px solid transparent;display:none;}
+.alert.show{display:block;}
+.alert-success{background:rgba(79,169,128,.1);border-color:rgba(79,169,128,.35);color:var(--teal-light);}
+.alert-error{background:rgba(216,105,90,.1);border-color:rgba(216,105,90,.35);color:#e8988c;}
+.spinner{width:16px;height:16px;border:2px solid rgba(0,0,0,.25);border-top-color:#241a06;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loader{text-align:center;padding:80px 0;color:var(--text-3);}
+.spinner-lg{width:30px;height:30px;border:3px solid rgba(255,255,255,.12);border-top-color:var(--gold-light);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
+.receipt-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:6px;}
+footer{border-top:1px solid var(--navy-border);padding:40px 0 24px;background:var(--navy-950);position:relative;z-index:1;}
+footer p{font-size:12.5px;color:var(--text-3);text-align:center;margin:0;}
+</style>
+</head>
+<body>
+
+<div class="watermark">
+  <img src="../assets/loyola-crest.png" alt="" onerror="this.style.display='none'">
+  <img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'">
+</div>
+
+<div class="utcbar"><div class="utcbar-inner"><i class="fa-regular fa-clock"></i><span id="utc-clock"><b>Loading time…</b></span></div></div>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <div class="brand"><img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'"> VRMIC 2026</div>
+    <button class="pnav-toggle" id="pnav-toggle"><i class="fa-solid fa-bars"></i></button>
+    <ul class="pnav" id="pnav">
+      <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="registration.html" class="active"><i class="fa-solid fa-id-card"></i> Registration</a></li>
+      <li><a href="abstract.html"><i class="fa-solid fa-file-lines"></i> Abstract</a></li>
+      <li><a href="ppt.html" id="nav-ppt-link" style="display:none;"><i class="fa-solid fa-display"></i> PPT</a></li>
+      <li><a href="schedule.html"><i class="fa-regular fa-calendar"></i> Schedule</a></li>
+      <li><a href="slot.html"><i class="fa-solid fa-location-crosshairs"></i> My Slot</a></li>
+      <li><a href="feedback.html"><i class="fa-regular fa-comment-dots"></i> Feedback</a></li>
+    </ul>
+    <div class="user-chip">
+      <img id="user-avatar" style="display:none;" onclick="toggleUserMenu()">
+      <div class="avatar-fallback" id="user-avatar-fallback" onclick="toggleUserMenu()"><i class="fa-solid fa-user"></i></div>
+      <div class="user-menu" id="user-menu">
+        <a href="home.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="home.html">Dashboard</a><span class="sep">/</span><span class="current">Registration</span></div>
+    <span class="eyebrow"><i class="fa-solid fa-id-card"></i>&nbsp; Registration</span>
+    <h1 style="font-size:clamp(1.5rem,2.8vw,2.1rem);">Your registration details</h1>
+    <div class="helix-rule"></div>
+  </div>
+</header>
+
+<div id="loader" class="loader"><div class="spinner-lg"></div><p style="margin-top:14px;">Loading…</p></div>
+
+<section class="section" id="content" style="display:none;">
+  <div class="wrap">
+    <div class="alert alert-error" id="err"></div>
+    <div class="alert alert-success" id="ok"></div>
+
+    <div class="card">
+      <div class="reg-grid">
+        <div class="reg-item">
+          <div class="label">VRMIC ID</div>
+          <div class="value mono" id="r-id">—</div>
+        </div>
+        <div class="reg-item">
+          <div class="label">Status</div>
+          <div class="value"><span class="badge badge-success" id="r-status"><i class="fa-solid fa-circle-check"></i> Registered</span></div>
+        </div>
+        <div class="reg-item">
+          <div class="label">Category</div>
+          <div class="value" id="r-category">—</div>
+        </div>
+        <div class="reg-item">
+          <div class="label">Registration date</div>
+          <div class="value" id="r-date">—</div>
+        </div>
+        <div class="reg-item">
+          <div class="label">Amount paid</div>
+          <div class="value" id="r-amount">—</div>
+        </div>
+        <div class="reg-item">
+          <div class="label">Payment status</div>
+          <div class="value"><span class="badge" id="r-fee-badge">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:1.05rem;"><i class="fa-solid fa-receipt" style="color:var(--gold-light);"></i> Payment receipt / bill</h3>
+      <p style="margin-bottom:6px;">Need an official receipt or bill for reimbursement? Request one and the organising secretariat will email it to your registered address.</p>
+      <div class="receipt-row">
+        <span style="font-size:12.5px;color:var(--text-3);">Sent to your registered email on file.</span>
+        <button class="btn btn-gold" id="receipt-btn"><i class="fa-solid fa-paper-plane"></i> Request receipt</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><p>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai.</p></div></footer>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+function updateClock(){
+  const now = new Date();
+  const opts = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', timeZone: 'Asia/Kolkata', timeZoneName: 'short' };
+  const dateTimeStr = now.toLocaleDateString('en-GB', opts);
+  const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  document.getElementById('utc-clock').innerHTML = `<b>${dateTimeStr} &nbsp;·&nbsp; ${timeStr}</b>`;
+}
+updateClock(); setInterval(updateClock, 1000);
+
+document.getElementById('pnav-toggle').addEventListener('click', () => document.getElementById('pnav').classList.toggle('open'));
+function toggleUserMenu(){ document.getElementById('user-menu').classList.toggle('open'); }
+document.addEventListener('click', (e) => { if (!e.target.closest('.user-chip')) document.getElementById('user-menu').classList.remove('open'); });
+
+const token = localStorage.getItem('vrmic_token');
+if (!token) window.location.href = '../participant-login.html';
+function logout(){ localStorage.removeItem('vrmic_token'); localStorage.removeItem('vrmic_name'); window.location.href = '../participant-login.html'; }
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ action, token }, payload))
+  });
+  return res.json();
+}
+function showErr(msg){ const el = document.getElementById('err'); el.textContent = msg; el.classList.add('show'); }
+function showOk(msg){ const el = document.getElementById('ok'); el.textContent = msg; el.classList.add('show'); }
+
+(async function init(){
+  try {
+    const dash = await callApi('getDashboard', {});
+    if (dash.ok) {
+      if (dash.participant.photoUrl) {
+        const av = document.getElementById('user-avatar');
+        av.src = dash.participant.photoUrl.replace('/view', '/preview'); av.style.display = '';
+        document.getElementById('user-avatar-fallback').style.display = 'none';
+      }
+      if (dash.participant.pptRequired) document.getElementById('nav-ppt-link').style.display = '';
+    }
+
+    const res = await callApi('getRegistration', {});
+    if (!res.ok) {
+      if (/session/i.test(res.error || '')) { window.location.href = '../participant-login.html'; return; }
+      document.getElementById('loader').innerHTML = `<p style="color:var(--danger);">${res.error}</p>`;
+      return;
+    }
+    const r = res.registration;
+    document.getElementById('r-id').textContent = r.id;
+    document.getElementById('r-status').innerHTML = `<i class="fa-solid fa-circle-check"></i> ${r.status}`;
+    document.getElementById('r-category').textContent = r.category || '—';
+    document.getElementById('r-date').textContent = r.registrationDate ? new Date(r.registrationDate).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}) : '—';
+    document.getElementById('r-amount').textContent = r.amountPaid ? ('₹ ' + r.amountPaid) : 'Not recorded';
+    const feeBadge = document.getElementById('r-fee-badge');
+    if (r.feePaid) { feeBadge.className = 'badge badge-success'; feeBadge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Paid'; }
+    else { feeBadge.className = 'badge badge-pending'; feeBadge.innerHTML = '<i class="fa-solid fa-clock"></i> Pending'; }
+
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } catch (err) {
+    document.getElementById('loader').innerHTML = '<p style="color:var(--danger);">Could not reach the server. Check your connection and reload.</p>';
+  }
+})();
+
+document.getElementById('receipt-btn').addEventListener('click', async function(){
+  const btn = this;
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Sending request...';
+  try {
+    const res = await callApi('requestReceipt', {});
+    if (!res.ok) { showErr(res.error || 'Could not send request.'); btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request receipt'; return; }
+    showOk('Request sent — the organising secretariat will email your receipt shortly.');
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Requested';
+  } catch (err) {
+    showErr('Could not reach the server. Check your connection and try again.');
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request receipt';
+  }
+});
+</script>
+</body>
+</html>

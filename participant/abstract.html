@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abstract Submission | CIMSER, Loyola College</title>
+<link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --danger:#d8695a; --warn:#dba43c; --success:#4fa980;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{margin:0;background:radial-gradient(1200px 700px at 85% -10%,#12234f 0%,transparent 55%),radial-gradient(900px 500px at -10% 10%,#0f1d42 0%,transparent 50%),var(--navy-950);color:var(--text-1);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 .4em;color:var(--text-1);}
+p{color:var(--text-2);margin:0 0 1em;}
+a{color:var(--gold-light);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+@media(max-width:600px){.wrap{padding:0 16px;}}
+.watermark{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:60px;opacity:.03;}
+.watermark img{height:36vh;filter:grayscale(1) brightness(4);}
+.utcbar{background:#070c22;border-bottom:1px solid var(--navy-border);position:relative;z-index:2;}
+.utcbar-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;justify-content:flex-end;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-3);}
+.utcbar i{color:var(--gold-light);font-size:11px;}
+.utcbar b{color:var(--text-2);font-weight:500;}
+.topnav{background:rgba(6,11,28,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--navy-border);position:sticky;top:0;z-index:100;}
+.topnav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:15px;color:var(--text-1);white-space:nowrap;}
+.brand img{height:32px;}
+.pnav{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+.pnav a{display:flex;align-items:center;gap:6px;padding:9px 12px;border-radius:7px;color:var(--text-2);font-size:13px;font-weight:500;white-space:nowrap;transition:.2s;}
+.pnav a:hover,.pnav a.active{color:var(--gold-light);background:rgba(232,201,131,.08);text-decoration:none;}
+.pnav-toggle{display:none;background:none;border:1px solid var(--navy-border);color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:16px;}
+.user-chip{display:flex;align-items:center;gap:10px;position:relative;}
+.user-chip img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-light);cursor:pointer;}
+.user-chip .avatar-fallback{width:38px;height:38px;border-radius:50%;background:var(--navy-800);border:2px solid var(--gold-light);display:flex;align-items:center;justify-content:center;color:var(--gold-light);cursor:pointer;font-size:14px;}
+.user-menu{position:absolute;right:0;top:calc(100% + 10px);background:var(--navy-850);border:1px solid var(--navy-border);border-radius:10px;min-width:170px;box-shadow:0 18px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;padding:6px;z-index:50;}
+.user-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.user-menu a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:6px;color:var(--text-2);font-size:13px;}
+.user-menu a:hover{background:rgba(232,201,131,.08);color:var(--gold-light);text-decoration:none;}
+@media(max-width:960px){
+  .pnav{position:fixed;right:0;top:0;width:min(300px,85vw);height:100vh;background:var(--navy-950);border-left:1px solid var(--navy-border);flex-direction:column;align-items:stretch;padding:90px 20px 24px;gap:4px;overflow-y:auto;transform:translateX(100%);transition:.35s;visibility:hidden;z-index:99;}
+  .pnav.open{transform:translateX(0);visibility:visible;}
+  .pnav a{width:100%;font-size:14.5px;padding:12px;}
+  .pnav-toggle{display:block;}
+}
+.page-head{padding:34px 0 8px;position:relative;z-index:1;}
+.breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:.4px;margin-bottom:14px;}
+.breadcrumb a{color:var(--text-3);}
+.breadcrumb .sep{margin:0 6px;color:var(--navy-border);}
+.breadcrumb .current{color:var(--gold-light);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);border:1px solid var(--navy-border);background:rgba(205,163,85,.08);padding:6px 14px;border-radius:999px;margin-bottom:16px;}
+.helix-rule{height:2px;width:56px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px;margin:0 0 20px;}
+.section{padding:8px 0 60px;position:relative;z-index:1;}
+.card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:16px;padding:30px;margin-bottom:22px;box-shadow:0 30px 70px rgba(0,0,0,.3);}
+
+/* Countdown */
+.timer-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(90deg,rgba(216,105,90,.08),rgba(201,151,79,.08));border:1px solid var(--navy-border);border-radius:14px;padding:18px 24px;margin-bottom:24px;}
+.timer-bar.closed{background:rgba(216,105,90,.1);border-color:rgba(216,105,90,.35);}
+.timer-label{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text-2);}
+.timer-label i{color:var(--gold-light);}
+.timer-clock{display:flex;gap:10px;}
+.timer-box{text-align:center;background:var(--navy-950);border:1px solid var(--navy-border);border-radius:8px;padding:8px 12px;min-width:56px;}
+.timer-box .n{font-family:'IBM Plex Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--gold-light);}
+.timer-box .l{font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.5px;}
+
+/* Fields */
+label{display:block;font-size:13px;font-weight:600;color:var(--text-2);margin:0 0 6px;}
+label .req{color:var(--danger);}
+.field{margin-bottom:18px;}
+input[type="text"],select,textarea{width:100%;background:var(--navy-950);border:1px solid var(--navy-border);color:var(--text-1);border-radius:8px;padding:11px 13px;font-family:'Inter',sans-serif;font-size:14.5px;}
+input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px;}
+.hint{font-size:12px;color:var(--text-3);margin-top:6px;}
+input[type=file]{width:100%;background:var(--navy-950);border:1px solid var(--navy-border);border-radius:8px;padding:10px;color:var(--text-2);font-size:13.5px;}
+
+.notice-box{display:flex;gap:12px;background:rgba(216,105,90,.08);border:1px solid rgba(216,105,90,.3);border-radius:10px;padding:14px 16px;margin-bottom:22px;}
+.notice-box i{color:var(--danger);font-size:16px;margin-top:2px;}
+.notice-box p{margin:0;font-size:13.5px;color:var(--text-2);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.2s;font-family:inherit;}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.2);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;}
+.btn-outline{background:transparent;border-color:var(--navy-border);color:var(--text-1);}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.submit-row{display:flex;justify-content:flex-end;margin-top:6px;}
+.alert{border-radius:8px;padding:14px 16px;font-size:14px;margin-bottom:18px;border:1px solid transparent;display:none;}
+.alert.show{display:block;}
+.alert-success{background:rgba(79,169,128,.1);border-color:rgba(79,169,128,.35);color:var(--teal-light);}
+.alert-error{background:rgba(216,105,90,.1);border-color:rgba(216,105,90,.35);color:#e8988c;}
+.spinner{width:16px;height:16px;border:2px solid rgba(0,0,0,.25);border-top-color:#241a06;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loader{text-align:center;padding:80px 0;color:var(--text-3);}
+.spinner-lg{width:30px;height:30px;border:3px solid rgba(255,255,255,.12);border-top-color:var(--gold-light);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
+
+/* Submitted view */
+.status-panel{text-align:left;}
+.status-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--navy-border);flex-wrap:wrap;gap:8px;}
+.status-row:last-child{border-bottom:none;}
+.status-row .label{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3);}
+.status-row .value{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--text-1);text-align:right;}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;}
+.badge-success{background:rgba(79,169,128,.14);color:var(--teal-light);}
+.badge-pending{background:rgba(219,164,60,.14);color:var(--warn);}
+.badge-danger{background:rgba(216,105,90,.14);color:#e8988c;}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(6,10,26,.72);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal-card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:16px;padding:30px;max-width:460px;width:100%;box-shadow:0 30px 70px rgba(0,0,0,.5);}
+.modal-card h3{margin-bottom:10px;}
+.modal-card p{font-size:13.5px;}
+.modal-preview{background:var(--navy-950);border:1px solid var(--navy-border);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:13px;}
+.modal-preview div{margin-bottom:6px;}
+.modal-preview b{color:var(--text-1);}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap;}
+
+footer{border-top:1px solid var(--navy-border);padding:40px 0 24px;background:var(--navy-950);position:relative;z-index:1;}
+footer p{font-size:12.5px;color:var(--text-3);text-align:center;margin:0;}
+</style>
+</head>
+<body>
+
+<div class="watermark">
+  <img src="../assets/loyola-crest.png" alt="" onerror="this.style.display='none'">
+  <img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'">
+</div>
+
+<div class="utcbar"><div class="utcbar-inner"><i class="fa-regular fa-clock"></i><span id="utc-clock"><b>Loading time…</b></span></div></div>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <div class="brand"><img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'"> VRMIC 2026</div>
+    <button class="pnav-toggle" id="pnav-toggle"><i class="fa-solid fa-bars"></i></button>
+    <ul class="pnav" id="pnav">
+      <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="registration.html"><i class="fa-solid fa-id-card"></i> Registration</a></li>
+      <li><a href="abstract.html" class="active"><i class="fa-solid fa-file-lines"></i> Abstract</a></li>
+      <li><a href="ppt.html" id="nav-ppt-link" style="display:none;"><i class="fa-solid fa-display"></i> PPT</a></li>
+      <li><a href="schedule.html"><i class="fa-regular fa-calendar"></i> Schedule</a></li>
+      <li><a href="slot.html"><i class="fa-solid fa-location-crosshairs"></i> My Slot</a></li>
+      <li><a href="feedback.html"><i class="fa-regular fa-comment-dots"></i> Feedback</a></li>
+    </ul>
+    <div class="user-chip">
+      <img id="user-avatar" style="display:none;" onclick="toggleUserMenu()">
+      <div class="avatar-fallback" id="user-avatar-fallback" onclick="toggleUserMenu()"><i class="fa-solid fa-user"></i></div>
+      <div class="user-menu" id="user-menu">
+        <a href="home.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="home.html">Dashboard</a><span class="sep">/</span><span class="current">Abstract Submission</span></div>
+    <span class="eyebrow"><i class="fa-solid fa-file-lines"></i>&nbsp; Abstract submission</span>
+    <h1 style="font-size:clamp(1.5rem,2.8vw,2.1rem);">Submit your abstract</h1>
+    <div class="helix-rule"></div>
+  </div>
+</header>
+
+<div id="loader" class="loader"><div class="spinner-lg"></div><p style="margin-top:14px;">Loading…</p></div>
+
+<section class="section" id="content" style="display:none;">
+  <div class="wrap">
+
+    <div class="timer-bar" id="timer-bar">
+      <div class="timer-label"><i class="fa-regular fa-clock"></i> <span id="timer-text">Abstract submission closes 20 Nov 2026</span></div>
+      <div class="timer-clock mono" id="timer-clock">
+        <div class="timer-box"><div class="n" id="t-days">--</div><div class="l">Days</div></div>
+        <div class="timer-box"><div class="n" id="t-hours">--</div><div class="l">Hrs</div></div>
+        <div class="timer-box"><div class="n" id="t-mins">--</div><div class="l">Mins</div></div>
+        <div class="timer-box"><div class="n" id="t-secs">--</div><div class="l">Secs</div></div>
+      </div>
+    </div>
+
+    <div class="alert alert-error" id="err"></div>
+    <div class="alert alert-success" id="ok"></div>
+
+    <!-- Already submitted -->
+    <div class="card" id="submitted-view" style="display:none;">
+      <h3><i class="fa-solid fa-circle-check" style="color:var(--success);"></i> Abstract submitted</h3>
+      <div class="status-panel">
+        <div class="status-row"><span class="label">Document ID</span><span class="value mono" id="s-docid">—</span></div>
+        <div class="status-row"><span class="label">Title</span><span class="value" id="s-title">—</span></div>
+        <div class="status-row"><span class="label">Theme</span><span class="value" id="s-theme">—</span></div>
+        <div class="status-row"><span class="label">Status</span><span class="value" id="s-status">—</span></div>
+        <div class="status-row"><span class="label">File</span><span class="value"><a id="s-link" href="#" target="_blank">View submitted file <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span></div>
+        <div class="status-row" id="s-remarks-row" style="display:none;"><span class="label">Reviewer note</span><span class="value" id="s-remarks">—</span></div>
+      </div>
+      <p style="margin-top:16px;font-size:13px;">No further changes are permitted after submission. If you need a correction, contact the organising committee.</p>
+    </div>
+
+    <!-- Submission form -->
+    <form id="abstract-form" style="display:none;">
+      <div class="notice-box">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>Once submitted, your abstract <b style="color:var(--text-1);">cannot be edited or replaced</b>. Please review carefully before submitting. Submissions close automatically at the deadline shown above.</p>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label>Title of the paper <span class="req">*</span></label>
+          <input type="text" id="f-title" required placeholder="Full title of your abstract">
+        </div>
+        <div class="field">
+          <label>Theme <span class="req">*</span></label>
+          <select id="f-theme" required><option value="">Select a theme</option></select>
+        </div>
+        <div class="field">
+          <label>Abstract file (.docx only) <span class="req">*</span></label>
+          <input type="file" id="f-file" accept=".doc,.docx" required>
+          <p class="hint">Maximum 10 MB. Word format only — PDF and other formats will be rejected.</p>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn btn-gold" id="submit-btn" disabled><i class="fa-solid fa-paper-plane"></i> Preview &amp; submit</button>
+      </div>
+    </form>
+
+    <div class="card" id="closed-view" style="display:none;text-align:center;">
+      <i class="fa-solid fa-lock" style="font-size:28px;color:var(--danger);"></i>
+      <h3 style="margin-top:14px;">Submission window closed</h3>
+      <p>The abstract submission deadline has passed and no submissions were received from your account. Please contact the organising committee if you believe this is an error.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer><div class="wrap"><p>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai.</p></div></footer>
+
+<!-- Confirm modal -->
+<div class="modal-overlay" id="confirm-modal">
+  <div class="modal-card">
+    <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--gold-light);"></i> Confirm submission</h3>
+    <p>Please verify these details. This action is <b style="color:var(--text-1);">final and cannot be undone</b>.</p>
+    <div class="modal-preview">
+      <div><b>Title:</b> <span id="m-title"></span></div>
+      <div><b>Theme:</b> <span id="m-theme"></span></div>
+      <div><b>File:</b> <span id="m-file"></span></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" id="modal-cancel" type="button">Go back &amp; check</button>
+      <button class="btn btn-gold" id="modal-confirm" type="button"><i class="fa-solid fa-check"></i> Yes, submit final</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+const DEADLINE = new Date('2026-11-20T23:59:59+05:30');
+
+function updateClock(){
+  const now = new Date();
+  const opts = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', timeZone: 'Asia/Kolkata', timeZoneName: 'short' };
+  const dateTimeStr = now.toLocaleDateString('en-GB', opts);
+  const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  document.getElementById('utc-clock').innerHTML = `<b>${dateTimeStr} &nbsp;·&nbsp; ${timeStr}</b>`;
+}
+updateClock(); setInterval(updateClock, 1000);
+
+document.getElementById('pnav-toggle').addEventListener('click', () => document.getElementById('pnav').classList.toggle('open'));
+function toggleUserMenu(){ document.getElementById('user-menu').classList.toggle('open'); }
+document.addEventListener('click', (e) => { if (!e.target.closest('.user-chip')) document.getElementById('user-menu').classList.remove('open'); });
+
+const token = localStorage.getItem('vrmic_token');
+if (!token) window.location.href = '../participant-login.html';
+function logout(){ localStorage.removeItem('vrmic_token'); localStorage.removeItem('vrmic_name'); window.location.href = '../participant-login.html'; }
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ action, token }, payload))
+  });
+  return res.json();
+}
+function showErr(msg){ const el = document.getElementById('err'); el.textContent = msg; el.classList.add('show'); window.scrollTo({top:0,behavior:'smooth'}); }
+function showOk(msg){ const el = document.getElementById('ok'); el.textContent = msg; el.classList.add('show'); }
+function escapeHtml(str){ return String(str||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+let deadlinePassed = false;
+function updateTimer(){
+  const now = new Date().getTime();
+  const diff = DEADLINE.getTime() - now;
+  const bar = document.getElementById('timer-bar');
+  if (diff <= 0) {
+    deadlinePassed = true;
+    bar.classList.add('closed');
+    document.getElementById('timer-text').textContent = 'Abstract submission is now closed';
+    document.getElementById('timer-clock').style.display = 'none';
+    document.getElementById('submit-btn').disabled = true;
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('t-days').textContent = d;
+  document.getElementById('t-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('t-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('t-secs').textContent = String(s).padStart(2,'0');
+}
+updateTimer(); setInterval(updateTimer, 1000);
+
+let fileBase64 = null, fileName = null;
+document.getElementById('f-file').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if (!file) return;
+  if (!/\.(docx?)$/i.test(file.name)) { showErr('Only .doc or .docx files are allowed.'); this.value=''; checkFormValid(); return; }
+  if (file.size > 10 * 1024 * 1024) { showErr('File must be under 10 MB.'); this.value=''; checkFormValid(); return; }
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    fileBase64 = ev.target.result.split(',')[1];
+    fileName = file.name;
+    checkFormValid();
+  };
+  reader.readAsDataURL(file);
+});
+function checkFormValid(){
+  const ok = document.getElementById('f-title').value.trim() && document.getElementById('f-theme').value && fileBase64 && !deadlinePassed;
+  document.getElementById('submit-btn').disabled = !ok;
+}
+document.getElementById('f-title').addEventListener('input', checkFormValid);
+document.getElementById('f-theme').addEventListener('change', checkFormValid);
+
+(async function init(){
+  try {
+    const dash = await callApi('getDashboard', {});
+    if (!dash.ok) { if (/session/i.test(dash.error||'')) { window.location.href='../participant-login.html'; return; } }
+    if (dash.ok) {
+      if (dash.participant.photoUrl) {
+        const av = document.getElementById('user-avatar');
+        av.src = dash.participant.photoUrl.replace('/view','/preview'); av.style.display = '';
+        document.getElementById('user-avatar-fallback').style.display = 'none';
+      }
+      if (dash.participant.pptRequired) document.getElementById('nav-ppt-link').style.display = '';
+    }
+
+    const themesRes = await callApi('getThemes', {});
+    const sel = document.getElementById('f-theme');
+    if (themesRes.ok) {
+      themesRes.themes.forEach((t, i) => {
+        const opt = document.createElement('option');
+        opt.value = t; opt.textContent = 'Theme ' + String(i+1).padStart(2,'0') + ' — ' + t;
+        sel.appendChild(opt);
+      });
+    }
+
+    // Re-use getRegistration's parent record via getDashboard fields isn't enough for
+    // abstract-specific fields, so pull dashboard abstractStatus/title and, if any,
+    // treat "Not Submitted" as the empty state; else render as submitted.
+    const status = dash.ok ? dash.participant.abstractStatus : 'Not Submitted';
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+
+    if (status && status !== 'Not Submitted') {
+      document.getElementById('submitted-view').style.display = 'block';
+      document.getElementById('s-title').textContent = dash.participant.abstractTitle || '—';
+      document.getElementById('s-status').innerHTML = badgeFor(status);
+      document.getElementById('s-docid').textContent = dash.participant.abstractDocId || '—';
+      document.getElementById('s-theme').textContent = dash.participant.abstractTheme || '—';
+      if (dash.participant.abstractLink) {
+        document.getElementById('s-link').href = dash.participant.abstractLink;
+      } else {
+        document.getElementById('s-link').parentElement.textContent = 'Not available';
+      }
+      if (dash.participant.abstractRemarks) {
+        document.getElementById('s-remarks-row').style.display = 'flex';
+        document.getElementById('s-remarks').textContent = dash.participant.abstractRemarks;
+      }
+    } else if (!deadlinePassed) {
+      document.getElementById('abstract-form').style.display = 'block';
+    } else {
+      document.getElementById('closed-view').style.display = 'block';
+    }
+  } catch (err) {
+    document.getElementById('loader').innerHTML = '<p style="color:var(--danger);">Could not reach the server. Check your connection and reload.</p>';
+  }
+})();
+
+function badgeFor(status){
+  const kind = status === 'Accepted' ? 'success' : status === 'Rejected' ? 'danger' : 'pending';
+  return `<span class="badge badge-${kind}"><i class="fa-solid fa-circle" style="font-size:6px;"></i> ${status}</span>`;
+}
+
+const form = document.getElementById('abstract-form');
+const modal = document.getElementById('confirm-modal');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('m-title').textContent = document.getElementById('f-title').value.trim();
+  document.getElementById('m-theme').textContent = document.getElementById('f-theme').value;
+  document.getElementById('m-file').textContent = fileName;
+  modal.classList.add('show');
+});
+document.getElementById('modal-cancel').addEventListener('click', () => modal.classList.remove('show'));
+document.getElementById('modal-confirm').addEventListener('click', async function(){
+  modal.classList.remove('show');
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Submitting...';
+  try {
+    const res = await callApi('submitAbstract', {
+      title: document.getElementById('f-title').value.trim(),
+      theme: document.getElementById('f-theme').value,
+      fileName: fileName,
+      fileData: fileBase64
+    });
+    if (!res.ok) {
+      showErr(res.error || 'Could not submit abstract.');
+      btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Preview & submit';
+      return;
+    }
+    showOk('Abstract submitted successfully. Document ID: ' + res.docId);
+    setTimeout(() => window.location.reload(), 1600);
+  } catch (err) {
+    showErr('Could not reach the server. Check your connection and try again.');
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Preview & submit';
+  }
+});
+</script>
+</body>
+</html>
