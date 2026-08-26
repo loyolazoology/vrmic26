@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Your Profile | CIMSER, Loyola College</title>
+<meta name="description" content="Complete your participant profile — 4th International Conference on Life Sciences and Vector Risk Management, Loyola College (Autonomous), Chennai.">
+<link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --danger:#d8695a; --success:#4fa980;
+  --paper:#faf8f3; --paper-card:#ffffff; --paper-border:rgba(20,30,60,.10);
+  --ink-1:#151c33; --ink-2:#4b5573; --ink-3:#7c869f;
+  --maxw:900px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 700px at 85% -10%, #12234f 0%, transparent 55%),
+    radial-gradient(900px 500px at -10% 10%, #0f1d42 0%, transparent 50%),
+    var(--navy-950);
+  color:var(--text-1);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 .4em;color:var(--text-1);}
+p{color:var(--text-2);margin:0 0 1em;}
+a{color:var(--gold-light);}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+
+/* Watermark logos */
+.watermark{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  display:flex; align-items:center; justify-content:center; gap:60px;
+  opacity:.035;
+}
+.watermark img{height:38vh;filter:grayscale(1) brightness(4);}
+
+/* Topbar */
+.utcbar{background:#070c22;border-bottom:1px solid var(--navy-border);position:relative;z-index:1;}
+.utcbar-inner{max-width:1180px;margin:0 auto;padding:6px 24px;display:flex;justify-content:flex-end;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-3);}
+.utcbar i{color:var(--gold-light);font-size:11px;}
+.utcbar b{color:var(--text-2);font-weight:500;}
+
+.topnav{background:rgba(6,11,28,.96);border-bottom:1px solid var(--navy-border);position:relative;z-index:1;}
+.topnav-inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:15px;color:var(--text-1);}
+.brand img{height:36px;}
+.logout-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-3);cursor:pointer;}
+.logout-link:hover{color:var(--gold-light);}
+
+/* Header */
+.page-head{padding:38px 0 8px;position:relative;z-index:1;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);
+  border:1px solid var(--navy-border);background:rgba(205,163,85,.08);
+  padding:6px 14px;border-radius:999px;margin-bottom:16px;
+}
+.helix-rule{height:2px;width:56px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px;margin:0 0 18px;}
+
+/* Progress */
+.steps{display:flex;gap:6px;margin:20px 0 6px;}
+.step-dot{flex:1;height:4px;border-radius:4px;background:var(--navy-border);}
+.step-dot.done{background:linear-gradient(90deg,var(--gold-light),var(--gold));}
+
+/* Card / Sections */
+.section{padding:24px 0 72px;position:relative;z-index:1;}
+.card{
+  background:linear-gradient(180deg,var(--navy-850),var(--navy-900));
+  border:1px solid var(--navy-border);border-radius:16px;
+  padding:32px;box-shadow:0 30px 70px rgba(0,0,0,.35);
+  margin-bottom:22px;
+}
+.card h3{font-size:1.05rem;display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.card h3 i{color:var(--gold-light);font-size:16px;}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:640px){.field-grid{grid-template-columns:1fr;}}
+.field{margin-bottom:0;}
+.field.full{grid-column:1/-1;}
+label{display:block;font-size:13px;font-weight:600;color:var(--text-2);margin:0 0 6px;}
+label .req{color:var(--danger);}
+label .lock{color:var(--text-3);font-weight:400;font-size:11.5px;margin-left:6px;}
+input[type="text"],input[type="email"],input[type="date"],input[type="url"],select,textarea{
+  width:100%;background:var(--navy-950);border:1px solid var(--navy-border);
+  color:var(--text-1);border-radius:8px;padding:11px 13px;font-family:'Inter',sans-serif;font-size:14.5px;
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+input[readonly],select:disabled{background:var(--navy-800);color:var(--text-3);cursor:not-allowed;}
+.hint{font-size:12px;color:var(--text-3);margin-top:6px;margin-bottom:0;}
+
+/* Photo upload */
+.photo-row{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;}
+.photo-preview{
+  width:130px;height:170px;border-radius:10px;border:1.5px dashed var(--navy-border);
+  background:var(--navy-950);display:flex;align-items:center;justify-content:center;
+  overflow:hidden;flex-shrink:0;color:var(--text-3);font-size:26px;
+}
+.photo-preview img{width:100%;height:100%;object-fit:cover;}
+.photo-controls{flex:1;min-width:220px;}
+.photo-controls input[type=file]{
+  width:100%;background:var(--navy-950);border:1px solid var(--navy-border);border-radius:8px;
+  padding:10px;color:var(--text-2);font-size:13.5px;
+}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;
+  padding:13px 26px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.2s;font-family:inherit;}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.2);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.submit-row{display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-top:6px;flex-wrap:wrap;}
+
+.alert{border-radius:8px;padding:14px 16px;font-size:14px;margin-bottom:18px;border:1px solid transparent;display:none;}
+.alert.show{display:block;}
+.alert-error{background:rgba(216,105,90,.1);border-color:rgba(216,105,90,.35);color:#e8988c;}
+.alert-success{background:rgba(79,169,128,.1);border-color:rgba(79,169,128,.35);color:var(--teal-light);}
+.spinner{width:16px;height:16px;border:2px solid rgba(0,0,0,.25);border-top-color:#241a06;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.notice-box{
+  display:flex;gap:12px;background:rgba(216,105,90,.08);border:1px solid rgba(216,105,90,.3);
+  border-radius:10px;padding:14px 16px;margin-bottom:22px;
+}
+.notice-box i{color:var(--danger);font-size:16px;margin-top:2px;}
+.notice-box p{margin:0;font-size:13.5px;color:var(--text-2);}
+
+/* Confirm modal */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(6,10,26,.72);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;z-index:200;padding:20px;
+}
+.modal-overlay.show{display:flex;}
+.modal-card{
+  background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);
+  border-radius:16px;padding:30px;max-width:440px;width:100%;box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+.modal-card h3{margin-bottom:10px;}
+.modal-card p{font-size:13.5px;}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;}
+.btn-outline{background:transparent;border-color:var(--navy-border);color:var(--text-1);}
+</style>
+</head>
+<body>
+
+<div class="watermark">
+  <img src="../assets/loyola-crest.png" alt="" onerror="this.style.display='none'">
+  <img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'">
+</div>
+
+<div class="utcbar"><div class="utcbar-inner"><i class="fa-regular fa-clock"></i><span id="utc-clock"><b>Loading time…</b></span></div></div>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <div class="brand"><img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'"> VRMIC 2026 &middot; Participant Portal</div>
+    <span class="logout-link" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</span>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow"><i class="fa-solid fa-id-card"></i>&nbsp; One-time setup</span>
+    <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);">Complete your participant profile</h1>
+    <div class="helix-rule"></div>
+    <p style="max-width:600px;">This information is used for your VRMIC ID card, certificate, and all conference records. <b style="color:var(--text-1);">Please review carefully — once submitted, these details cannot be changed.</b> For corrections after submission, contact the organising committee.</p>
+    <div class="steps"><div class="step-dot done"></div><div class="step-dot" id="step2"></div><div class="step-dot" id="step3"></div></div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="alert alert-error" id="form-error"></div>
+
+    <div id="loading-state" style="text-align:center;padding:60px 0;color:var(--text-3);">
+      <div class="spinner" style="border-top-color:var(--gold-light);border-color:rgba(255,255,255,.15);width:26px;height:26px;"></div>
+      <p style="margin-top:14px;">Loading your details…</p>
+    </div>
+
+    <form id="details-form" style="display:none;">
+
+      <div class="notice-box">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>Email, mobile number, and your passport photo are locked as soon as you submit this form — they cannot be edited afterwards. Double-check them before continuing.</p>
+      </div>
+
+      <!-- Identity -->
+      <div class="card">
+        <h3><i class="fa-solid fa-user"></i> Identity</h3>
+        <div class="field-grid">
+          <div class="field full">
+            <label>Full name <span class="req">*</span></label>
+            <input type="text" id="f-name" required placeholder="As it should appear on your certificate">
+          </div>
+          <div class="field">
+            <label>Email <span class="lock">(locked)</span></label>
+            <input type="email" id="f-email" readonly>
+          </div>
+          <div class="field">
+            <label>Mobile number <span class="lock">(locked)</span></label>
+            <input type="text" id="f-phone" readonly>
+          </div>
+          <div class="field">
+            <label>Gender <span class="req">*</span></label>
+            <select id="f-gender" required>
+              <option value="">Select</option>
+              <option>Male</option><option>Female</option><option>Other</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Date of birth <span class="req">*</span></label>
+            <input type="date" id="f-dob" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="card">
+        <h3><i class="fa-solid fa-location-dot"></i> Location</h3>
+        <div class="field-grid">
+          <div class="field">
+            <label>Country <span class="req">*</span></label>
+            <select id="f-country" required></select>
+          </div>
+          <div class="field" id="state-field">
+            <label>State <span class="req">*</span></label>
+            <select id="f-state-select" required></select>
+            <input type="text" id="f-state-text" placeholder="Enter state" style="display:none;margin-top:8px;">
+          </div>
+          <div class="field" id="city-field">
+            <label>City <span class="req">*</span></label>
+            <select id="f-city-select" required></select>
+            <input type="text" id="f-city-text" placeholder="Enter city" style="display:none;margin-top:8px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional -->
+      <div class="card">
+        <h3><i class="fa-solid fa-briefcase"></i> Professional details</h3>
+        <div class="field-grid">
+          <div class="field">
+            <label>Category <span class="req">*</span></label>
+            <select id="f-category" required>
+              <option value="">Select</option>
+              <option>Student</option>
+              <option>Research Scholar</option>
+              <option>Faculty</option>
+              <option>Scientist</option>
+              <option>Industry Professional</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Designation <span class="req">*</span></label>
+            <select id="f-designation" required>
+              <option value="">Select</option>
+              <option>Professor</option>
+              <option>Associate Professor</option>
+              <option>Assistant Professor</option>
+              <option>Scientist</option>
+              <option>Postdoctoral Fellow</option>
+              <option>Research Scholar (Ph.D.)</option>
+              <option>PG Student</option>
+              <option>UG Student</option>
+              <option>Industry Professional</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field full" id="designation-other-field" style="display:none;">
+            <label>Please specify designation</label>
+            <input type="text" id="f-designation-other" placeholder="Your designation">
+          </div>
+          <div class="field full">
+            <label>Institution <span class="req">*</span></label>
+            <input type="text" id="f-institution" required placeholder="Your college / university / organisation">
+          </div>
+          <div class="field full">
+            <label>Department <span class="hint" style="display:inline;">(if student / research scholar / faculty / scientist)</span></label>
+            <input type="text" id="f-department" placeholder="e.g. Advanced Zoology & Biotechnology">
+          </div>
+        </div>
+      </div>
+
+      <!-- Academic profiles -->
+      <div class="card">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Academic profiles <span class="hint" style="display:inline;font-weight:400;">(optional)</span></h3>
+        <div class="field-grid">
+          <div class="field">
+            <label>ORCID iD</label>
+            <input type="text" id="f-orcid" placeholder="0000-0000-0000-0000">
+          </div>
+          <div class="field">
+            <label>Google Scholar profile</label>
+            <input type="url" id="f-scholar" placeholder="https://scholar.google.com/...">
+          </div>
+          <div class="field full">
+            <label>LinkedIn profile</label>
+            <input type="url" id="f-linkedin" placeholder="https://linkedin.com/in/...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="card">
+        <h3><i class="fa-solid fa-camera"></i> Passport-size photo <span class="req">*</span></h3>
+        <p style="margin-bottom:16px;">Used for your VRMIC ID card. Plain background, front-facing, JPG or PNG only, under 2&nbsp;MB. <b style="color:var(--text-1);">This cannot be changed once uploaded.</b></p>
+        <div class="photo-row">
+          <div class="photo-preview" id="photo-preview"><i class="fa-solid fa-image"></i></div>
+          <div class="photo-controls">
+            <input type="file" id="f-photo" accept="image/jpeg,image/png" required>
+            <p class="hint" id="photo-hint">No file selected.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <span class="hint" id="submit-hint">All fields marked * are required.</span>
+        <button type="submit" class="btn btn-gold" id="submit-btn"><i class="fa-solid fa-check"></i> Review &amp; submit</button>
+      </div>
+    </form>
+
+    <div id="already-done" style="display:none;text-align:center;padding:60px 20px;">
+      <i class="fa-solid fa-circle-check" style="font-size:40px;color:var(--success);"></i>
+      <h3 style="margin-top:16px;">Your profile is already complete</h3>
+      <p>Taking you to your dashboard…</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Confirm modal -->
+<div class="modal-overlay" id="confirm-modal">
+  <div class="modal-card">
+    <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--gold-light);"></i> Confirm your details</h3>
+    <p>Once submitted, your name, gender, DOB, location, professional details, and photo <b style="color:var(--text-1);">cannot be edited</b>. Please make sure everything is correct before continuing.</p>
+    <div class="modal-actions">
+      <button class="btn btn-outline" id="modal-cancel" type="button">Go back &amp; check</button>
+      <button class="btn btn-gold" id="modal-confirm" type="button"><i class="fa-solid fa-check"></i> Yes, submit</button>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/india-states-cities.js"></script>
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+
+function updateClock(){
+  const now = new Date();
+  const opts = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', timeZone: 'Asia/Kolkata', timeZoneName: 'short' };
+  const dateTimeStr = now.toLocaleDateString('en-GB', opts);
+  const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  document.getElementById('utc-clock').innerHTML = `<b>${dateTimeStr} &nbsp;·&nbsp; ${timeStr}</b>`;
+}
+updateClock(); setInterval(updateClock, 1000);
+
+const token = localStorage.getItem('vrmic_token');
+if (!token) { window.location.href = 'participant-login.html'; }
+
+function logout(){
+  localStorage.removeItem('vrmic_token');
+  localStorage.removeItem('vrmic_name');
+  window.location.href = '../participant-login.html';
+}
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ action, token }, payload))
+  });
+  return res.json();
+}
+
+function showError(msg){
+  const el = document.getElementById('form-error');
+  el.textContent = msg; el.classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function hideError(){ document.getElementById('form-error').classList.remove('show'); }
+
+// ---- Country / State / City ----
+const COUNTRIES = ["India","Afghanistan","Bangladesh","Bhutan","Nepal","Pakistan","Sri Lanka","United States","United Kingdom","Canada","Australia","Germany","France","Singapore","Malaysia","UAE","Saudi Arabia","China","Japan","South Korea","South Africa","Nigeria","Kenya","Other"];
+function populateCountries(){
+  const sel = document.getElementById('f-country');
+  sel.innerHTML = '<option value="">Select</option>' + COUNTRIES.map(c => `<option value="${c}">${c}</option>`).join('');
+}
+function onCountryChange(prefState, prefCity){
+  const country = document.getElementById('f-country').value;
+  const stateSelect = document.getElementById('f-state-select');
+  const stateText = document.getElementById('f-state-text');
+  const citySelect = document.getElementById('f-city-select');
+  const cityText = document.getElementById('f-city-text');
+
+  if (country === 'India' && typeof INDIA_STATES !== 'undefined') {
+    stateSelect.style.display = ''; stateText.style.display = 'none'; stateText.required = false; stateSelect.required = true;
+    stateSelect.innerHTML = '<option value="">Select state</option>' +
+      Object.keys(INDIA_STATES).sort().map(s => `<option value="${s}">${s}</option>`).join('') +
+      '<option value="__other__">Other (not listed)</option>';
+    if (prefState && INDIA_STATES[prefState]) stateSelect.value = prefState;
+    onStateChange(prefCity);
+    stateSelect.onchange = () => onStateChange();
+  } else {
+    stateSelect.style.display = 'none'; stateSelect.required = false;
+    stateText.style.display = ''; stateText.required = true;
+    if (prefState) stateText.value = prefState;
+    citySelect.style.display = 'none'; citySelect.required = false;
+    cityText.style.display = ''; cityText.required = true;
+    if (prefCity) cityText.value = prefCity;
+  }
+}
+function onStateChange(prefCity){
+  const state = document.getElementById('f-state-select').value;
+  const citySelect = document.getElementById('f-city-select');
+  const cityText = document.getElementById('f-city-text');
+  if (state === '__other__' || !state) {
+    citySelect.style.display = 'none'; citySelect.required = false;
+    cityText.style.display = ''; cityText.required = true;
+    return;
+  }
+  const cities = (typeof INDIA_STATES !== 'undefined' && INDIA_STATES[state]) || [];
+  citySelect.style.display = ''; citySelect.required = true;
+  cityText.style.display = 'none'; cityText.required = false;
+  citySelect.innerHTML = '<option value="">Select city</option>' +
+    cities.map(c => `<option value="${c}">${c}</option>`).join('') +
+    '<option value="__other__">Other (not listed)</option>';
+  if (prefCity && cities.indexOf(prefCity) > -1) citySelect.value = prefCity;
+  citySelect.onchange = () => {
+    if (citySelect.value === '__other__') {
+      citySelect.style.display = 'none';
+      cityText.style.display = ''; cityText.required = true; cityText.value = '';
+    }
+  };
+}
+document.getElementById('f-country').addEventListener('change', () => onCountryChange());
+
+document.getElementById('f-designation').addEventListener('change', function(){
+  document.getElementById('designation-other-field').style.display = this.value === 'Other' ? '' : 'none';
+});
+
+// ---- Photo handling: validate + downscale to a passport-ratio JPEG ----
+let photoBase64 = null, photoFileName = null;
+document.getElementById('f-photo').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  const hint = document.getElementById('photo-hint');
+  if (!file) return;
+  if (!/^image\/(jpeg|png)$/.test(file.type)) { hint.textContent = 'Only JPG or PNG files are allowed.'; hint.style.color = 'var(--danger)'; this.value = ''; return; }
+  if (file.size > 2 * 1024 * 1024) { hint.textContent = 'File must be under 2 MB.'; hint.style.color = 'var(--danger)'; this.value = ''; return; }
+
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    const img = new Image();
+    img.onload = function(){
+      // Crop/scale to a 3:4 passport ratio, max 600x800
+      const targetW = 600, targetH = 800;
+      const canvas = document.createElement('canvas');
+      canvas.width = targetW; canvas.height = targetH;
+      const ctx = canvas.getContext('2d');
+      const srcRatio = img.width / img.height, targetRatio = targetW / targetH;
+      let sx, sy, sw, sh;
+      if (srcRatio > targetRatio) { sh = img.height; sw = sh * targetRatio; sx = (img.width - sw) / 2; sy = 0; }
+      else { sw = img.width; sh = sw / targetRatio; sx = 0; sy = (img.height - sh) / 2; }
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, targetW, targetH);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+      photoBase64 = dataUrl.split(',')[1];
+      photoFileName = 'photo.jpg';
+      document.getElementById('photo-preview').innerHTML = `<img src="${dataUrl}">`;
+      hint.textContent = 'Photo ready — cropped to passport size.'; hint.style.color = 'var(--teal-light)';
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+// ---- Load existing profile ----
+(async function init(){
+  populateCountries();
+  try {
+    const res = await callApi('getProfile', {});
+    if (!res.ok) { showError(res.error || 'Could not load your profile.'); document.getElementById('loading-state').style.display = 'none'; return; }
+    if (res.profileCompleted) {
+      document.getElementById('loading-state').style.display = 'none';
+      document.getElementById('already-done').style.display = 'block';
+      setTimeout(() => window.location.href = 'home.html', 1200);
+      return;
+    }
+    const pf = res.profile;
+    document.getElementById('f-name').value = pf.name || '';
+    document.getElementById('f-email').value = pf.email || '';
+    document.getElementById('f-phone').value = pf.phone || '';
+    document.getElementById('f-institution').value = pf.institution || '';
+    if (pf.country) { document.getElementById('f-country').value = pf.country; onCountryChange(pf.state, pf.city); }
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('details-form').style.display = 'block';
+  } catch (err) {
+    document.getElementById('loading-state').style.display = 'none';
+    showError('Could not reach the server. Check your connection and reload.');
+  }
+})();
+
+// ---- Submit flow: validate -> confirm modal -> save ----
+const form = document.getElementById('details-form');
+const modal = document.getElementById('confirm-modal');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  hideError();
+  if (!photoBase64) { showError('Please upload your passport-size photo before submitting.'); return; }
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  modal.classList.add('show');
+});
+document.getElementById('modal-cancel').addEventListener('click', () => modal.classList.remove('show'));
+document.getElementById('modal-confirm').addEventListener('click', async function(){
+  modal.classList.remove('show');
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Submitting...';
+
+  const country = document.getElementById('f-country').value;
+  const stateVal = document.getElementById('f-state-select').style.display !== 'none'
+    ? document.getElementById('f-state-select').value : document.getElementById('f-state-text').value;
+  const cityVal = document.getElementById('f-city-select').style.display !== 'none'
+    ? document.getElementById('f-city-select').value : document.getElementById('f-city-text').value;
+
+  const payload = {
+    name: document.getElementById('f-name').value.trim(),
+    gender: document.getElementById('f-gender').value,
+    dob: document.getElementById('f-dob').value,
+    country: country,
+    state: stateVal === '__other__' ? document.getElementById('f-state-text').value : stateVal,
+    city: cityVal === '__other__' ? document.getElementById('f-city-text').value : cityVal,
+    designation: document.getElementById('f-designation').value,
+    designationOther: document.getElementById('f-designation-other').value,
+    category: document.getElementById('f-category').value,
+    department: document.getElementById('f-department').value,
+    institution: document.getElementById('f-institution').value.trim(),
+    orcidId: document.getElementById('f-orcid').value,
+    googleScholar: document.getElementById('f-scholar').value,
+    linkedIn: document.getElementById('f-linkedin').value,
+    photoData: photoBase64,
+    photoFileName: photoFileName
+  };
+
+  try {
+    const res = await callApi('saveParticipantDetails', payload);
+    if (!res.ok) {
+      showError(res.error || 'Could not save your details.');
+      btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-check"></i> Review & submit';
+      return;
+    }
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Saved — redirecting…';
+    window.location.href = 'home.html';
+  } catch (err) {
+    showError('Could not reach the server. Check your connection and try again.');
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-check"></i> Review & submit';
+  }
+});
+</script>
+</body>
+</html>
