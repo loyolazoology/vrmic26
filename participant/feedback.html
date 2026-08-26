@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conference Feedback | CIMSER, Loyola College</title>
+<link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --danger:#d8695a; --warn:#dba43c; --success:#4fa980;
+  --maxw:900px;
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{margin:0;background:radial-gradient(1200px 700px at 85% -10%,#12234f 0%,transparent 55%),radial-gradient(900px 500px at -10% 10%,#0f1d42 0%,transparent 50%),var(--navy-950);color:var(--text-1);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 .4em;color:var(--text-1);}
+p{color:var(--text-2);margin:0 0 1em;}
+a{color:var(--gold-light);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+.wrap-narrow{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+@media(max-width:600px){.wrap,.wrap-narrow{padding:0 16px;}}
+.watermark{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:60px;opacity:.03;}
+.watermark img{height:36vh;filter:grayscale(1) brightness(4);}
+.utcbar{background:#070c22;border-bottom:1px solid var(--navy-border);position:relative;z-index:2;}
+.utcbar-inner{max-width:1180px;margin:0 auto;padding:6px 24px;display:flex;justify-content:flex-end;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-3);}
+.utcbar i{color:var(--gold-light);font-size:11px;}
+.utcbar b{color:var(--text-2);font-weight:500;}
+.topnav{background:rgba(6,11,28,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--navy-border);position:sticky;top:0;z-index:100;}
+.topnav-inner{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:15px;color:var(--text-1);white-space:nowrap;}
+.brand img{height:32px;}
+.pnav{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+.pnav a{display:flex;align-items:center;gap:6px;padding:9px 12px;border-radius:7px;color:var(--text-2);font-size:13px;font-weight:500;white-space:nowrap;transition:.2s;}
+.pnav a:hover,.pnav a.active{color:var(--gold-light);background:rgba(232,201,131,.08);text-decoration:none;}
+.pnav-toggle{display:none;background:none;border:1px solid var(--navy-border);color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:16px;}
+.user-chip{display:flex;align-items:center;gap:10px;position:relative;}
+.user-chip img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-light);cursor:pointer;}
+.user-chip .avatar-fallback{width:38px;height:38px;border-radius:50%;background:var(--navy-800);border:2px solid var(--gold-light);display:flex;align-items:center;justify-content:center;color:var(--gold-light);cursor:pointer;font-size:14px;}
+.user-menu{position:absolute;right:0;top:calc(100% + 10px);background:var(--navy-850);border:1px solid var(--navy-border);border-radius:10px;min-width:170px;box-shadow:0 18px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;padding:6px;z-index:50;}
+.user-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.user-menu a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:6px;color:var(--text-2);font-size:13px;}
+.user-menu a:hover{background:rgba(232,201,131,.08);color:var(--gold-light);text-decoration:none;}
+@media(max-width:960px){
+  .pnav{position:fixed;right:0;top:0;width:min(300px,85vw);height:100vh;background:var(--navy-950);border-left:1px solid var(--navy-border);flex-direction:column;align-items:stretch;padding:90px 20px 24px;gap:4px;overflow-y:auto;transform:translateX(100%);transition:.35s;visibility:hidden;z-index:99;}
+  .pnav.open{transform:translateX(0);visibility:visible;}
+  .pnav a{width:100%;font-size:14.5px;padding:12px;}
+  .pnav-toggle{display:block;}
+}
+.page-head{padding:34px 0 8px;position:relative;z-index:1;}
+.breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:.4px;margin-bottom:14px;}
+.breadcrumb a{color:var(--text-3);}
+.breadcrumb .sep{margin:0 6px;color:var(--navy-border);}
+.breadcrumb .current{color:var(--gold-light);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);border:1px solid var(--navy-border);background:rgba(205,163,85,.08);padding:6px 14px;border-radius:999px;margin-bottom:16px;}
+.helix-rule{height:2px;width:56px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px;margin:0 0 20px;}
+.section{padding:8px 0 60px;position:relative;z-index:1;}
+.loader{text-align:center;padding:80px 0;color:var(--text-3);}
+.spinner-lg{width:30px;height:30px;border:3px solid rgba(255,255,255,.12);border-top-color:var(--gold-light);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:16px;padding:30px;margin-bottom:22px;box-shadow:0 30px 70px rgba(0,0,0,.3);}
+.identity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media(max-width:760px){.identity-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:460px){.identity-grid{grid-template-columns:1fr;}}
+.identity-item .l{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3);margin-bottom:4px;}
+.identity-item .v{font-size:14px;color:var(--text-1);font-weight:500;}
+
+.rating-block{margin-bottom:26px;}
+.rating-block:last-child{margin-bottom:0;}
+.rating-q{font-size:14.5px;font-weight:600;color:var(--text-1);margin-bottom:10px;}
+.stars{display:flex;gap:6px;}
+.star{font-size:26px;color:var(--navy-border);cursor:pointer;transition:.15s;}
+.star.filled,.star:hover,.star:hover ~ .star{color:var(--gold-light);}
+.stars:hover .star{color:var(--navy-border);}
+.stars .star:hover, .stars .star:hover ~ .star{}
+.rating-hint{font-size:12px;color:var(--text-3);margin-top:6px;}
+
+.mcq-options{display:flex;flex-wrap:wrap;gap:10px;}
+.mcq-opt{padding:9px 16px;border-radius:999px;border:1px solid var(--navy-border);background:var(--navy-950);font-size:13.5px;color:var(--text-2);cursor:pointer;transition:.2s;}
+.mcq-opt:hover{border-color:var(--gold);}
+.mcq-opt.selected{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;border-color:var(--gold);font-weight:600;}
+
+textarea{width:100%;background:var(--navy-950);border:1px solid var(--navy-border);color:var(--text-1);border-radius:8px;padding:12px 14px;font-family:'Inter',sans-serif;font-size:14.5px;min-height:110px;resize:vertical;}
+textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;padding:13px 26px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.2s;font-family:inherit;}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.2);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.submit-row{display:flex;justify-content:flex-end;margin-top:6px;}
+.alert{border-radius:8px;padding:14px 16px;font-size:14px;margin-bottom:18px;border:1px solid transparent;display:none;}
+.alert.show{display:block;}
+.alert-success{background:rgba(79,169,128,.1);border-color:rgba(79,169,128,.35);color:var(--teal-light);}
+.alert-error{background:rgba(216,105,90,.1);border-color:rgba(216,105,90,.35);color:#e8988c;}
+.spinner{width:16px;height:16px;border:2px solid rgba(0,0,0,.25);border-top-color:#241a06;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+
+.state-card{text-align:center;padding:60px 30px;}
+.state-card i{font-size:32px;color:var(--gold-light);margin-bottom:14px;display:block;}
+
+.thankyou{text-align:center;padding:60px 30px;}
+.thankyou i{font-size:44px;color:var(--success);margin-bottom:16px;display:block;}
+
+footer{border-top:1px solid var(--navy-border);padding:40px 0 24px;background:var(--navy-950);position:relative;z-index:1;}
+footer p{font-size:12.5px;color:var(--text-3);text-align:center;margin:0;}
+</style>
+</head>
+<body>
+
+<div class="watermark">
+  <img src="../assets/loyola-crest.png" alt="" onerror="this.style.display='none'">
+  <img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'">
+</div>
+
+<div class="utcbar"><div class="utcbar-inner"><i class="fa-regular fa-clock"></i><span id="utc-clock"><b>Loading time…</b></span></div></div>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <div class="brand"><img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'"> VRMIC 2026</div>
+    <button class="pnav-toggle" id="pnav-toggle"><i class="fa-solid fa-bars"></i></button>
+    <ul class="pnav" id="pnav">
+      <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="registration.html"><i class="fa-solid fa-id-card"></i> Registration</a></li>
+      <li><a href="abstract.html"><i class="fa-solid fa-file-lines"></i> Abstract</a></li>
+      <li><a href="ppt.html" id="nav-ppt-link" style="display:none;"><i class="fa-solid fa-display"></i> PPT</a></li>
+      <li><a href="schedule.html"><i class="fa-regular fa-calendar"></i> Schedule</a></li>
+      <li><a href="slot.html"><i class="fa-solid fa-location-crosshairs"></i> My Slot</a></li>
+      <li><a href="feedback.html" class="active"><i class="fa-regular fa-comment-dots"></i> Feedback</a></li>
+    </ul>
+    <div class="user-chip">
+      <img id="user-avatar" style="display:none;" onclick="toggleUserMenu()">
+      <div class="avatar-fallback" id="user-avatar-fallback" onclick="toggleUserMenu()"><i class="fa-solid fa-user"></i></div>
+      <div class="user-menu" id="user-menu">
+        <a href="home.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap-narrow">
+    <div class="breadcrumb"><a href="home.html">Dashboard</a><span class="sep">/</span><span class="current">Feedback</span></div>
+    <span class="eyebrow"><i class="fa-regular fa-comment-dots"></i>&nbsp; Post-conference survey</span>
+    <h1 style="font-size:clamp(1.5rem,2.8vw,2.1rem);">Conference feedback</h1>
+    <div class="helix-rule"></div>
+    <p style="max-width:600px;">Your responses help us improve future editions of VRMIC and will be included in our academic report. This form opens once the conference concludes.</p>
+  </div>
+</header>
+
+<div id="loader" class="loader"><div class="spinner-lg"></div><p style="margin-top:14px;">Loading…</p></div>
+
+<section class="section" id="content" style="display:none;">
+  <div class="wrap-narrow">
+
+    <div class="alert alert-error" id="err"></div>
+
+    <!-- Not yet open -->
+    <div class="card state-card" id="not-open-view" style="display:none;">
+      <i class="fa-regular fa-clock"></i>
+      <h3>Feedback isn't open yet</h3>
+      <p id="not-open-text">The feedback form will open once the conference concludes. Please check back then.</p>
+    </div>
+
+    <!-- Closed -->
+    <div class="card state-card" id="closed-view" style="display:none;">
+      <i class="fa-solid fa-lock"></i>
+      <h3>Feedback window has closed</h3>
+      <p>Thank you to everyone who shared their thoughts. The feedback period for VRMIC 2026 has ended.</p>
+    </div>
+
+    <!-- Already submitted -->
+    <div class="card thankyou" id="already-view" style="display:none;">
+      <i class="fa-solid fa-circle-check"></i>
+      <h3>Thank you for your feedback!</h3>
+      <p>You've already submitted your response for VRMIC 2026. We appreciate your time.</p>
+    </div>
+
+    <!-- Success after submit -->
+    <div class="card thankyou" id="success-view" style="display:none;">
+      <i class="fa-solid fa-circle-check"></i>
+      <h3>Feedback submitted successfully</h3>
+      <p>Thank you for helping us improve VRMIC. Your response has been recorded.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="feedback-form" style="display:none;">
+
+      <div class="card">
+        <h3 style="font-size:1.05rem;margin-bottom:14px;"><i class="fa-solid fa-user" style="color:var(--gold-light);"></i> Respondent details</h3>
+        <div class="identity-grid">
+          <div class="identity-item"><div class="l">VRMIC ID</div><div class="v" id="i-id">—</div></div>
+          <div class="identity-item"><div class="l">Name</div><div class="v" id="i-name">—</div></div>
+          <div class="identity-item"><div class="l">Email</div><div class="v" id="i-email">—</div></div>
+          <div class="identity-item"><div class="l">Mobile</div><div class="v" id="i-phone">—</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:1.05rem;margin-bottom:20px;"><i class="fa-solid fa-star" style="color:var(--gold-light);"></i> Rate your experience</h3>
+        <div id="rating-blocks"></div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:1.05rem;margin-bottom:18px;"><i class="fa-solid fa-list-check" style="color:var(--gold-light);"></i> A few more questions</h3>
+        <div class="rating-block">
+          <div class="rating-q">How did you hear about VRMIC 2026?</div>
+          <div class="mcq-options" data-mcq="source">
+            <div class="mcq-opt" data-value="Institution/Faculty">Institution / Faculty</div>
+            <div class="mcq-opt" data-value="Email/WhatsApp">Email / WhatsApp</div>
+            <div class="mcq-opt" data-value="Social Media">Social Media</div>
+            <div class="mcq-opt" data-value="Colleague/Friend">Colleague / Friend</div>
+            <div class="mcq-opt" data-value="Conference website">Conference website</div>
+            <div class="mcq-opt" data-value="Other">Other</div>
+          </div>
+        </div>
+        <div class="rating-block">
+          <div class="rating-q">Would you recommend VRMIC to a colleague?</div>
+          <div class="mcq-options" data-mcq="recommend">
+            <div class="mcq-opt" data-value="Definitely">Definitely</div>
+            <div class="mcq-opt" data-value="Probably">Probably</div>
+            <div class="mcq-opt" data-value="Not sure">Not sure</div>
+            <div class="mcq-opt" data-value="Unlikely">Unlikely</div>
+          </div>
+        </div>
+        <div class="rating-block">
+          <div class="rating-q">Would you attend a future edition of VRMIC?</div>
+          <div class="mcq-options" data-mcq="future">
+            <div class="mcq-opt" data-value="Yes">Yes</div>
+            <div class="mcq-opt" data-value="Maybe">Maybe</div>
+            <div class="mcq-opt" data-value="No">No</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:1.05rem;margin-bottom:12px;"><i class="fa-regular fa-comment" style="color:var(--gold-light);"></i> Comments &amp; suggestions</h3>
+        <textarea id="f-comments" placeholder="What worked well? What could be improved for the next edition of VRMIC?"></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn btn-gold" id="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit feedback</button>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<footer><div class="wrap"><p>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai.</p></div></footer>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+
+const RATING_QUESTIONS = [
+  { key: 'organization', label: 'Overall conference organisation' },
+  { key: 'registration', label: 'Registration &amp; portal experience' },
+  { key: 'sessions', label: 'Quality of technical sessions' },
+  { key: 'speakers', label: 'Keynote speakers &amp; presentations' },
+  { key: 'venue', label: 'Venue, hospitality &amp; facilities' }
+];
+
+function updateClock(){
+  const now = new Date();
+  const opts = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', timeZone: 'Asia/Kolkata', timeZoneName: 'short' };
+  const dateTimeStr = now.toLocaleDateString('en-GB', opts);
+  const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  document.getElementById('utc-clock').innerHTML = `<b>${dateTimeStr} &nbsp;·&nbsp; ${timeStr}</b>`;
+}
+updateClock(); setInterval(updateClock, 1000);
+
+document.getElementById('pnav-toggle').addEventListener('click', () => document.getElementById('pnav').classList.toggle('open'));
+function toggleUserMenu(){ document.getElementById('user-menu').classList.toggle('open'); }
+document.addEventListener('click', (e) => { if (!e.target.closest('.user-chip')) document.getElementById('user-menu').classList.remove('open'); });
+
+const token = localStorage.getItem('vrmic_token');
+if (!token) window.location.href = '../participant-login.html';
+function logout(){ localStorage.removeItem('vrmic_token'); localStorage.removeItem('vrmic_name'); window.location.href = '../participant-login.html'; }
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ action, token }, payload))
+  });
+  return res.json();
+}
+function showErr(msg){ const el = document.getElementById('err'); el.textContent = msg; el.classList.add('show'); window.scrollTo({top:0,behavior:'smooth'}); }
+
+// Build star rating rows
+const ratings = {};
+function buildRatingBlocks(){
+  const area = document.getElementById('rating-blocks');
+  area.innerHTML = RATING_QUESTIONS.map(q => `
+    <div class="rating-block">
+      <div class="rating-q">${q.label}</div>
+      <div class="stars" data-rating="${q.key}">
+        ${[1,2,3,4,5].map(n => `<i class="fa-solid fa-star star" data-value="${n}"></i>`).join('')}
+      </div>
+    </div>`).join('');
+
+  area.querySelectorAll('.stars').forEach(group => {
+    const key = group.dataset.rating;
+    ratings[key] = 0;
+    group.querySelectorAll('.star').forEach(star => {
+      star.addEventListener('click', function(){
+        ratings[key] = Number(this.dataset.value);
+        paintStars(group, ratings[key]);
+      });
+      star.addEventListener('mouseenter', function(){ paintStars(group, Number(this.dataset.value)); });
+    });
+    group.addEventListener('mouseleave', () => paintStars(group, ratings[key]));
+  });
+}
+function paintStars(group, value){
+  group.querySelectorAll('.star').forEach(s => {
+    s.classList.toggle('filled', Number(s.dataset.value) <= value);
+  });
+}
+buildRatingBlocks();
+
+// MCQ single-select groups
+const mcqAnswers = {};
+document.querySelectorAll('.mcq-options').forEach(group => {
+  const key = group.dataset.mcq;
+  mcqAnswers[key] = '';
+  group.querySelectorAll('.mcq-opt').forEach(opt => {
+    opt.addEventListener('click', function(){
+      group.querySelectorAll('.mcq-opt').forEach(o => o.classList.remove('selected'));
+      this.classList.add('selected');
+      mcqAnswers[key] = this.dataset.value;
+    });
+  });
+});
+
+(async function init(){
+  try {
+    const dash = await callApi('getDashboard', {});
+    if (!dash.ok) { if (/session/i.test(dash.error||'')) { window.location.href='../participant-login.html'; return; } }
+    const pt = dash.participant;
+    if (pt.photoUrl) {
+      const av = document.getElementById('user-avatar');
+      av.src = pt.photoUrl.replace('/view','/preview'); av.style.display = '';
+      document.getElementById('user-avatar-fallback').style.display = 'none';
+    }
+    if (pt.pptRequired) document.getElementById('nav-ppt-link').style.display = '';
+    document.getElementById('i-id').textContent = pt.id;
+    document.getElementById('i-name').textContent = pt.name;
+    document.getElementById('i-email').textContent = pt.email;
+    // Phone isn't in getDashboard — pull from getProfile for the auto-filled identity block.
+    const prof = await callApi('getProfile', {});
+    if (prof.ok) document.getElementById('i-phone').textContent = prof.profile.phone || '—';
+
+    const win = await callApi('getFeedbackWindow', {});
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+
+    const now = Date.now();
+    const opensAt = win.ok ? new Date(win.opensAt).getTime() : null;
+    const closesAt = win.ok ? new Date(win.closesAt).getTime() : null;
+
+    if (opensAt && now < opensAt) {
+      document.getElementById('not-open-view').style.display = 'block';
+      document.getElementById('not-open-text').textContent =
+        'The feedback form opens on ' + new Date(opensAt).toLocaleString('en-GB', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) + ' IST, after the conference concludes.';
+      return;
+    }
+    if (closesAt && now > closesAt) {
+      document.getElementById('closed-view').style.display = 'block';
+      return;
+    }
+    // (Optional) if a "feedbackSubmitted" style flag existed on dashboard we'd check it here;
+    // the backend also enforces one-submission-per-participant server-side regardless.
+    document.getElementById('feedback-form').style.display = 'block';
+  } catch (err) {
+    document.getElementById('loader').innerHTML = '<p style="color:var(--danger);">Could not reach the server. Check your connection and reload.</p>';
+  }
+})();
+
+document.getElementById('feedback-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Submitting...';
+  try {
+    const res = await callApi('submitFeedback', {
+      ratings: Object.assign({}, ratings, mcqAnswers),
+      comments: document.getElementById('f-comments').value.trim()
+    });
+    if (!res.ok) {
+      if (/already submitted/i.test(res.error || '')) {
+        document.getElementById('feedback-form').style.display = 'none';
+        document.getElementById('already-view').style.display = 'block';
+        return;
+      }
+      showErr(res.error || 'Could not submit feedback.');
+      btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit feedback';
+      return;
+    }
+    document.getElementById('feedback-form').style.display = 'none';
+    document.getElementById('success-view').style.display = 'block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  } catch (err) {
+    showErr('Could not reach the server. Check your connection and try again.');
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit feedback';
+  }
+});
+</script>
+</body>
+</html>
