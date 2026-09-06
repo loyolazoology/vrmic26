@@ -440,6 +440,31 @@ document.getElementById('f-designation').addEventListener('change', function(){
   document.getElementById('designation-other-field').style.display = this.value === 'Other' ? '' : 'none';
 });
 
+// ---- Designation options depend on the selected Category ----
+const DESIGNATION_OPTIONS = {
+  'Student': ['UG Student', 'PG Student', 'Diploma Student', 'Integrated Student', 'Other'],
+  'Research Scholar': ['Ph.D. Research Scholar', 'M.Phil. Research Scholar', 'Junior Research Fellow (JRF)', 'Senior Research Fellow (SRF)', 'Other'],
+  'Faculty': ['Professor', 'Associate Professor', 'Assistant Professor', 'Guest Faculty', 'Head of Department', 'Other'],
+  'Scientist': ['Senior Scientist', 'Scientist', 'Research Associate', 'Postdoctoral Fellow', 'Other'],
+  'Industry Professional': ['Manager', 'Senior Executive', 'Consultant', 'Technical Officer', 'Other'],
+  'Other': ['Other']
+};
+function onCategoryChange(prefDesignation){
+  const category = document.getElementById('f-category').value;
+  const desigSelect = document.getElementById('f-designation');
+  const options = DESIGNATION_OPTIONS[category];
+  if (!options) {
+    desigSelect.disabled = true;
+    desigSelect.innerHTML = '<option value="">Select category first</option>';
+    return;
+  }
+  desigSelect.disabled = false;
+  desigSelect.innerHTML = '<option value="">Select</option>' + options.map(o => `<option>${o}</option>`).join('');
+  if (prefDesignation && options.indexOf(prefDesignation) > -1) desigSelect.value = prefDesignation;
+  document.getElementById('designation-other-field').style.display = desigSelect.value === 'Other' ? '' : 'none';
+}
+document.getElementById('f-category').addEventListener('change', () => onCategoryChange());
+
 // ---- Photo handling: validate + downscale to a passport-ratio JPEG ----
 let photoBase64 = null, photoFileName = null;
 document.getElementById('f-photo').addEventListener('change', function(e){
@@ -492,6 +517,7 @@ document.getElementById('f-photo').addEventListener('change', function(e){
     document.getElementById('f-phone').value = pf.phone || '';
     document.getElementById('f-institution').value = pf.institution || '';
     if (pf.country) { document.getElementById('f-country').value = pf.country; onCountryChange(pf.state, pf.city); }
+    if (pf.category) { document.getElementById('f-category').value = pf.category; onCategoryChange(pf.designation); }
     document.getElementById('loading-state').style.display = 'none';
     document.getElementById('details-form').style.display = 'block';
   } catch (err) {
