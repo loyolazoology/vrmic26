@@ -4,155 +4,193 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Dashboard | CIMSER, Loyola College</title>
-<meta name="description" content="Participant dashboard — 4th International Conference on Life Sciences and Vector Risk Management, Loyola College (Autonomous), Chennai.">
+<meta name="description" content="Participant dashboard — 4th International Conference on Life Sciences and Vector Risk Management for a Sustainable Healthy Environment, Loyola College (Autonomous), Chennai.">
 <link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
 
 :root{
-  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
-  --navy-border:rgba(226,187,120,.24);
-  --gold:#c9974f; --gold-light:#e8c983;
-  --teal:#279c85; --teal-light:#6fc9b6;
-  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
-  --danger:#d8695a; --warn:#dba43c; --success:#4fa980;
+  --paper:#faf6ec;
+  --paper-alt:#f2ecdc;
+  --card:#ffffff;
+  --card-border:#e7ddc4;
+  --navy:#12224a;
+  --navy-soft:#2c3b63;
+  --ink-1:#1b2436;
+  --ink-2:#535f7a;
+  --ink-3:#8791a6;
+  --gold:#a9762f;
+  --gold-deep:#8a5f24;
+  --gold-light:#c9974f;
+  --teal:#1f7a68;
+  --teal-light:#2e9c85;
+  --danger:#c0392b;
+  --warn:#b5791f;
+  --success:#1f7a49;
   --maxw:1180px;
 }
 *{box-sizing:border-box;}
 html,body{overflow-x:hidden;max-width:100%;}
-body{
-  margin:0;
-  background:
-    radial-gradient(1200px 700px at 85% -10%, #12234f 0%, transparent 55%),
-    radial-gradient(900px 500px at -10% 10%, #0f1d42 0%, transparent 50%),
-    var(--navy-950);
-  color:var(--text-1);
-  font-family:'Inter',sans-serif;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 .4em;color:var(--text-1);}
-p{color:var(--text-2);margin:0 0 1em;}
-a{color:var(--gold-light);text-decoration:none;}
+body{margin:0;background:var(--paper);color:var(--ink-1);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0 0 .4em;color:var(--navy);}
+p{color:var(--ink-2);margin:0 0 1em;}
+a{color:var(--gold-deep);text-decoration:none;}
 a:hover{text-decoration:underline;}
 .mono{font-family:'IBM Plex Mono',monospace;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
 @media(max-width:600px){.wrap{padding:0 16px;}}
 
-.watermark{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:60px;opacity:.03;}
-.watermark img{height:36vh;filter:grayscale(1) brightness(4);}
+.masthead{background:linear-gradient(180deg,#ffffff,var(--paper));border-bottom:3px solid var(--gold);}
+.masthead-inner{max-width:var(--maxw);margin:0 auto;padding:20px 24px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.masthead-logos{display:flex;align-items:center;gap:18px;flex-shrink:0;}
+.masthead-logos img{height:74px;width:auto;object-fit:contain;}
+@media(max-width:700px){.masthead-logos img{height:56px;}}
+.masthead-text{flex:1;min-width:220px;}
+.masthead-text .m-super{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:4px;}
+.masthead-text h1{font-size:clamp(1.15rem,2.2vw,1.55rem);line-height:1.25;margin:0 0 4px;color:var(--navy);}
+.masthead-text .m-sub{font-size:12.5px;color:var(--ink-3);margin:0;}
 
-.utcbar{background:#070c22;border-bottom:1px solid var(--navy-border);position:relative;z-index:2;}
-.utcbar-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;justify-content:flex-end;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-3);}
+.utcbar{background:var(--navy);border-bottom:1px solid var(--card-border);}
+.utcbar-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;justify-content:flex-end;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#c7cede;}
 .utcbar i{color:var(--gold-light);font-size:11px;}
-.utcbar b{color:var(--text-2);font-weight:500;}
+.utcbar b{color:#e8ecf5;font-weight:500;}
 
-.topnav{background:rgba(6,11,28,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--navy-border);position:sticky;top:0;z-index:100;}
-.topnav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:15px;color:var(--text-1);white-space:nowrap;}
-.brand img{height:32px;}
+.topnav{background:#ffffff;border-bottom:1px solid var(--card-border);position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(20,30,60,.04);}
+.topnav-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .pnav{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
-.pnav a{display:flex;align-items:center;gap:6px;padding:9px 12px;border-radius:7px;color:var(--text-2);font-size:13px;font-weight:500;white-space:nowrap;transition:.2s;}
-.pnav a:hover,.pnav a.active{color:var(--gold-light);background:rgba(232,201,131,.08);text-decoration:none;}
-.pnav-toggle{display:none;background:none;border:1px solid var(--navy-border);color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:16px;}
+.pnav a{display:flex;align-items:center;gap:6px;padding:12px;border-radius:7px;color:var(--ink-2);font-size:13px;font-weight:600;white-space:nowrap;transition:.2s;border-bottom:2px solid transparent;}
+.pnav a:hover,.pnav a.active{color:var(--gold-deep);border-bottom-color:var(--gold);text-decoration:none;}
+.pnav-toggle{display:none;background:none;border:1px solid var(--card-border);color:var(--navy);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:16px;}
 .user-chip{display:flex;align-items:center;gap:10px;position:relative;}
-.user-chip img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-light);cursor:pointer;}
-.user-chip .avatar-fallback{width:38px;height:38px;border-radius:50%;background:var(--navy-800);border:2px solid var(--gold-light);display:flex;align-items:center;justify-content:center;color:var(--gold-light);cursor:pointer;font-size:14px;}
-.user-menu{position:absolute;right:0;top:calc(100% + 10px);background:var(--navy-850);border:1px solid var(--navy-border);border-radius:10px;min-width:170px;box-shadow:0 18px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;padding:6px;z-index:50;}
+.user-chip img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);cursor:pointer;background:#fff;}
+.user-chip .avatar-fallback{width:38px;height:38px;border-radius:50%;background:var(--paper-alt);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);cursor:pointer;font-size:14px;}
+.user-menu{position:absolute;right:0;top:calc(100% + 10px);background:#fff;border:1px solid var(--card-border);border-radius:10px;min-width:170px;box-shadow:0 18px 40px rgba(20,30,60,.15);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;padding:6px;z-index:50;}
 .user-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
-.user-menu a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:6px;color:var(--text-2);font-size:13px;}
-.user-menu a:hover{background:rgba(232,201,131,.08);color:var(--gold-light);text-decoration:none;}
+.user-menu a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:6px;color:var(--ink-2);font-size:13px;}
+.user-menu a:hover{background:var(--paper-alt);color:var(--gold-deep);text-decoration:none;}
 @media(max-width:960px){
-  .pnav{position:fixed;right:0;top:0;width:min(300px,85vw);height:100vh;background:var(--navy-950);border-left:1px solid var(--navy-border);flex-direction:column;align-items:stretch;padding:90px 20px 24px;gap:4px;overflow-y:auto;transform:translateX(100%);transition:.35s;visibility:hidden;z-index:99;}
+  .pnav{position:fixed;right:0;top:0;width:min(300px,85vw);height:100vh;background:#fff;border-left:1px solid var(--card-border);flex-direction:column;align-items:stretch;padding:90px 20px 24px;gap:4px;overflow-y:auto;transform:translateX(100%);transition:.35s;visibility:hidden;z-index:99;}
   .pnav.open{transform:translateX(0);visibility:visible;}
   .pnav a{width:100%;font-size:14.5px;padding:12px;}
   .pnav-toggle{display:block;}
 }
 
-.page-head{padding:34px 0 4px;position:relative;z-index:1;}
+.page-head{padding:32px 0 4px;}
 .welcome-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:space-between;}
 .welcome-left{display:flex;align-items:center;gap:16px;}
-.welcome-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2.5px solid var(--gold-light);}
-.welcome-photo-fallback{width:64px;height:64px;border-radius:50%;background:var(--navy-800);border:2.5px solid var(--gold-light);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:24px;}
+.welcome-photo{width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);}
+.welcome-photo-fallback{width:66px;height:66px;border-radius:50%;background:var(--paper-alt);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-size:24px;}
 .welcome-text h1{font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:2px;}
 .welcome-text p{margin:0;font-size:13.5px;}
-.vrmic-id-chip{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold-light);background:rgba(205,163,85,.1);border:1px solid var(--navy-border);padding:8px 16px;border-radius:999px;}
-.helix-rule{height:2px;width:56px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px;margin:18px 0;}
+.type-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:8px;text-transform:uppercase;letter-spacing:.4px;}
+.type-oral{background:rgba(31,122,104,.12);color:var(--teal);}
+.type-poster{background:rgba(169,118,47,.14);color:var(--gold-deep);}
+.type-participant{background:rgba(83,95,122,.12);color:var(--ink-2);}
+.vrmic-id-chip{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--navy);background:#fff;border:1.5px solid var(--gold);padding:9px 18px;border-radius:999px;font-weight:700;}
+.helix-rule{height:3px;width:64px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:3px;margin:18px 0;}
 
-.section{padding:8px 0 60px;position:relative;z-index:1;}
+.section{padding:8px 0 60px;}
 .section-title{display:flex;align-items:center;gap:10px;margin:38px 0 16px;}
-.section-title i{color:var(--gold-light);font-size:16px;}
+.section-title i{color:var(--gold-deep);font-size:16px;}
 .section-title h2{font-size:1.15rem;margin:0;}
 
 .status-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 @media(max-width:900px){.status-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:520px){.status-grid{grid-template-columns:1fr;}}
-.status-card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:14px;padding:20px;position:relative;overflow:hidden;}
-.status-card .sc-icon{width:38px;height:38px;border-radius:10px;background:rgba(205,163,85,.1);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:15px;margin-bottom:14px;}
-.status-card h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3);margin:0 0 6px;font-family:'Inter',sans-serif;font-weight:600;}
-.status-card .sc-value{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--text-1);margin-bottom:8px;}
-.badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:999px;}
-.badge-success{background:rgba(79,169,128,.14);color:var(--teal-light);}
-.badge-pending{background:rgba(219,164,60,.14);color:var(--warn);}
-.badge-danger{background:rgba(216,105,90,.14);color:#e8988c;}
-.badge-neutral{background:rgba(179,188,214,.1);color:var(--text-2);}
-.status-card .sc-progress{height:5px;border-radius:4px;background:var(--navy-800);margin-top:14px;overflow:hidden;}
+.status-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:20px;box-shadow:0 4px 16px rgba(20,30,60,.04);}
+.status-card .sc-icon{width:38px;height:38px;border-radius:10px;background:var(--paper-alt);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-size:15px;margin-bottom:14px;}
+.status-card h4{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-3);margin:0 0 6px;font-family:'Inter',sans-serif;font-weight:700;}
+.status-card .sc-value{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--navy);margin-bottom:8px;}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;}
+.badge-success{background:rgba(31,122,73,.1);color:var(--success);}
+.badge-pending{background:rgba(181,121,31,.1);color:var(--warn);}
+.badge-danger{background:rgba(192,57,43,.1);color:var(--danger);}
+.badge-neutral{background:rgba(83,95,122,.1);color:var(--ink-2);}
+.status-card .sc-progress{height:5px;border-radius:4px;background:var(--paper-alt);margin-top:14px;overflow:hidden;}
 .status-card .sc-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-light),var(--gold));border-radius:4px;}
-.status-card .sc-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;margin-top:12px;color:var(--gold-light);}
+.status-card .sc-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;margin-top:12px;color:var(--gold-deep);font-weight:600;}
 
 .att-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 @media(max-width:640px){.att-grid{grid-template-columns:1fr;}}
-.att-card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:14px;padding:18px;text-align:center;}
-.att-card .att-day{font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
-.att-card .att-date{font-size:13px;color:var(--text-2);margin-bottom:12px;}
+.att-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:18px;text-align:center;}
+.att-card .att-day{font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.att-card .att-date{font-size:13px;color:var(--ink-2);margin-bottom:12px;}
 .att-card .att-status{font-size:20px;}
 .att-present{color:var(--success);}
-.att-absent{color:var(--text-3);}
-.att-notice{font-size:13px;color:var(--text-3);text-align:center;padding:20px;border:1px dashed var(--navy-border);border-radius:12px;}
+.att-absent{color:var(--ink-3);}
+.att-notice{font-size:13px;color:var(--ink-3);text-align:center;padding:20px;border:1px dashed var(--card-border);border-radius:12px;}
 
-.card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:14px;padding:22px;}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:22px;box-shadow:0 4px 16px rgba(20,30,60,.04);}
+.mode-card{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;}
+.mode-card .mc-left{display:flex;align-items:center;gap:14px;}
+.mode-card .mc-icon{width:44px;height:44px;border-radius:12px;background:var(--paper-alt);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-size:18px;flex-shrink:0;}
+.mode-card h4{margin:0 0 3px;font-size:14.5px;color:var(--navy);}
+.mode-card p{margin:0;font-size:13px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.2s;font-family:inherit;}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,30,60,.12);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold-deep));color:#fff;}
+.btn-outline{background:#fff;border-color:var(--card-border);color:var(--navy);}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
 .announce-list{display:flex;flex-direction:column;gap:12px;}
-.announce-item{display:flex;gap:14px;padding:16px;background:var(--navy-950);border:1px solid var(--navy-border);border-radius:10px;}
-.announce-item i{color:var(--gold-light);font-size:16px;margin-top:2px;}
-.announce-item h5{margin:0 0 4px;font-size:14px;color:var(--text-1);font-weight:600;}
+.announce-item{display:flex;gap:14px;padding:16px;background:var(--paper-alt);border:1px solid var(--card-border);border-radius:10px;}
+.announce-item i{color:var(--gold-deep);font-size:16px;margin-top:2px;}
+.announce-item h5{margin:0 0 4px;font-size:14px;color:var(--navy);font-weight:700;}
 .announce-item p{margin:0;font-size:13px;}
-.announce-item time{font-size:11px;color:var(--text-3);font-family:'IBM Plex Mono',monospace;display:block;margin-top:6px;}
-.empty-note{font-size:13.5px;color:var(--text-3);text-align:center;padding:24px;}
+.announce-item time{font-size:11px;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;display:block;margin-top:6px;}
+.empty-note{font-size:13.5px;color:var(--ink-3);text-align:center;padding:24px;}
+
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:760px){.guide-grid{grid-template-columns:1fr;}}
+.guide-card h4{font-size:14px;color:var(--navy);margin:0 0 10px;display:flex;align-items:center;gap:8px;}
+.guide-card h4 i{color:var(--gold-deep);}
+.guide-card ul{margin:0;padding-left:18px;}
+.guide-card li{font-size:13px;color:var(--ink-2);margin-bottom:7px;}
 
 .support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 @media(max-width:800px){.support-grid{grid-template-columns:1fr;}}
-.support-card{background:var(--navy-950);border:1px solid var(--navy-border);border-radius:12px;padding:18px;}
-.support-card i{color:var(--gold-light);font-size:17px;margin-bottom:10px;display:block;}
-.support-card h5{margin:0 0 4px;font-size:14px;color:var(--text-1);}
+.support-card{background:var(--paper-alt);border:1px solid var(--card-border);border-radius:12px;padding:18px;}
+.support-card i{color:var(--gold-deep);font-size:17px;margin-bottom:10px;display:block;}
+.support-card h5{margin:0 0 4px;font-size:14px;color:var(--navy);}
 .support-card p{margin:0 0 10px;font-size:12.5px;}
-.support-card a{font-size:13px;font-weight:600;}
+.support-card a{font-size:13px;font-weight:700;}
 
-footer{border-top:1px solid var(--navy-border);padding:40px 0 24px;background:var(--navy-950);position:relative;z-index:1;}
-footer p{font-size:12.5px;color:var(--text-3);text-align:center;margin:0;}
+footer{border-top:1px solid var(--card-border);padding:40px 0 24px;background:var(--navy);}
+footer p{font-size:12.5px;color:#c7cede;text-align:center;margin:0;}
+footer em{color:var(--gold-light);}
 
-.loader{text-align:center;padding:80px 0;color:var(--text-3);}
-.spinner-lg{width:30px;height:30px;border:3px solid rgba(255,255,255,.12);border-top-color:var(--gold-light);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
-@keyframes spin{to{transform:rotate(360deg);}}
+.loader{text-align:center;padding:80px 0;color:var(--ink-3);}
+.spinner-lg{width:30px;height:30px;border:3px solid rgba(169,118,47,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
 </style>
 </head>
 <body>
 
-<div class="watermark">
-  <img src="../assets/loyola-crest.png" alt="" onerror="this.style.display='none'">
-  <img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'">
-</div>
-
 <div class="utcbar"><div class="utcbar-inner"><i class="fa-regular fa-clock"></i><span id="utc-clock"><b>Loading time…</b></span></div></div>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-logos">
+      <img src="../assets/loyola-crest.png" alt="Loyola College" onerror="this.style.display='none'">
+      <img src="../assets/cimser-logo.png" alt="CIMSER" onerror="this.style.display='none'">
+    </div>
+    <div class="masthead-text">
+      <div class="m-super">Loyola College (Autonomous), Chennai · Est. 1925</div>
+      <h1>4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment</h1>
+      <p class="m-sub">26&ndash;28 November 2026 &middot; CIMSER, PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology &middot; Participant Portal</p>
+    </div>
+  </div>
+</div>
 
 <div class="topnav">
   <div class="topnav-inner">
-    <div class="brand"><img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'"> VRMIC 2026</div>
     <button class="pnav-toggle" id="pnav-toggle"><i class="fa-solid fa-bars"></i></button>
     <ul class="pnav" id="pnav">
       <li><a href="home.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
       <li><a href="registration.html"><i class="fa-solid fa-id-card"></i> Registration</a></li>
-      <li><a href="abstract.html"><i class="fa-solid fa-file-lines"></i> Abstract</a></li>
+      <li><a href="abstract.html" id="nav-abstract-link"><i class="fa-solid fa-file-lines"></i> Abstract</a></li>
       <li><a href="ppt.html" id="nav-ppt-link" style="display:none;"><i class="fa-solid fa-display"></i> PPT</a></li>
       <li><a href="schedule.html"><i class="fa-regular fa-calendar"></i> Schedule</a></li>
       <li><a href="slot.html"><i class="fa-solid fa-location-crosshairs"></i> My Slot</a></li>
@@ -177,7 +215,7 @@ footer p{font-size:12.5px;color:var(--text-3);text-align:center;margin:0;}
         <div class="welcome-photo-fallback" id="welcome-photo-fallback"><i class="fa-solid fa-user"></i></div>
         <div class="welcome-text">
           <h1 id="welcome-name">Welcome…</h1>
-          <p id="welcome-sub">Loading your dashboard…</p>
+          <p id="welcome-sub">Loading your dashboard…<span id="type-chip"></span></p>
         </div>
       </div>
       <div class="vrmic-id-chip"><i class="fa-solid fa-hashtag"></i> <span id="vrmic-id">—</span></div>
@@ -194,8 +232,62 @@ footer p{font-size:12.5px;color:var(--text-3);text-align:center;margin:0;}
     <div class="section-title"><i class="fa-solid fa-gauge-high"></i><h2>Your status</h2></div>
     <div class="status-grid" id="status-grid"></div>
 
+    <div class="section-title" id="mode-title" style="display:none;"><i class="fa-solid fa-map-location-dot"></i><h2>Conference mode</h2></div>
+    <div class="card mode-card" id="mode-card" style="display:none;"></div>
+
     <div class="section-title"><i class="fa-solid fa-calendar-check"></i><h2>Attendance</h2></div>
     <div id="attendance-area"></div>
+
+    <div class="section-title"><i class="fa-solid fa-award"></i><h2>Attendance certificate</h2></div>
+    <div class="card mode-card">
+      <div class="mc-left">
+        <div class="mc-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div>
+          <h4 id="cert-title">Request your attendance certificate</h4>
+          <p id="cert-text">Available after the conference. Your request is sent to the organising desk, who will generate and email it to you.</p>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="cert-btn"><i class="fa-solid fa-paper-plane"></i> Request certificate</button>
+    </div>
+
+    <div class="section-title"><i class="fa-solid fa-book-open"></i><h2>Abstract &amp; poster submission guidelines</h2></div>
+    <div class="card">
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h4><i class="fa-solid fa-file-lines"></i> Abstract format</h4>
+          <ul>
+            <li>Submit as a Word document (.doc/.docx) only — maximum 300 words, single paragraph.</li>
+            <li>Include title, author(s), affiliation, and up to 5 keywords.</li>
+            <li>Select the most relevant theme from the 15 listed on the submission page.</li>
+            <li>Deadline: <b>20 November 2026</b> — no edits are possible after submission.</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h4><i class="fa-solid fa-display"></i> Oral presentation</h4>
+          <ul>
+            <li>7 minutes for presentation + 3 minutes for discussion (10 minutes total).</li>
+            <li>Upload your final .pptx after abstract acceptance — no changes permitted post-submission.</li>
+            <li>Recommended: 8–10 slides, 16:9 widescreen format.</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h4><i class="fa-solid fa-image"></i> Poster presentation</h4>
+          <ul>
+            <li>Size: A1 portrait (594 × 841 mm), printed and brought in person.</li>
+            <li>Include title, authors, affiliation, and a VRMIC ID/QR tag at the top.</li>
+            <li>No file upload needed here — only your abstract is submitted online.</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h4><i class="fa-solid fa-circle-info"></i> General notes</h4>
+          <ul>
+            <li>All accepted abstracts are published in the conference proceedings (ISBN).</li>
+            <li>Selected papers may be invited for Scopus/WoS-indexed journal publication.</li>
+            <li>Contact the organising committee for any correction requests after submission.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <div class="section-title"><i class="fa-solid fa-bullhorn"></i><h2>Announcements</h2></div>
     <div class="card"><div class="announce-list" id="announce-list"><p class="empty-note">No announcements yet — check back soon.</p></div></div>
@@ -225,7 +317,7 @@ footer p{font-size:12.5px;color:var(--text-3);text-align:center;margin:0;}
   </div>
 </section>
 
-<footer><div class="wrap"><p>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai.</p></div></footer>
+<footer><div class="wrap"><p>© 2026, CIMSER — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai &middot; <em>"Luceat Lux Vestra — Let Your Light Shine"</em></p></div></footer>
 
 <script>
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
@@ -242,39 +334,37 @@ updateClock(); setInterval(updateClock, 1000);
 const pnavToggle = document.getElementById('pnav-toggle');
 const pnav = document.getElementById('pnav');
 pnavToggle.addEventListener('click', () => pnav.classList.toggle('open'));
-
 function toggleUserMenu(){ document.getElementById('user-menu').classList.toggle('open'); }
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.user-chip')) document.getElementById('user-menu').classList.remove('open');
-});
+document.addEventListener('click', (e) => { if (!e.target.closest('.user-chip')) document.getElementById('user-menu').classList.remove('open'); });
 
 const token = localStorage.getItem('vrmic_token');
 if (!token) window.location.href = '../participant-login.html';
-
-function logout(){
-  localStorage.removeItem('vrmic_token');
-  localStorage.removeItem('vrmic_name');
-  window.location.href = '../participant-login.html';
-}
+function logout(){ localStorage.removeItem('vrmic_token'); localStorage.removeItem('vrmic_name'); window.location.href = '../participant-login.html'; }
 
 async function callApi(action, payload) {
   const res = await fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(Object.assign({ action, token }, payload))
   });
   return res.json();
 }
 
-function statusBadge(text, kind){
-  return `<span class="badge badge-${kind}"><i class="fa-solid fa-circle" style="font-size:6px;"></i> ${text}</span>`;
+// Turns a Google Drive "view" share link into a URL that actually renders in an <img> tag.
+// (drive.google.com/.../view is an HTML viewer page, not an image — this was the bug.)
+function driveThumb(url, size){
+  if (!url) return '';
+  const m = String(url).match(/\/d\/([^/]+)/) || String(url).match(/[?&]id=([^&]+)/);
+  if (!m) return url;
+  return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w${size || 300}`;
 }
+
+function statusBadge(text, kind){ return `<span class="badge badge-${kind}"><i class="fa-solid fa-circle" style="font-size:6px;"></i> ${text}</span>`; }
+function escapeHtml(str){ return String(str||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 function renderStatusGrid(pt){
   const grid = document.getElementById('status-grid');
   const cards = [];
 
-  // Registration
   cards.push(`
     <div class="status-card">
       <div class="sc-icon"><i class="fa-solid fa-id-card"></i></div>
@@ -285,7 +375,6 @@ function renderStatusGrid(pt){
       <a class="sc-link" href="registration.html">View details <i class="fa-solid fa-arrow-right"></i></a>
     </div>`);
 
-  // Profile
   cards.push(`
     <div class="status-card">
       <div class="sc-icon"><i class="fa-solid fa-user-check"></i></div>
@@ -295,18 +384,21 @@ function renderStatusGrid(pt){
       <div class="sc-progress"><div class="sc-progress-fill" style="width:${pt.profilePercent}%;"></div></div>
     </div>`);
 
-  // Abstract
-  const absKind = pt.abstractStatus === 'Accepted' ? 'success' : pt.abstractStatus === 'Rejected' ? 'danger' : pt.abstractStatus === 'Not Submitted' ? 'neutral' : 'pending';
-  cards.push(`
-    <div class="status-card">
-      <div class="sc-icon"><i class="fa-solid fa-file-lines"></i></div>
-      <h4>Abstract</h4>
-      <div class="sc-value" style="font-size:1rem;line-height:1.3;">${pt.abstractTitle ? pt.abstractTitle.slice(0,40) + (pt.abstractTitle.length>40?'…':'') : 'Not submitted'}</div>
-      ${statusBadge(pt.abstractStatus, absKind)}
-      <a class="sc-link" href="abstract.html">${pt.abstractStatus === 'Not Submitted' ? 'Submit now' : 'View submission'} <i class="fa-solid fa-arrow-right"></i></a>
-    </div>`);
+  if (pt.abstractApplicable) {
+    const absKind = pt.abstractStatus === 'Accepted' ? 'success' : pt.abstractStatus === 'Rejected' ? 'danger' : pt.abstractStatus === 'Not Submitted' ? 'neutral' : 'pending';
+    cards.push(`
+      <div class="status-card">
+        <div class="sc-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <h4>Abstract (${pt.participantType})</h4>
+        <div class="sc-value" style="font-size:1rem;line-height:1.3;">${pt.abstractTitle ? escapeHtml(pt.abstractTitle.slice(0,40)) + (pt.abstractTitle.length>40?'…':'') : 'Not submitted'}</div>
+        ${statusBadge(pt.abstractStatus, absKind)}
+        <a class="sc-link" href="abstract.html">${pt.abstractStatus === 'Not Submitted' ? 'Submit now' : 'View submission'} <i class="fa-solid fa-arrow-right"></i></a>
+      </div>`);
+    document.getElementById('nav-abstract-link').style.display = '';
+  } else {
+    document.getElementById('nav-abstract-link').style.display = 'none';
+  }
 
-  // PPT / Poster
   if (pt.pptRequired) {
     const pptKind = pt.pptSubmitted ? 'success' : 'pending';
     cards.push(`
@@ -331,12 +423,36 @@ function renderStatusGrid(pt){
   grid.innerHTML = cards.join('');
 }
 
-function renderAttendance(att){
+function renderModeCard(pt){
+  const card = document.getElementById('mode-card');
+  document.getElementById('mode-title').style.display = 'block';
+  card.style.display = 'flex';
+  if (pt.mode === 'Online') {
+    card.innerHTML = `
+      <div class="mc-left">
+        <div class="mc-icon"><i class="fa-solid fa-video"></i></div>
+        <div><h4>Attending online</h4><p>Join the conference live using the meeting link below on the conference dates.</p></div>
+      </div>
+      ${pt.meetingLink ? `<a class="btn btn-gold" href="${pt.meetingLink}" target="_blank"><i class="fa-solid fa-video"></i> Join meeting</a>` : `<span class="badge badge-pending">Link coming soon</span>`}`;
+  } else {
+    card.innerHTML = `
+      <div class="mc-left">
+        <div class="mc-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div><h4>Attending in person</h4><p>${escapeHtml(pt.location || 'Loyola College (Autonomous), Chennai')}</p></div>
+      </div>
+      <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(pt.location || 'Loyola College Chennai')}" target="_blank"><i class="fa-solid fa-diamond-turn-right"></i> Directions</a>`;
+  }
+}
+
+function renderAttendance(att, mode){
   const area = document.getElementById('attendance-area');
+  if (mode === 'Online') {
+    area.innerHTML = `<div class="att-notice"><i class="fa-solid fa-video"></i>&nbsp; Attendance for online participants is tracked via the meeting platform, not marked here.</div>`;
+    return;
+  }
   const now = new Date();
   const confStart = new Date('2026-11-26T00:00:00+05:30');
-  const confEnd = new Date('2026-11-29T00:00:00+05:30'); // end of day 28
-
+  const confEnd = new Date('2026-11-29T00:00:00+05:30');
   if (now < confStart || now >= confEnd) {
     area.innerHTML = `<div class="att-notice"><i class="fa-regular fa-clock"></i>&nbsp; Attendance will appear here on the conference days (26&ndash;28 Nov 2026), marked by the organising desk at check-in.</div>`;
     return;
@@ -371,9 +487,7 @@ function renderAnnouncements(list){
     </div>`).join('');
 }
 
-function escapeHtml(str){
-  return String(str || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
+let currentPt = null;
 
 (async function init(){
   try {
@@ -384,26 +498,42 @@ function escapeHtml(str){
       return;
     }
     const pt = res.participant;
-
+    currentPt = pt;
     if (!pt.profileCompleted) { window.location.href = 'details.html'; return; }
 
     document.getElementById('welcome-name').textContent = 'Welcome, ' + pt.name.split(' ')[0] + '!';
-    document.getElementById('welcome-sub').textContent = (pt.institution || '') + (pt.category ? ' · ' + pt.category : '');
+    const typeClass = pt.participantType === 'Oral' ? 'type-oral' : pt.participantType === 'Poster' ? 'type-poster' : 'type-participant';
+    document.getElementById('welcome-sub').innerHTML = escapeHtml(pt.institution || '') + (pt.category ? ' · ' + escapeHtml(pt.category) : '') +
+      `<span class="type-chip ${typeClass}">${pt.participantType}</span>`;
     document.getElementById('vrmic-id').textContent = pt.id;
 
     if (pt.photoUrl) {
+      const thumb = driveThumb(pt.photoUrl, 300);
       ['welcome-photo','user-avatar'].forEach(id => {
         const el = document.getElementById(id);
-        el.src = pt.photoUrl.replace('/view', '/preview'); // best-effort thumbnail-friendly link
-        el.style.display = '';
+        el.src = thumb; el.style.display = '';
+        el.onerror = () => { el.style.display = 'none'; };
       });
       document.getElementById('welcome-photo-fallback').style.display = 'none';
       document.getElementById('user-avatar-fallback').style.display = 'none';
     }
 
     renderStatusGrid(pt);
-    renderAttendance(pt.attendance);
+    renderModeCard(pt);
+    renderAttendance(pt.attendance, pt.mode);
     renderAnnouncements(res.announcements);
+
+    const certBtn = document.getElementById('cert-btn');
+    if (pt.certificateLink) {
+      document.getElementById('cert-title').textContent = 'Your certificate is ready';
+      document.getElementById('cert-text').innerHTML = `Your attendance certificate has been generated. <a href="${pt.certificateLink}" target="_blank">Download it here</a>.`;
+      certBtn.style.display = 'none';
+    } else if (pt.certificateRequested) {
+      document.getElementById('cert-title').textContent = 'Certificate request received';
+      document.getElementById('cert-text').textContent = 'The organising desk has your request and will email your certificate once it is generated.';
+      certBtn.disabled = true;
+      certBtn.innerHTML = '<i class="fa-solid fa-check"></i> Requested';
+    }
 
     document.getElementById('loader').style.display = 'none';
     document.getElementById('dash-content').style.display = 'block';
@@ -411,6 +541,25 @@ function escapeHtml(str){
     document.getElementById('loader').innerHTML = '<p style="color:var(--danger);">Could not reach the server. Check your connection and reload.</p>';
   }
 })();
+
+document.getElementById('cert-btn').addEventListener('click', async function(){
+  const btn = this;
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Sending request...';
+  try {
+    const res = await callApi('requestCertificate', {});
+    if (!res.ok) {
+      alert(res.error || 'Could not send request.');
+      btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request certificate';
+      return;
+    }
+    document.getElementById('cert-title').textContent = 'Certificate request received';
+    document.getElementById('cert-text').textContent = 'The organising desk has your request and will email your certificate once it is generated.';
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Requested';
+  } catch (err) {
+    alert('Could not reach the server. Check your connection and try again.');
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request certificate';
+  }
+});
 </script>
 </body>
 </html>
