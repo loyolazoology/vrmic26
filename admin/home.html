@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | VRMIC 2026 Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="../assets/cimser-logo.png">
+<style>
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --danger:#d8695a; --warn:#dba43c; --success:#4fa980;
+  --sidebar-w:250px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  font-family:'Inter',sans-serif;color:var(--text-1);line-height:1.6;
+  background:var(--navy-950);
+  display:flex;flex-direction:column;min-height:100vh;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 4px;}
+a{color:var(--gold-light);text-decoration:none;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+
+/* ---- Masthead: full institutional branding, spans the whole page ---- */
+.masthead{background:var(--navy-900);border-bottom:3px solid var(--gold);flex-shrink:0;}
+.masthead-inner{padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.masthead-logos{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.masthead-logos img{height:52px;width:auto;object-fit:contain;}
+@media(max-width:700px){.masthead-logos img{height:40px;}}
+.masthead-text{flex:1;min-width:220px;}
+.masthead-text .m-super{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1.1px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:2px;}
+.masthead-text h1{font-size:clamp(.92rem,1.7vw,1.15rem);line-height:1.25;margin:0;color:var(--text-1);}
+.masthead-text .m-sub{font-size:11px;color:var(--text-3);margin:0;}
+
+.body-row{flex:1;display:flex;min-height:0;}
+
+/* ---- Sidebar ---- */
+.sidebar{
+  width:var(--sidebar-w);flex-shrink:0;background:var(--navy-900);border-right:1px solid var(--navy-border);
+  display:flex;flex-direction:column;overflow-y:auto;
+}
+.sidebar-brand{padding:22px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--navy-border);}
+.sidebar-brand img{height:36px;width:auto;}
+.sidebar-brand div{font-family:'Fraunces',serif;font-size:14px;line-height:1.3;}
+.sidebar-brand small{display:block;color:var(--text-3);font-size:10.5px;font-family:'IBM Plex Mono',monospace;letter-spacing:.4px;}
+.sidebar-nav{flex:1;padding:14px 12px;}
+.nav-section{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--text-3);padding:14px 12px 6px;}
+.nav-link{
+  display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:8px;color:var(--text-2);
+  font-size:13.5px;font-weight:500;margin-bottom:2px;cursor:pointer;transition:.15s;
+}
+.nav-link i{width:16px;text-align:center;color:var(--text-3);font-size:13px;}
+.nav-link:hover{background:rgba(232,201,131,.06);color:var(--text-1);}
+.nav-link.active{background:rgba(232,201,131,.1);color:var(--gold-light);}
+.nav-link.active i{color:var(--gold-light);}
+.nav-sub{padding-left:30px;}
+.sidebar-footer{padding:16px 20px;border-top:1px solid var(--navy-border);}
+.sidebar-user{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.sidebar-user .avatar{width:36px;height:36px;border-radius:50%;background:var(--navy-800);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;flex-shrink:0;}
+.sidebar-user div{min-width:0;}
+.sidebar-user b{display:block;font-size:13px;color:var(--text-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sidebar-user span{font-size:11px;color:var(--text-3);}
+.logout-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:9px;border-radius:8px;
+  border:1px solid var(--navy-border);background:transparent;color:var(--text-2);font-size:12.5px;cursor:pointer;
+}
+.logout-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+
+.sidebar-toggle{display:none;position:fixed;top:70px;left:16px;z-index:60;background:var(--navy-850);border:1px solid var(--navy-border);color:var(--text-1);width:40px;height:40px;border-radius:8px;cursor:pointer;font-size:16px;}
+@media(max-width:960px){
+  .sidebar{position:fixed;top:0;bottom:0;left:0;z-index:70;transform:translateX(-100%);width:min(280px,85vw);transition:transform .3s ease;}
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-toggle{display:block;}
+}
+
+/* ---- Main content ---- */
+.main{flex:1;min-width:0;overflow-y:auto;}
+.topbar{
+  background:rgba(6,11,28,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--navy-border);
+  padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  position:sticky;top:0;z-index:40;
+}
+.topbar h1{font-size:1.3rem;}
+.topbar .breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.4px;}
+.wrap{padding:28px;max-width:1280px;}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+@media(max-width:1100px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.stat-grid{grid-template-columns:1fr;}}
+.stat-card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:14px;padding:20px;}
+.stat-card .sc-icon{width:38px;height:38px;border-radius:10px;background:rgba(205,163,85,.1);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:15px;margin-bottom:14px;}
+.stat-card h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3);margin:0 0 6px;font-weight:600;}
+.stat-card .sc-value{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--text-1);}
+.stat-card .sc-sub{font-size:12px;color:var(--text-3);margin-top:4px;}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:8px 0 16px;}
+.section-title i{color:var(--gold-light);font-size:15px;}
+.section-title h2{font-size:1.05rem;margin:0;}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:800px){.grid-2{grid-template-columns:1fr;}}
+.card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:14px;padding:22px;}
+.breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--navy-border);font-size:13.5px;}
+.breakdown-row:last-child{border-bottom:none;}
+.breakdown-row b{color:var(--text-1);}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;}
+.badge-oral{background:rgba(31,122,104,.14);color:var(--teal-light);}
+.badge-poster{background:rgba(205,163,85,.14);color:var(--gold-light);}
+.badge-participant{background:rgba(179,188,214,.1);color:var(--text-2);}
+.badge-pending{background:rgba(219,164,60,.14);color:var(--warn);}
+
+.action-list{display:flex;flex-direction:column;gap:10px;}
+.action-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;background:var(--navy-950);border:1px solid var(--navy-border);border-radius:10px;}
+.action-item .ai-left{display:flex;align-items:center;gap:12px;}
+.action-item i{color:var(--gold-light);font-size:15px;}
+.action-item b{font-size:13.5px;color:var(--text-1);}
+.action-item span{font-size:12px;color:var(--text-3);display:block;}
+.action-item a{font-size:12.5px;font-weight:600;color:var(--gold-light);white-space:nowrap;}
+
+.loader{text-align:center;padding:80px 0;color:var(--text-3);}
+.spinner-lg{width:28px;height:28px;border:3px solid rgba(232,201,131,.15);border-top-color:var(--gold-light);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+
+<button class="sidebar-toggle" id="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-logos">
+      <img src="../assets/loyola-crest.png" alt="Loyola College" onerror="this.style.display='none'">
+      <img src="../assets/cimser-logo.png" alt="CIMSER" onerror="this.style.display='none'">
+    </div>
+    <div class="masthead-text">
+      <div class="m-super">Loyola College (Autonomous), Chennai · Est. 1925</div>
+      <h1>4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment</h1>
+      <p class="m-sub">26&ndash;28 November 2026 &middot; CIMSER &middot; Administration Portal</p>
+    </div>
+  </div>
+</div>
+
+<div class="body-row">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'">
+    <div>VRMIC 2026<small>ADMIN CONTROL PANEL</small></div>
+  </div>
+  <nav class="sidebar-nav" id="sidebar-nav"><!-- populated by JS based on permissions --></nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="avatar"><i class="fa-solid fa-user-shield"></i></div>
+      <div><b id="admin-name">—</b><span id="admin-position">—</span></div>
+    </div>
+    <button class="logout-btn" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div>
+      <div class="breadcrumb">ADMIN / DASHBOARD</div>
+      <h1>Dashboard</h1>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div id="loader" class="loader"><div class="spinner-lg"></div>Loading dashboard…</div>
+
+    <div id="content" style="display:none;">
+      <div class="stat-grid" id="stat-grid"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-title"><i class="fa-solid fa-chart-pie"></i><h2>Participants by category</h2></div>
+          <div id="type-breakdown"></div>
+        </div>
+        <div class="card">
+          <div class="section-title"><i class="fa-solid fa-list-check"></i><h2>Needs attention</h2></div>
+          <div class="action-list" id="action-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+
+const token = localStorage.getItem('vrmic_admin_token');
+if (!token) window.location.href = '../admin-login.html';
+
+let permissions = {};
+try { permissions = JSON.parse(localStorage.getItem('vrmic_admin_permissions') || '{}'); } catch(e) {}
+
+function can(moduleKey, action) { return !!(permissions[moduleKey] && permissions[moduleKey][action]); }
+
+function logout(){
+  localStorage.removeItem('vrmic_admin_token');
+  localStorage.removeItem('vrmic_admin_name');
+  localStorage.removeItem('vrmic_admin_position');
+  localStorage.removeItem('vrmic_admin_permissions');
+  window.location.href = '../admin-login.html';
+}
+
+document.getElementById('sidebar-toggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('open'));
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ action, token }, payload))
+  });
+  return res.json();
+}
+function escapeHtml(str){ return String(str||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ---- Sidebar nav: every module gets a Transaction entry (action/edit) and a
+// Report entry (view list/log), same pattern as Mail. Each only renders if the
+// admin has that specific permission — a Volunteer with only attendance.transaction
+// sees just "Mark Attendance", never "Attendance Report", unless also granted.
+const NAV_ITEMS = [
+  { key: 'dashboard', label: 'Dashboard', icon: 'fa-gauge-high', href: 'home.html', always: true },
+
+  { section: 'Participants' },
+  { key: 'participants', sub: 'transaction', label: 'Manage Participants', icon: 'fa-user-plus', href: 'participants-manage.html' },
+  { key: 'participants', sub: 'report', label: 'Participant Report', icon: 'fa-table-list', href: 'participants-report.html' },
+
+  { section: 'Abstract Review' },
+  { key: 'abstract', sub: 'transaction', label: 'Review Abstracts', icon: 'fa-file-circle-check', href: 'abstracts-review.html' },
+  { key: 'abstract', sub: 'report', label: 'Abstract Report', icon: 'fa-table-list', href: 'abstracts-report.html' },
+
+  { section: 'Slot Allotment' },
+  { key: 'slot', sub: 'transaction', label: 'Allot Slots', icon: 'fa-location-crosshairs', href: 'slots-manage.html' },
+  { key: 'slot', sub: 'report', label: 'Slot Report', icon: 'fa-table-list', href: 'slots-report.html' },
+
+  { section: 'Attendance' },
+  { key: 'attendance', sub: 'transaction', label: 'Mark Attendance', icon: 'fa-calendar-check', href: 'attendance-mark.html' },
+  { key: 'attendance', sub: 'report', label: 'Attendance Report', icon: 'fa-table-list', href: 'attendance-report.html' },
+
+  { section: 'Presentation Access' },
+  { key: 'presentationAccess', sub: 'report', label: 'Venue Presentation List', icon: 'fa-display', href: 'presentation-access.html' },
+
+  { section: 'Certificates' },
+  { key: 'certificates', sub: 'transaction', label: 'Generate Certificate', icon: 'fa-certificate', href: 'certificates-manage.html' },
+  { key: 'certificates', sub: 'report', label: 'Certificate Report', icon: 'fa-table-list', href: 'certificates-report.html' },
+
+  { section: 'Receipts' },
+  { key: 'receipts', sub: 'transaction', label: 'Fulfill Receipt', icon: 'fa-receipt', href: 'receipts-manage.html' },
+  { key: 'receipts', sub: 'report', label: 'Receipt Report', icon: 'fa-table-list', href: 'receipts-report.html' },
+
+  { section: 'Feedback' },
+  { key: 'feedback', sub: 'report', label: 'Feedback Report', icon: 'fa-comment-dots', href: 'feedback-report.html' },
+
+  { section: 'Schedule' },
+  { key: 'schedule', sub: 'transaction', label: 'Edit Schedule', icon: 'fa-calendar-days', href: 'schedule-manage.html' },
+  { key: 'schedule', sub: 'report', label: 'Schedule Report', icon: 'fa-table-list', href: 'schedule-report.html' },
+
+  { section: 'Announcements' },
+  { key: 'announcements', sub: 'transaction', label: 'Post Announcement', icon: 'fa-bullhorn', href: 'announcements-manage.html' },
+  { key: 'announcements', sub: 'report', label: 'Announcement Report', icon: 'fa-table-list', href: 'announcements-report.html' },
+
+  { section: 'Mail' },
+  { key: 'mail', sub: 'transaction', label: 'Send Invite', icon: 'fa-paper-plane', href: 'mail-send.html' },
+  { key: 'mail', sub: 'report', label: 'Mail Report', icon: 'fa-table-list', href: 'mail-report.html' },
+
+  { section: 'Volunteer Management' },
+  { key: 'volunteers', sub: 'transaction', label: 'Assign Volunteers', icon: 'fa-user-group', href: 'volunteers-manage.html' },
+  { key: 'volunteers', sub: 'report', label: 'Volunteer Report', icon: 'fa-table-list', href: 'volunteers-report.html' },
+
+  { section: 'Settings' },
+  { key: 'settings', sub: 'transaction', label: 'Edit Settings', icon: 'fa-sliders', href: 'settings-manage.html' },
+  { key: 'settings', sub: 'report', label: 'Current Settings', icon: 'fa-table-list', href: 'settings-report.html' },
+
+  { section: 'Admin Users' },
+  { key: 'adminUsers', sub: 'transaction', label: 'Manage Admin Users', icon: 'fa-user-shield', href: 'admin-users-manage.html' },
+  { key: 'adminUsers', sub: 'report', label: 'Admin User Report', icon: 'fa-table-list', href: 'admin-users-report.html' }
+];
+
+function renderSidebar(){
+  const nav = document.getElementById('sidebar-nav');
+  let html = '';
+  let pendingSection = null;
+  NAV_ITEMS.forEach(item => {
+    if (item.section) { pendingSection = item.section; return; }
+    if (!item.always && !can(item.key, item.sub)) return;
+    if (pendingSection) { html += `<div class="nav-section">${pendingSection}</div>`; pendingSection = null; }
+    const activeClass = item.href === 'home.html' ? 'active' : '';
+    html += `<a class="nav-link ${activeClass}" href="${item.href}"><i class="fa-solid ${item.icon}"></i> ${item.label}</a>`;
+  });
+  nav.innerHTML = html || `<p style="padding:14px 12px;font-size:12.5px;color:var(--text-3);">No modules assigned yet. Contact the administrator.</p>`;
+}
+renderSidebar();
+
+document.getElementById('admin-name').textContent = localStorage.getItem('vrmic_admin_name') || 'Admin';
+document.getElementById('admin-position').textContent = localStorage.getItem('vrmic_admin_position') || '';
+
+(async function init(){
+  try {
+    const res = await callApi('adminListParticipants', {});
+    if (!res.ok) {
+      if (/session|permission/i.test(res.error || '')) {
+        if (/session/i.test(res.error)) { logout(); return; }
+        // no participants permission — still show a minimal dashboard
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('stat-grid').innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;color:var(--text-3);">You don't have access to participant statistics. Use the sidebar to access your assigned modules.</div>`;
+        return;
+      }
+    }
+    const participants = res.ok ? res.participants : [];
+
+    const total = participants.length;
+    const profileComplete = participants.filter(p => String(p.ProfileCompleted).toUpperCase() === 'TRUE').length;
+    const oral = participants.filter(p => p.ParticipantType === 'Oral').length;
+    const poster = participants.filter(p => p.ParticipantType === 'Poster').length;
+    const delegate = participants.filter(p => p.ParticipantType === 'Participant').length;
+    const online = participants.filter(p => p.Mode === 'Online').length;
+    const offline = total - online;
+    const pendingAbstracts = participants.filter(p => p.AbstractStatus === 'Submitted').length;
+    const pendingCerts = participants.filter(p => String(p.CertificateRequested).toUpperCase() === 'TRUE' && !p.CertificateLink).length;
+    const acceptedOralNoPPT = participants.filter(p => p.ParticipantType === 'Oral' && p.AbstractStatus === 'Accepted' && !p.PPTLink).length;
+
+    document.getElementById('stat-grid').innerHTML = `
+      <div class="stat-card"><div class="sc-icon"><i class="fa-solid fa-users"></i></div><h4>Total Participants</h4><div class="sc-value">${total}</div><div class="sc-sub">${online} online &middot; ${offline} offline</div></div>
+      <div class="stat-card"><div class="sc-icon"><i class="fa-solid fa-user-check"></i></div><h4>Profile Complete</h4><div class="sc-value">${profileComplete}</div><div class="sc-sub">of ${total} registered</div></div>
+      <div class="stat-card"><div class="sc-icon"><i class="fa-solid fa-file-lines"></i></div><h4>Abstracts Pending Review</h4><div class="sc-value">${pendingAbstracts}</div><div class="sc-sub">awaiting decision</div></div>
+      <div class="stat-card"><div class="sc-icon"><i class="fa-solid fa-certificate"></i></div><h4>Certificate Requests</h4><div class="sc-value">${pendingCerts}</div><div class="sc-sub">awaiting generation</div></div>
+    `;
+
+    document.getElementById('type-breakdown').innerHTML = `
+      <div class="breakdown-row"><span><span class="badge badge-oral">Oral</span></span><b>${oral}</b></div>
+      <div class="breakdown-row"><span><span class="badge badge-poster">Poster</span></span><b>${poster}</b></div>
+      <div class="breakdown-row"><span><span class="badge badge-participant">Delegate only</span></span><b>${delegate}</b></div>
+    `;
+
+    const actions = [];
+    if (pendingAbstracts > 0) actions.push({ icon: 'fa-file-lines', text: `${pendingAbstracts} abstract${pendingAbstracts>1?'s':''} awaiting review`, sub: 'Accept or reject with remarks', href: 'abstracts.html' });
+    if (acceptedOralNoPPT > 0) actions.push({ icon: 'fa-display', text: `${acceptedOralNoPPT} accepted Oral presenter${acceptedOralNoPPT>1?'s':''} yet to upload PPT`, sub: 'Still within the submission window', href: 'participants.html' });
+    if (pendingCerts > 0) actions.push({ icon: 'fa-certificate', text: `${pendingCerts} certificate request${pendingCerts>1?'s':''} pending`, sub: 'Generate and attach the link', href: 'certificates.html' });
+    if (!actions.length) actions.push({ icon: 'fa-circle-check', text: 'All caught up', sub: 'No pending actions right now', href: '#' });
+
+    document.getElementById('action-list').innerHTML = actions.map(a => `
+      <div class="action-item">
+        <div class="ai-left"><i class="fa-solid ${a.icon}"></i><div><b>${escapeHtml(a.text)}</b><span>${escapeHtml(a.sub)}</span></div></div>
+        <a href="${a.href}">View <i class="fa-solid fa-arrow-right"></i></a>
+      </div>`).join('');
+
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } catch (err) {
+    document.getElementById('loader').innerHTML = '<p style="color:var(--danger);">Could not reach the server. Check your connection and reload.</p>';
+  }
+})();
+</script>
+</body>
+</html>

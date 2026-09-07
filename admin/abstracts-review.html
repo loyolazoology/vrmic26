@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Abstracts | VRMIC 2026 Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="../assets/cimser-logo.png">
+<style>
+:root{
+  --navy-950:#0a1230; --navy-900:#0e1938; --navy-850:#122043; --navy-800:#152750;
+  --navy-border:rgba(226,187,120,.24);
+  --gold:#c9974f; --gold-light:#e8c983;
+  --teal:#279c85; --teal-light:#6fc9b6;
+  --text-1:#f3f5fb; --text-2:#b3bcd6; --text-3:#8390b3;
+  --danger:#d8695a; --warn:#dba43c; --success:#4fa980;
+  --sidebar-w:250px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:'Inter',sans-serif;color:var(--text-1);line-height:1.6;background:var(--navy-950);display:flex;flex-direction:column;min-height:100vh;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0 0 4px;}
+a{color:var(--gold-light);text-decoration:none;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+
+.masthead{background:var(--navy-900);border-bottom:3px solid var(--gold);flex-shrink:0;}
+.masthead-inner{padding:14px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.masthead-logos{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.masthead-logos img{height:52px;width:auto;object-fit:contain;}
+@media(max-width:700px){.masthead-logos img{height:40px;}}
+.masthead-text{flex:1;min-width:220px;}
+.masthead-text .m-super{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1.1px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:2px;}
+.masthead-text h1{font-size:clamp(.92rem,1.7vw,1.15rem);line-height:1.25;margin:0;color:var(--text-1);}
+.masthead-text .m-sub{font-size:11px;color:var(--text-3);margin:0;}
+
+.body-row{flex:1;display:flex;min-height:0;}
+.sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--navy-900);border-right:1px solid var(--navy-border);display:flex;flex-direction:column;overflow-y:auto;}
+.sidebar-brand{padding:22px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--navy-border);}
+.sidebar-brand img{height:36px;width:auto;}
+.sidebar-brand div{font-family:'Fraunces',serif;font-size:14px;line-height:1.3;}
+.sidebar-brand small{display:block;color:var(--text-3);font-size:10.5px;font-family:'IBM Plex Mono',monospace;letter-spacing:.4px;}
+.sidebar-nav{flex:1;padding:14px 12px;}
+.nav-section{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--text-3);padding:14px 12px 6px;}
+.nav-link{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:8px;color:var(--text-2);font-size:13.5px;font-weight:500;margin-bottom:2px;cursor:pointer;transition:.15s;}
+.nav-link i{width:16px;text-align:center;color:var(--text-3);font-size:13px;}
+.nav-link:hover{background:rgba(232,201,131,.06);color:var(--text-1);}
+.nav-link.active{background:rgba(232,201,131,.1);color:var(--gold-light);}
+.nav-link.active i{color:var(--gold-light);}
+.sidebar-footer{padding:16px 20px;border-top:1px solid var(--navy-border);}
+.sidebar-user{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.sidebar-user .avatar{width:36px;height:36px;border-radius:50%;background:var(--navy-800);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:14px;flex-shrink:0;}
+.sidebar-user div{min-width:0;}
+.sidebar-user b{display:block;font-size:13px;color:var(--text-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sidebar-user span{font-size:11px;color:var(--text-3);}
+.logout-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:9px;border-radius:8px;border:1px solid var(--navy-border);background:transparent;color:var(--text-2);font-size:12.5px;cursor:pointer;}
+.logout-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+.sidebar-toggle{display:none;position:fixed;top:70px;left:16px;z-index:60;background:var(--navy-850);border:1px solid var(--navy-border);color:var(--text-1);width:40px;height:40px;border-radius:8px;cursor:pointer;font-size:16px;}
+@media(max-width:960px){
+  .sidebar{position:fixed;top:0;bottom:0;left:0;z-index:70;transform:translateX(-100%);width:min(280px,85vw);transition:transform .3s ease;}
+  .sidebar.open{transform:translateX(0);}
+  .sidebar-toggle{display:block;}
+}
+.main{flex:1;min-width:0;overflow-y:auto;}
+.topbar{background:rgba(6,11,28,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--navy-border);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:40;}
+.topbar h1{font-size:1.3rem;}
+.topbar .breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.4px;}
+.wrap{padding:28px;max-width:1100px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:13px;padding:10px 18px;border-radius:8px;cursor:pointer;border:1px solid var(--navy-border);background:transparent;color:var(--text-2);transition:.2s;}
+.btn:hover:not(:disabled){color:var(--gold-light);border-color:var(--gold);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#241a06;border-color:transparent;}
+.btn-gold:hover{color:#241a06;}
+.btn-success{background:rgba(79,169,128,.14);border-color:rgba(79,169,128,.4);color:var(--teal-light);}
+.btn-danger{background:rgba(216,105,90,.12);border-color:rgba(216,105,90,.4);color:#e8988c;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.spinner{width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:8px 0 16px;}
+.section-title i{color:var(--gold-light);font-size:15px;}
+.section-title h2{font-size:1.05rem;margin:0;}
+
+.queue-item{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:14px;padding:20px 22px;margin-bottom:16px;}
+.qi-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:12px;}
+.qi-name{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--text-1);margin-bottom:3px;}
+.qi-meta{font-size:12.5px;color:var(--text-3);}
+.qi-meta .mono{color:var(--gold-light);}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;}
+.badge-oral{background:rgba(31,122,104,.16);color:var(--teal-light);}
+.badge-poster{background:rgba(205,163,85,.16);color:var(--gold-light);}
+.qi-title{font-size:14px;color:var(--text-1);margin:10px 0 4px;font-weight:600;}
+.qi-theme{font-size:12.5px;color:var(--teal-light);margin-bottom:14px;}
+.qi-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.qi-actions a.view-link{font-size:12.5px;margin-right:auto;display:inline-flex;align-items:center;gap:6px;}
+
+.empty-note{text-align:center;padding:50px 20px;color:var(--text-3);border:1px dashed var(--navy-border);border-radius:14px;}
+.empty-note i{font-size:26px;color:var(--gold-light);margin-bottom:10px;display:block;}
+.loader{text-align:center;padding:60px 0;color:var(--text-3);}
+.spinner-lg{width:24px;height:24px;border:3px solid rgba(232,201,131,.25);border-top-color:var(--gold-light);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px;}
+
+.card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:14px;padding:24px;margin-top:32px;}
+.card h3{font-size:1.02rem;display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.card h3 i{color:var(--gold-light);font-size:14px;}
+.field{margin-bottom:16px;}
+label{display:block;font-size:12.5px;font-weight:600;color:var(--text-2);margin:0 0 6px;}
+input[type=text],select{width:100%;background:var(--navy-950);border:1px solid var(--navy-border);color:var(--text-1);border-radius:8px;padding:10px 13px;font-family:'Inter',sans-serif;font-size:14px;}
+input[type=file]{width:100%;background:var(--navy-950);border:1px solid var(--navy-border);border-radius:8px;padding:9px;color:var(--text-2);font-size:13px;}
+input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px;}
+.hint{font-size:11.5px;color:var(--text-3);margin-top:5px;}
+.alert{border-radius:8px;padding:12px 14px;font-size:13.5px;margin-bottom:16px;border:1px solid transparent;display:none;}
+.alert.show{display:block;}
+.alert-error{background:rgba(216,105,90,.1);border-color:rgba(216,105,90,.35);color:#e8988c;}
+.alert-success{background:rgba(79,169,128,.1);border-color:rgba(79,169,128,.35);color:var(--teal-light);}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(6,10,26,.72);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal-card{background:linear-gradient(180deg,var(--navy-850),var(--navy-900));border:1px solid var(--navy-border);border-radius:16px;padding:28px;max-width:440px;width:100%;}
+.modal-card h3{margin-bottom:10px;}
+.modal-card p{font-size:13px;color:var(--text-3);margin-bottom:14px;}
+.modal-card textarea{width:100%;background:var(--navy-950);border:1px solid var(--navy-border);color:var(--text-1);border-radius:8px;padding:11px 13px;font-family:'Inter',sans-serif;font-size:13.5px;min-height:90px;resize:vertical;}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-logos">
+      <img src="../assets/loyola-crest.png" alt="Loyola College" onerror="this.style.display='none'">
+      <img src="../assets/cimser-logo.png" alt="CIMSER" onerror="this.style.display='none'">
+    </div>
+    <div class="masthead-text">
+      <div class="m-super">Loyola College (Autonomous), Chennai · Est. 1925</div>
+      <h1>4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment</h1>
+      <p class="m-sub">26&ndash;28 November 2026 &middot; CIMSER &middot; Administration Portal</p>
+    </div>
+  </div>
+</div>
+
+<button class="sidebar-toggle" id="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
+
+<div class="body-row">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand"><img src="../assets/cimser-logo.png" alt="" onerror="this.style.display='none'"><div>VRMIC 2026<small>ADMIN CONTROL PANEL</small></div></div>
+  <nav class="sidebar-nav" id="sidebar-nav"></nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user"><div class="avatar"><i class="fa-solid fa-user-shield"></i></div><div><b id="admin-name">—</b><span id="admin-position">—</span></div></div>
+    <button class="logout-btn" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div><div class="breadcrumb">ADMIN / ABSTRACT REVIEW</div><h1>Review Abstracts</h1></div>
+    <a href="abstracts-report.html" class="btn"><i class="fa-solid fa-table-list"></i> View report</a>
+  </div>
+
+  <div class="wrap">
+    <div class="alert alert-error" id="err"></div>
+    <div class="alert alert-success" id="ok"></div>
+
+    <div class="section-title"><i class="fa-solid fa-hourglass-half"></i><h2>Pending review</h2></div>
+    <div id="loader" class="loader"><div class="spinner-lg"></div>Loading submissions…</div>
+    <div id="queue-area"></div>
+
+    <!-- Manual upload on behalf of a participant -->
+    <div class="card">
+      <h3><i class="fa-solid fa-upload"></i> Manual abstract upload</h3>
+      <p style="font-size:13px;color:var(--text-3);margin-bottom:18px;">Use this if a participant emailed their abstract instead of uploading it themselves. This bypasses the deadline but still allows only one submission per participant.</p>
+      <div class="field">
+        <label>Participant <span style="color:var(--danger);">*</span></label>
+        <select id="m-participant"><option value="">Loading participants…</option></select>
+        <p class="hint">Only Oral/Poster participants without an existing abstract are listed.</p>
+      </div>
+      <div class="field">
+        <label>Title <span style="color:var(--danger);">*</span></label>
+        <input type="text" id="m-title" placeholder="Abstract title">
+      </div>
+      <div class="field">
+        <label>Theme <span style="color:var(--danger);">*</span></label>
+        <select id="m-theme"><option value="">Select theme</option></select>
+      </div>
+      <div class="field">
+        <label>Abstract file (.docx) <span style="color:var(--danger);">*</span></label>
+        <input type="file" id="m-file" accept=".doc,.docx">
+      </div>
+      <button class="btn btn-gold" id="m-submit-btn"><i class="fa-solid fa-upload"></i> Upload abstract</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Reject reason modal -->
+<div class="modal-overlay" id="reject-modal">
+  <div class="modal-card">
+    <h3><i class="fa-solid fa-circle-xmark" style="color:var(--danger);"></i> Reject abstract</h3>
+    <p>Optionally add a note explaining the decision — this is included in the rejection email.</p>
+    <textarea id="reject-remarks" placeholder="e.g. Outside conference scope / duplicate submission"></textarea>
+    <div class="modal-actions">
+      <button class="btn" id="reject-cancel">Cancel</button>
+      <button class="btn btn-danger" id="reject-confirm"><i class="fa-solid fa-xmark"></i> Confirm reject</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+const token = localStorage.getItem('vrmic_admin_token');
+if (!token) window.location.href = '../admin-login.html';
+let permissions = {};
+try { permissions = JSON.parse(localStorage.getItem('vrmic_admin_permissions') || '{}'); } catch(e) {}
+function can(k, a){ return !!(permissions[k] && permissions[k][a]); }
+function logout(){ localStorage.removeItem('vrmic_admin_token'); localStorage.removeItem('vrmic_admin_name'); localStorage.removeItem('vrmic_admin_position'); localStorage.removeItem('vrmic_admin_permissions'); window.location.href = '../admin-login.html'; }
+document.getElementById('sidebar-toggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('open'));
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ action, token }, payload)) });
+  return res.json();
+}
+function escapeHtml(str){ return String(str||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function showErr(msg){ const el=document.getElementById('err'); el.textContent=msg; el.classList.add('show'); window.scrollTo({top:0,behavior:'smooth'}); }
+function showOk(msg){ const el=document.getElementById('ok'); el.textContent=msg; el.classList.add('show'); }
+function hideAlerts(){ document.getElementById('err').classList.remove('show'); document.getElementById('ok').classList.remove('show'); }
+
+const NAV_ITEMS = [
+  { key: 'dashboard', label: 'Dashboard', icon: 'fa-gauge-high', href: 'home.html', always: true },
+  { section: 'Participants' },
+  { key: 'participants', sub: 'transaction', label: 'Manage Participants', icon: 'fa-user-plus', href: 'participants-manage.html' },
+  { key: 'participants', sub: 'report', label: 'Participant Report', icon: 'fa-table-list', href: 'participants-report.html' },
+  { section: 'Abstract Review' },
+  { key: 'abstract', sub: 'transaction', label: 'Review Abstracts', icon: 'fa-file-circle-check', href: 'abstracts-review.html' },
+  { key: 'abstract', sub: 'report', label: 'Abstract Report', icon: 'fa-table-list', href: 'abstracts-report.html' },
+  { section: 'Slot Allotment' },
+  { key: 'slot', sub: 'transaction', label: 'Allot Slots', icon: 'fa-location-crosshairs', href: 'slots-manage.html' },
+  { key: 'slot', sub: 'report', label: 'Slot Report', icon: 'fa-table-list', href: 'slots-report.html' },
+  { section: 'Attendance' },
+  { key: 'attendance', sub: 'transaction', label: 'Mark Attendance', icon: 'fa-calendar-check', href: 'attendance-mark.html' },
+  { key: 'attendance', sub: 'report', label: 'Attendance Report', icon: 'fa-table-list', href: 'attendance-report.html' },
+  { section: 'Presentation Access' },
+  { key: 'presentationAccess', sub: 'report', label: 'Venue Presentation List', icon: 'fa-display', href: 'presentation-access.html' },
+  { section: 'Certificates' },
+  { key: 'certificates', sub: 'transaction', label: 'Generate Certificate', icon: 'fa-certificate', href: 'certificates-manage.html' },
+  { key: 'certificates', sub: 'report', label: 'Certificate Report', icon: 'fa-table-list', href: 'certificates-report.html' },
+  { section: 'Receipts' },
+  { key: 'receipts', sub: 'transaction', label: 'Fulfill Receipt', icon: 'fa-receipt', href: 'receipts-manage.html' },
+  { key: 'receipts', sub: 'report', label: 'Receipt Report', icon: 'fa-table-list', href: 'receipts-report.html' },
+  { section: 'Feedback' },
+  { key: 'feedback', sub: 'report', label: 'Feedback Report', icon: 'fa-comment-dots', href: 'feedback-report.html' },
+  { section: 'Schedule' },
+  { key: 'schedule', sub: 'transaction', label: 'Edit Schedule', icon: 'fa-calendar-days', href: 'schedule-manage.html' },
+  { key: 'schedule', sub: 'report', label: 'Schedule Report', icon: 'fa-table-list', href: 'schedule-report.html' },
+  { section: 'Announcements' },
+  { key: 'announcements', sub: 'transaction', label: 'Post Announcement', icon: 'fa-bullhorn', href: 'announcements-manage.html' },
+  { key: 'announcements', sub: 'report', label: 'Announcement Report', icon: 'fa-table-list', href: 'announcements-report.html' },
+  { section: 'Mail' },
+  { key: 'mail', sub: 'transaction', label: 'Send Invite', icon: 'fa-paper-plane', href: 'mail-send.html' },
+  { key: 'mail', sub: 'report', label: 'Mail Report', icon: 'fa-table-list', href: 'mail-report.html' },
+  { section: 'Volunteer Management' },
+  { key: 'volunteers', sub: 'transaction', label: 'Assign Volunteers', icon: 'fa-user-group', href: 'volunteers-manage.html' },
+  { key: 'volunteers', sub: 'report', label: 'Volunteer Report', icon: 'fa-table-list', href: 'volunteers-report.html' },
+  { section: 'Settings' },
+  { key: 'settings', sub: 'transaction', label: 'Edit Settings', icon: 'fa-sliders', href: 'settings-manage.html' },
+  { key: 'settings', sub: 'report', label: 'Current Settings', icon: 'fa-table-list', href: 'settings-report.html' },
+  { section: 'Admin Users' },
+  { key: 'adminUsers', sub: 'transaction', label: 'Manage Admin Users', icon: 'fa-user-shield', href: 'admin-users-manage.html' },
+  { key: 'adminUsers', sub: 'report', label: 'Admin User Report', icon: 'fa-table-list', href: 'admin-users-report.html' }
+];
+function renderSidebar(){
+  const nav = document.getElementById('sidebar-nav');
+  let html = '', pendingSection = null;
+  NAV_ITEMS.forEach(item => {
+    if (item.section) { pendingSection = item.section; return; }
+    if (!item.always && !can(item.key, item.sub)) return;
+    if (pendingSection) { html += `<div class="nav-section">${pendingSection}</div>`; pendingSection = null; }
+    const activeClass = item.href === 'abstracts-review.html' ? 'active' : '';
+    html += `<a class="nav-link ${activeClass}" href="${item.href}"><i class="fa-solid ${item.icon}"></i> ${item.label}</a>`;
+  });
+  nav.innerHTML = html || `<p style="padding:14px 12px;font-size:12.5px;color:var(--text-3);">No modules assigned yet.</p>`;
+}
+renderSidebar();
+document.getElementById('admin-name').textContent = localStorage.getItem('vrmic_admin_name') || 'Admin';
+document.getElementById('admin-position').textContent = localStorage.getItem('vrmic_admin_position') || '';
+
+if (!can('abstract', 'transaction')) {
+  document.querySelector('.wrap').innerHTML = `<div style="color:var(--danger);padding:20px;">You do not have permission to review abstracts. Contact the administrator.</div>`;
+} else {
+
+let allParticipants = [];
+let pendingRow = null; // used by reject modal
+
+function typeBadgeClass(t){ return t === 'Oral' ? 'badge-oral' : 'badge-poster'; }
+
+function renderQueue(){
+  const pending = allParticipants.filter(p => p.AbstractStatus === 'Submitted');
+  const area = document.getElementById('queue-area');
+  if (!pending.length) {
+    area.innerHTML = `<div class="empty-note"><i class="fa-solid fa-circle-check"></i>No abstracts are currently awaiting review.</div>`;
+    return;
+  }
+  area.innerHTML = pending.map(p => `
+    <div class="queue-item" data-row="${p.row}">
+      <div class="qi-top">
+        <div>
+          <div class="qi-name">${escapeHtml(p.Name)}</div>
+          <div class="qi-meta"><span class="mono">${escapeHtml(p.ID)}</span> &middot; ${escapeHtml(p.Institution || '—')}</div>
+        </div>
+        <span class="badge ${typeBadgeClass(p.ParticipantType)}">${escapeHtml(p.ParticipantType)}</span>
+      </div>
+      <div class="qi-title">${escapeHtml(p.AbstractTitle)}</div>
+      <div class="qi-theme"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.AbstractTheme)}</div>
+      <div class="qi-actions">
+        <a class="view-link" href="${p.AbstractLink}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View file</a>
+        <button class="btn btn-success" data-action="accept" data-row="${p.row}"><i class="fa-solid fa-check"></i> Accept</button>
+        <button class="btn btn-danger" data-action="reject" data-row="${p.row}"><i class="fa-solid fa-xmark"></i> Reject</button>
+      </div>
+    </div>`).join('');
+
+  area.querySelectorAll('button[data-action="accept"]').forEach(btn => btn.addEventListener('click', () => decide(btn, 'Accepted')));
+  area.querySelectorAll('button[data-action="reject"]').forEach(btn => btn.addEventListener('click', () => {
+    pendingRow = btn.dataset.row;
+    document.getElementById('reject-remarks').value = '';
+    document.getElementById('reject-modal').classList.add('show');
+  }));
+}
+
+async function decide(btn, decision, remarks){
+  hideAlerts();
+  const row = btn ? btn.dataset.row : pendingRow;
+  const originalHtml = btn ? btn.innerHTML : null;
+  if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>'; }
+  try {
+    const res = await callApi('adminVerifyAbstract', { row, decision, remarks: remarks || '' });
+    if (!res.ok) {
+      showErr(res.error || 'Could not update this abstract.');
+      if (btn) { btn.disabled = false; btn.innerHTML = originalHtml; }
+      return;
+    }
+    showOk(`Abstract ${decision.toLowerCase()} — notification email sent to the participant.`);
+    loadData();
+  } catch (err) {
+    showErr('Could not reach the server. Check your connection and try again.');
+    if (btn) { btn.disabled = false; btn.innerHTML = originalHtml; }
+  }
+}
+
+document.getElementById('reject-cancel').addEventListener('click', () => document.getElementById('reject-modal').classList.remove('show'));
+document.getElementById('reject-confirm').addEventListener('click', async function(){
+  document.getElementById('reject-modal').classList.remove('show');
+  await decide(null, 'Rejected', document.getElementById('reject-remarks').value.trim());
+});
+
+function populateManualUploadSelect(){
+  const sel = document.getElementById('m-participant');
+  const eligible = allParticipants.filter(p => (p.ParticipantType === 'Oral' || p.ParticipantType === 'Poster') && !p.AbstractDocId);
+  if (!eligible.length) { sel.innerHTML = '<option value="">No eligible participants</option>'; return; }
+  sel.innerHTML = '<option value="">Select participant</option>' + eligible.map(p =>
+    `<option value="${p.row}">${escapeHtml(p.ID)} — ${escapeHtml(p.Name)} (${p.ParticipantType})</option>`).join('');
+}
+
+async function loadThemes(){
+  const res = await callApi('getThemes', {});
+  const sel = document.getElementById('m-theme');
+  if (res.ok) {
+    sel.innerHTML = '<option value="">Select theme</option>' + res.themes.map((t,i) =>
+      `<option value="${escapeHtml(t)}">Theme ${String(i+1).padStart(2,'0')} — ${escapeHtml(t)}</option>`).join('');
+  }
+}
+
+async function loadData(){
+  document.getElementById('loader').style.display = 'block';
+  try {
+    const res = await callApi('adminListParticipants', {});
+    if (!res.ok) { if (/session/i.test(res.error||'')) { logout(); return; } showErr(res.error || 'Could not load data.'); return; }
+    allParticipants = res.participants;
+    renderQueue();
+    populateManualUploadSelect();
+  } catch (err) {
+    showErr('Could not reach the server. Check your connection and try again.');
+  } finally {
+    document.getElementById('loader').style.display = 'none';
+  }
+}
+
+let manualFileBase64 = null, manualFileName = null;
+document.getElementById('m-file').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if (!file) return;
+  if (!/\.(docx?)$/i.test(file.name)) { showErr('Only .doc or .docx files are allowed.'); this.value=''; return; }
+  const reader = new FileReader();
+  reader.onload = ev => { manualFileBase64 = ev.target.result.split(',')[1]; manualFileName = file.name; };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('m-submit-btn').addEventListener('click', async function(){
+  hideAlerts();
+  const row = document.getElementById('m-participant').value;
+  const title = document.getElementById('m-title').value.trim();
+  const theme = document.getElementById('m-theme').value;
+  if (!row || !title || !theme || !manualFileBase64) { showErr('Please fill in all fields and choose a .docx file.'); return; }
+  const btn = this;
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Uploading...';
+  try {
+    const res = await callApi('adminUploadAbstract', { row, title, theme, fileName: manualFileName, fileData: manualFileBase64 });
+    if (!res.ok) { showErr(res.error || 'Could not upload abstract.'); return; }
+    showOk('Abstract uploaded on behalf of the participant. Document ID: ' + res.docId);
+    document.getElementById('m-title').value = ''; document.getElementById('m-theme').value = ''; document.getElementById('m-file').value = '';
+    manualFileBase64 = null; manualFileName = null;
+    loadData();
+  } catch (err) {
+    showErr('Could not reach the server. Check your connection and try again.');
+  } finally {
+    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-upload"></i> Upload abstract';
+  }
+});
+
+loadThemes();
+loadData();
+}
+</script>
+</body>
+</html>
