@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Slot | CIMSER, Loyola College</title>
+<meta name="description" content="Your presentation slot — 4th International Conference on Life Sciences and Vector Risk Management for a Sustainable Healthy Environment, Loyola College (Autonomous), Chennai.">
+<link rel="icon" type="image/x-icon" href="https://loyolazoology.github.io/vrmic26/assets/cimser-logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+
+:root{
+  --paper:#faf6ec;
+  --paper-alt:#f2ecdc;
+  --card:#ffffff;
+  --card-border:#e7ddc4;
+  --navy:#12224a;
+  --navy-soft:#2c3b63;
+  --ink-1:#1b2436;
+  --ink-2:#535f7a;
+  --ink-3:#8791a6;
+  --gold:#a9762f;
+  --gold-deep:#8a5f24;
+  --gold-light:#c9974f;
+  --teal:#1f7a68;
+  --teal-light:#2e9c85;
+  --danger:#c0392b;
+  --warn:#b5791f;
+  --success:#1f7a49;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{margin:0;background:var(--paper);color:var(--ink-1);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0 0 .4em;color:var(--navy);}
+p{color:var(--ink-2);margin:0 0 1em;}
+a{color:var(--gold-deep);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+@media(max-width:600px){.wrap{padding:0 16px;}}
+
+.masthead{background:linear-gradient(180deg,#ffffff,var(--paper));border-bottom:3px solid var(--gold);}
+.masthead-inner{max-width:var(--maxw);margin:0 auto;padding:20px 24px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.masthead-logos{display:flex;align-items:center;gap:18px;flex-shrink:0;}
+.masthead-logos img{height:74px;width:auto;object-fit:contain;}
+@media(max-width:700px){.masthead-logos img{height:56px;}}
+.masthead-text{flex:1;min-width:220px;}
+.masthead-text .m-super{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:4px;}
+.masthead-text h1{font-size:clamp(1.15rem,2.2vw,1.55rem);line-height:1.25;margin:0 0 4px;color:var(--navy);}
+.masthead-text .m-sub{font-size:12.5px;color:var(--ink-3);margin:0;}
+
+.utcbar{background:var(--navy);border-bottom:1px solid var(--card-border);}
+.utcbar-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;justify-content:flex-end;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#c7cede;}
+.utcbar i{color:var(--gold-light);font-size:11px;}
+.utcbar b{color:#e8ecf5;font-weight:500;}
+
+.topnav{background:#ffffff;border-bottom:1px solid var(--card-border);position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(20,30,60,.04);}
+.topnav-inner{max-width:var(--maxw);margin:0 auto;padding:6px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.pnav{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+.pnav a{display:flex;align-items:center;gap:6px;padding:12px;border-radius:7px;color:var(--ink-2);font-size:13px;font-weight:600;white-space:nowrap;transition:.2s;border-bottom:2px solid transparent;}
+.pnav a:hover,.pnav a.active{color:var(--gold-deep);border-bottom-color:var(--gold);text-decoration:none;}
+.pnav-toggle{display:none;background:none;border:1px solid var(--card-border);color:var(--navy);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:16px;}
+.user-chip{display:flex;align-items:center;gap:10px;position:relative;}
+.user-chip img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);cursor:pointer;background:#fff;}
+.user-chip .avatar-fallback{width:38px;height:38px;border-radius:50%;background:var(--paper-alt);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);cursor:pointer;font-size:14px;}
+.user-menu{position:absolute;right:0;top:calc(100% + 10px);background:#fff;border:1px solid var(--card-border);border-radius:10px;min-width:170px;box-shadow:0 18px 40px rgba(20,30,60,.15);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;padding:6px;z-index:50;}
+.user-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.user-menu a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:6px;color:var(--ink-2);font-size:13px;}
+.user-menu a:hover{background:var(--paper-alt);color:var(--gold-deep);text-decoration:none;}
+@media(max-width:960px){
+  .pnav{position:fixed;right:0;top:0;width:min(300px,85vw);height:100vh;background:#fff;border-left:1px solid var(--card-border);flex-direction:column;align-items:stretch;padding:90px 20px 24px;gap:4px;overflow-y:auto;transform:translateX(100%);transition:.35s;visibility:hidden;z-index:99;}
+  .pnav.open{transform:translateX(0);visibility:visible;}
+  .pnav a{width:100%;font-size:14.5px;padding:12px;}
+  .pnav-toggle{display:block;}
+}
+
+.page-head{padding:32px 0 4px;}
+.breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-3);letter-spacing:.4px;margin-bottom:14px;}
+.breadcrumb a{color:var(--ink-3);}
+.breadcrumb .sep{margin:0 6px;color:var(--card-border);}
+.breadcrumb .current{color:var(--gold-deep);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--card-border);background:var(--paper-alt);padding:6px 14px;border-radius:999px;margin-bottom:16px;}
+.helix-rule{height:3px;width:64px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:3px;margin:18px 0;}
+
+.section{padding:8px 0 60px;}
+.loader{text-align:center;padding:80px 0;color:var(--ink-3);}
+.spinner-lg{width:30px;height:30px;border:3px solid rgba(169,118,47,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* Boarding-pass style slot card */
+.slot-pass{
+  display:grid;grid-template-columns:1fr 200px;
+  background:var(--card);
+  border:1px solid var(--card-border);border-radius:18px;overflow:hidden;
+  box-shadow:0 4px 16px rgba(20,30,60,.04);margin-bottom:24px;
+}
+@media(max-width:640px){.slot-pass{grid-template-columns:1fr;}}
+.slot-main{padding:30px 32px;position:relative;}
+.slot-main::after{
+  content:'';position:absolute;right:0;top:0;bottom:0;width:1px;
+  background-image:repeating-linear-gradient(180deg,var(--card-border) 0 8px,transparent 8px 16px);
+}
+@media(max-width:640px){.slot-main::after{display:none;}}
+.slot-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;}
+.slot-venue{font-size:1.5rem;margin-bottom:4px;}
+.slot-room{font-size:14px;color:var(--teal);margin-bottom:18px;}
+.slot-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.slot-meta-item .l{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-3);margin-bottom:4px;}
+.slot-meta-item .v{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--navy);}
+.slot-token{
+  background:var(--paper-alt);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px;text-align:center;
+}
+.slot-token .l{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-3);margin-bottom:8px;}
+.slot-token .v{font-family:'IBM Plex Mono',monospace;font-size:2.1rem;font-weight:700;color:var(--gold-deep);line-height:1;}
+
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:26px;box-shadow:0 4px 16px rgba(20,30,60,.04);margin-bottom:22px;}
+.map-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--card-border);height:280px;}
+.map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.15) contrast(1.05);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.2s;font-family:inherit;}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,30,60,.12);}
+.btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold-deep));color:#fff;}
+.empty-note{text-align:center;padding:60px 20px;color:var(--ink-3);border:1px dashed var(--card-border);border-radius:14px;}
+.empty-note i{font-size:26px;color:var(--gold-deep);margin-bottom:10px;display:block;}
+
+footer{border-top:1px solid var(--card-border);padding:40px 0 24px;background:var(--navy);}
+footer p{font-size:12.5px;color:#c7cede;text-align:center;margin:0;}
+footer em{color:var(--gold-light);}
+</style>
+</head>
+<body>
+
+<div class="utcbar"><div class="utcbar-inner"><i class="fa-regular fa-clock"></i><span id="utc-clock"><b>Loading time…</b></span></div></div>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-logos">
+      <img src="../assets/loyola-crest.png" alt="Loyola College" onerror="this.style.display='none'">
+      <img src="../assets/cimser-logo.png" alt="CIMSER" onerror="this.style.display='none'">
+    </div>
+    <div class="masthead-text">
+      <div class="m-super">Loyola College (Autonomous), Chennai · Est. 1925</div>
+      <h1>4th International Conference on Life Sciences &amp; Vector Risk Management for a Sustainable Healthy Environment</h1>
+      <p class="m-sub">26&ndash;28 November 2026 &middot; Centre for Insect Molecular Studies and Environmental Research (CIMSER), PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology &middot; Participant Portal</p>
+    </div>
+  </div>
+</div>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <button class="pnav-toggle" id="pnav-toggle"><i class="fa-solid fa-bars"></i></button>
+    <ul class="pnav" id="pnav">
+      <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="registration.html"><i class="fa-solid fa-id-card"></i> Registration</a></li>
+      <li><a href="abstract.html"><i class="fa-solid fa-file-lines"></i> Abstract</a></li>
+      <li><a href="ppt.html" id="nav-ppt-link" style="display:none;"><i class="fa-solid fa-display"></i> PPT</a></li>
+      <li><a href="schedule.html"><i class="fa-regular fa-calendar"></i> Schedule</a></li>
+      <li><a href="slot.html" class="active"><i class="fa-solid fa-location-crosshairs"></i> My Slot</a></li>
+      <li><a href="feedback.html"><i class="fa-regular fa-comment-dots"></i> Feedback</a></li>
+    </ul>
+    <div class="user-chip">
+      <img id="user-avatar" style="display:none;" onclick="toggleUserMenu()">
+      <div class="avatar-fallback" id="user-avatar-fallback" onclick="toggleUserMenu()"><i class="fa-solid fa-user"></i></div>
+      <div class="user-menu" id="user-menu">
+        <a href="home.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="home.html">Dashboard</a><span class="sep">/</span><span class="current">My Slot</span></div>
+    <span class="eyebrow"><i class="fa-solid fa-location-crosshairs"></i>&nbsp; Your allotment</span>
+    <h1 style="font-size:clamp(1.5rem,2.8vw,2.1rem);">My presentation slot</h1>
+    <div class="helix-rule"></div>
+  </div>
+</header>
+
+<div id="loader" class="loader"><div class="spinner-lg"></div><p style="margin-top:14px;">Loading…</p></div>
+
+<section class="section" id="content" style="display:none;">
+  <div class="wrap">
+
+    <div id="slot-filled" style="display:none;">
+      <div class="slot-pass">
+        <div class="slot-main">
+          <div class="slot-eyebrow"><i class="fa-solid fa-location-dot"></i> Venue</div>
+          <h2 class="slot-venue" id="sl-venue">—</h2>
+          <div class="slot-room" id="sl-room"></div>
+          <div class="slot-meta">
+            <div class="slot-meta-item"><div class="l">Date</div><div class="v" id="sl-date">—</div></div>
+            <div class="slot-meta-item"><div class="l">Time</div><div class="v" id="sl-time">—</div></div>
+          </div>
+        </div>
+        <div class="slot-token">
+          <div class="l">Slot / Token No.</div>
+          <div class="v" id="sl-token">—</div>
+        </div>
+      </div>
+
+      <div class="card" id="map-card" style="display:none;">
+        <h3 style="font-size:1.05rem;"><i class="fa-solid fa-route" style="color:var(--gold-deep);"></i> Directions to the venue</h3>
+        <p style="margin-bottom:14px;">Tap below to open turn-by-turn directions in Google Maps, or use the embedded map to get your bearings.</p>
+        <div class="map-wrap"><iframe id="sl-map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <div style="margin-top:16px;"><a class="btn btn-gold" id="sl-map-link" href="#" target="_blank"><i class="fa-solid fa-diamond-turn-right"></i> Open directions</a></div>
+      </div>
+    </div>
+
+    <div id="slot-empty" class="empty-note" style="display:none;">
+      <i class="fa-solid fa-location-crosshairs"></i>
+      <h3 style="margin-bottom:6px;">Your slot hasn't been allotted yet</h3>
+      <p>The organising desk will configure your venue, room, date, time, and token number closer to the conference. This page will update automatically once it's set.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer><div class="wrap"><p>© 2026, Centre for Insect Molecular Studies and Environmental Research (CIMSER) — PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai <em><br>"Luceat Lux Vestra — Let Your Light Shine"</em></p></div></footer>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAkN1CF441d8ZtOykNIiM0oV1xaOF8lWzT2xKA3QufWBd71KvnoHR1LqRfFS3IoV4d/exec';
+
+// Date/time format: "09 Sep 2026 · 3:45 PM IST" — day-month-year, 12-hour with AM/PM.
+function updateClock(){
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' });
+  const timeStr = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: 'numeric', minute: '2-digit', hour12: true });
+  document.getElementById('utc-clock').innerHTML = `<b>${dateStr} &nbsp;·&nbsp; ${timeStr} IST</b>`;
+}
+updateClock(); setInterval(updateClock, 1000);
+
+document.getElementById('pnav-toggle').addEventListener('click', () => document.getElementById('pnav').classList.toggle('open'));
+function toggleUserMenu(){ document.getElementById('user-menu').classList.toggle('open'); }
+document.addEventListener('click', (e) => { if (!e.target.closest('.user-chip')) document.getElementById('user-menu').classList.remove('open'); });
+
+const token = localStorage.getItem('vrmic_token');
+if (!token) window.location.href = '../participant-login.html';
+function logout(){ localStorage.removeItem('vrmic_token'); localStorage.removeItem('vrmic_name'); window.location.href = '../participant-login.html'; }
+
+// Turns a Google Drive "view" share link into a URL that actually renders in an <img> tag.
+function driveThumb(url, size){
+  if (!url) return '';
+  const m = String(url).match(/\/d\/([^/]+)/) || String(url).match(/[?&]id=([^&]+)/);
+  if (!m) return url;
+  return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w${size || 300}`;
+}
+
+async function callApi(action, payload) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ action, token }, payload))
+  });
+  return res.json();
+}
+
+(async function init(){
+  try {
+    const dash = await callApi('getDashboard', {});
+    if (!dash.ok) { if (/session/i.test(dash.error||'')) { window.location.href='../participant-login.html'; return; } }
+    if (dash.ok && dash.participant.photoUrl) {
+      const thumb = driveThumb(dash.participant.photoUrl, 100);
+      const av = document.getElementById('user-avatar');
+      av.src = thumb; av.style.display = '';
+      av.onerror = () => { av.style.display = 'none'; };
+      document.getElementById('user-avatar-fallback').style.display = 'none';
+    }
+    if (dash.ok && dash.participant.pptRequired) document.getElementById('nav-ppt-link').style.display = '';
+
+    const res = await callApi('getSlot', {});
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+
+    if (!res.ok || !res.slot || !res.slot.venue) {
+      document.getElementById('slot-empty').style.display = 'block';
+      return;
+    }
+    const s = res.slot;
+    document.getElementById('slot-filled').style.display = 'block';
+    document.getElementById('sl-venue').textContent = s.venue;
+    document.getElementById('sl-room').textContent = s.room ? ('Room ' + s.room) : '';
+    document.getElementById('sl-date').textContent = s.date || '—';
+    document.getElementById('sl-time').textContent = s.time || '—';
+    document.getElementById('sl-token').textContent = s.token || '—';
+
+    if (s.mapUrl) {
+      document.getElementById('map-card').style.display = 'block';
+      document.getElementById('sl-map-link').href = s.mapUrl;
+      // Build an embeddable map: if a plain Maps link was given, wrap it for the iframe.
+      let embedSrc = s.mapUrl;
+      if (!/output=embed/.test(embedSrc)) {
+        embedSrc = 'https://www.google.com/maps?q=' + encodeURIComponent(s.venue + ' ' + (s.room||'')) + '&output=embed';
+      }
+      document.getElementById('sl-map-frame').src = embedSrc;
+    } else if (s.venue) {
+      document.getElementById('map-card').style.display = 'block';
+      const q = encodeURIComponent(s.venue + ', Loyola College Chennai');
+      document.getElementById('sl-map-link').href = 'https://www.google.com/maps/dir/?api=1&destination=' + q;
+      document.getElementById('sl-map-frame').src = 'https://www.google.com/maps?q=' + q + '&output=embed';
+    }
+  } catch (err) {
+    document.getElementById('loader').innerHTML = '<p style="color:var(--danger);">Could not reach the server. Check your connection and reload.</p>';
+  }
+})();
+</script>
+</body>
+</html>
